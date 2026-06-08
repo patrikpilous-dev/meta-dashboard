@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Meta-dashboard · Patrik Pilous</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+<style>
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --border: #e2e5ed;
+  --text: #1a1a2e;
+  --text-sec: #4a5568;
+  --text-muted: #9ca3af;
+  --accent: #5B21B6;
+  --accent-dim: rgba(91,33,182,0.08);
+  --accent-hover: #4c1d95;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.5;
+  min-height: 100vh; -webkit-font-smoothing: antialiased;
+}
+
+.login-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg);
+  z-index: 9999; display: flex; align-items: flex-start; justify-content: center;
+  padding: 48px 24px; overflow-y: auto;
+}
+.login-card {
+  background: #fff; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  padding: 40px 36px; width: 100%; max-width: 420px; text-align: center; margin: auto 0;
+}
+.login-brand {
+  display: block; text-decoration: none; margin-bottom: 22px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.login-brand:hover .login-brand-text { color: var(--accent); }
+.login-logo { height: 36px; display: block; margin: 0 auto 6px; }
+.login-brand-text {
+  display: block; font-size: 10px; color: var(--text-muted);
+  letter-spacing: 0.2px; transition: color .15s;
+}
+.login-title { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.login-subtitle { font-size: 14px; color: var(--text-sec); margin-bottom: 24px; }
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+.login-form input {
+  font-family: inherit; font-size: 14px; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 0; background: var(--bg);
+  color: var(--text); outline: none; transition: border-color .15s;
+}
+.login-form input:focus { border-color: var(--accent); background: #fff; }
+.login-form button {
+  font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 20px;
+  background: var(--accent); color: #fff; border: none; border-radius: 0;
+  cursor: pointer; transition: background .15s;
+}
+.login-form button:hover { background: var(--accent-hover); }
+.login-error { margin-top: 14px; font-size: 13px; color: #d32f2f; }
+body.locked { overflow: hidden; }
+body.locked > *:not(#loginOverlay):not(script) { display: none !important; }
+
+.shell { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+header {
+  background: var(--card); border-bottom: 1px solid var(--border); padding: 24px 0;
+}
+.header-inner {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.header-logo { height: 32px; }
+.header-text { flex: 1; }
+.header-text h1 { font-size: 20px; font-weight: 700; }
+.header-text p { font-size: 13px; color: var(--text-sec); margin-top: 2px; }
+.header-filter select {
+  font-family: inherit; font-size: 13px; padding: 8px 12px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text);
+  outline: none; cursor: pointer;
+}
+.header-filter select:focus { border-color: var(--accent); }
+
+.tabs {
+  background: var(--card); border-bottom: 1px solid var(--border);
+  padding: 0 32px; display: flex; gap: 4px;
+}
+.tab-btn {
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  padding: 12px 20px; border: none; background: none;
+  color: var(--text-muted); cursor: pointer; transition: all .15s;
+  border-bottom: 2px solid transparent; position: relative; top: 1px;
+}
+.tab-btn:hover { color: var(--text-sec); }
+.tab-btn.active {
+  color: var(--accent); border-bottom-color: var(--accent);
+}
+.tab-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 6px;
+  font-size: 11px; font-weight: 600; border-radius: 10px;
+  background: var(--accent-dim); color: var(--accent); margin-left: 6px;
+}
+.tab-btn.active .tab-count {
+  background: var(--accent); color: #fff;
+}
+
+main { padding: 32px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.grid-wide {
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+}
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 24px; display: flex; flex-direction: column; gap: 10px;
+  box-shadow: var(--shadow); transition: all .2s; position: relative;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(91,33,182,0.12); }
+
+.drag-handle {
+  position: absolute; top: 12px; right: 12px;
+  cursor: grab; color: var(--text-muted); font-size: 14px;
+  padding: 4px 6px; opacity: 0; transition: opacity .15s;
+  user-select: none; line-height: 1;
+}
+.card:hover .drag-handle { opacity: 0.6; }
+.drag-handle:hover { opacity: 1 !important; }
+
+.card-icon { font-size: 22px; }
+.card h3 { font-size: 16px; font-weight: 700; }
+.card-desc {
+  color: var(--text-sec); font-size: 13px; line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-meta {
+  font-size: 10px; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.6px; border-top: 1px solid var(--border);
+  padding-top: 10px; margin-top: auto;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.card-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  text-decoration: none; margin-top: 4px;
+}
+.card-cta::after { content: "\2192"; transition: transform .2s; }
+.card:hover .card-cta::after { transform: translateX(4px); }
+
+.badge {
+  display: inline-block; padding: 2px 8px; font-size: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;
+}
+.badge-client { color: #fff; }
+
+.status-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 4px; vertical-align: middle;
+}
+.status-active { background: #22c55e; }
+.status-paused { background: #f59e0b; }
+.status-planned { background: #94a3b8; }
+.status-dev { background: #3b82f6; }
+.status-ended { background: #ef4444; }
+
+.pill {
+  display: inline-block; padding: 3px 10px; font-size: 11px;
+  font-weight: 500; background: var(--accent-dim); color: var(--accent);
+  margin: 2px 2px;
+}
+
+.kpi-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.kpi-box {
+  background: var(--bg); padding: 10px 14px; flex: 1; min-width: 80px;
+  text-align: center;
+}
+.kpi-box .kpi-val { font-size: 20px; font-weight: 700; color: var(--accent); }
+.kpi-box .kpi-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+
+.quick-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.quick-link {
+  font-size: 11px; padding: 3px 8px; text-decoration: none;
+  color: var(--text-sec); background: var(--bg); border: 1px solid var(--border);
+  transition: all .15s; white-space: nowrap;
+}
+.quick-link:hover { border-color: var(--accent); color: var(--accent); }
+
+.files-section { margin-top: 8px; }
+.files-section h4 {
+  font-size: 11px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+}
+.file-item {
+  display: flex; align-items: center; gap: 8px; padding: 6px 0;
+  border-bottom: 1px solid var(--border); font-size: 12px;
+}
+.file-item:last-child { border-bottom: none; }
+.file-type-tag {
+  display: inline-block; padding: 1px 6px; font-size: 9px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; color: #fff;
+}
+.file-type-orders { background: #0284c7; }
+.file-type-strategy { background: #7c3aed; }
+.file-type-seo { background: #059669; }
+.file-type-communication { background: #d97706; }
+.file-type-report { background: #dc2626; }
+.file-type-other { background: #6b7280; }
+.file-name { flex: 1; font-weight: 500; color: var(--text); }
+.file-date { color: var(--text-muted); font-size: 11px; }
+.file-size { color: var(--text-muted); font-size: 11px; }
+.file-dl {
+  color: var(--accent); text-decoration: none; font-weight: 600; font-size: 11px;
+}
+.file-dl:hover { text-decoration: underline; }
+
+.portfolio-section {
+  margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.portfolio-section h3 {
+  font-size: 14px; font-weight: 700; color: var(--text-sec); margin-bottom: 12px;
+}
+.portfolio-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.portfolio-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; background: var(--card); border: 1px solid var(--border);
+  font-size: 12px; font-weight: 500; color: var(--text);
+  text-decoration: none; transition: all .15s;
+}
+.portfolio-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+.empty-state {
+  text-align: center; padding: 48px 24px; color: var(--text-muted);
+}
+.empty-state p { font-size: 14px; }
+
+.sortable-ghost {
+  opacity: 0.4; border: 2px dashed var(--accent) !important;
+}
+.sortable-chosen {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+}
+
+footer {
+  text-align: center; color: var(--text-muted); font-size: 11px;
+  padding: 20px; border-top: 1px solid var(--border);
+  margin-top: 32px; background: var(--card);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+@media (max-width: 600px) {
+  .shell { padding: 0 16px; }
+  main { padding: 16px; }
+  .tabs { padding: 0 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .grid-wide { grid-template-columns: 1fr; }
+  .header-inner { gap: 12px; }
+}
+</style>
+</head>
+<body class="locked">
+
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-card">
+    <a href="https://patrikpilous.cz" target="_blank" rel="noopener" class="login-brand">
+      <img src="https://patrikpilous.cz/wp-content/uploads/2021/05/PP212-e1676225077530.png" alt="Patrik Pilous" class="login-logo">
+      <span class="login-brand-text">Patrik Pilous · Marketingovy strateg a SEO konzultant</span>
+    </a>
+    <h2 class="login-title">Meta-dashboard</h2>
+    <p class="login-subtitle">Pro vstup zadejte pristupove udaje</p>
+    <form id="loginForm" class="login-form">
+      <input type="text" id="loginUser" placeholder="Prihlasovaci jmeno" autocomplete="username" autocapitalize="none" autofocus>
+      <input type="password" id="loginPassword" placeholder="Heslo" autocomplete="current-password">
+      <button type="submit">Vstoupit</button>
+    </form>
+    <p class="login-error" id="loginError" style="display:none">Nespravne prihlasovaci udaje. Zkuste to znovu.</p>
+  </div>
+</div>
+
+<header>
+<div class="shell">
+  <div class="header-inner">
+    <img src="https://patrikpilous.cz/wp-content/uploads/2021/05/PP212-e1676225077530.png" alt="PP" class="header-logo">
+    <div class="header-text">
+      <h1>Meta-dashboard</h1>
+      <p>Dashboardy, projekty a klienti na jednom miste</p>
+    </div>
+    <div class="header-filter" style="display:flex;align-items:center;gap:12px">
+      <select id="clientFilter">
+        <option value="all">Vsichni klienti</option>
+      </select>
+      <a href="#" class="hub-logout" onclick="logout();return false;" style="color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 14px;border:1px solid var(--border);transition:all .15s;white-space:nowrap">Odhlasit</a>
+    </div>
+  </div>
+</div>
+</header>
+
+<nav class="tabs" id="tabBar">
+  <button class="tab-btn active" data-tab="dashboards">Dashboardy <span class="tab-count" id="count-dashboards">0</span></button>
+  <button class="tab-btn" data-tab="projects">Projekty <span class="tab-count" id="count-projects">0</span></button>
+  <button class="tab-btn" data-tab="clients">Klienti <span class="tab-count" id="count-clients">0</span></button>
+</nav>
+
+<main class="shell">
+  <div class="tab-content active" id="content-dashboards">
+    <div class="grid" id="grid-dashboards"></div>
+  </div>
+  <div class="tab-content" id="content-projects">
+    <div class="grid" id="grid-projects"></div>
+  </div>
+  <div class="tab-content" id="content-clients">
+    <div class="grid grid-wide" id="grid-clients"></div>
+  </div>
+</main>
+
+<footer>
+  <span id="footerStats"></span>
+</footer>
+
+<script>
+var ACCESS_USER = 'PP';
+var ACCESS_HASH = '389dccdbfe3495ca0f24328a3bdf24268840d2ae8544b00b767cc11508b3fbb0';
+var STORAGE_KEY = 'meta-dash-auth-v1';
+
+async function sha256(str) {
+  var buf = new TextEncoder().encode(str);
+  var hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+}
+
+function unlock() {
+  document.body.classList.remove('locked');
+  document.getElementById('loginOverlay').style.display = 'none';
+}
+
+function logout() {
+  localStorage.removeItem(STORAGE_KEY);
+  document.body.classList.add('locked');
+  document.getElementById('loginOverlay').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPassword').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+
+(function initAuth(){
+  if (localStorage.getItem(STORAGE_KEY) === ACCESS_HASH) return unlock();
+  document.getElementById('loginForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    var u = document.getElementById('loginUser').value.trim();
+    var p = document.getElementById('loginPassword').value;
+    var h = await sha256(u + ':' + p);
+    if (u === ACCESS_USER && h === ACCESS_HASH) {
+      localStorage.setItem(STORAGE_KEY, h);
+      unlock();
+    } else {
+      document.getElementById('loginError').style.display = 'block';
+      document.getElementById('loginPassword').value = '';
+    }
+  });
+})();
+
+var DATA = null;
+var CLIENTS_MAP = {};
+var SORTABLES = {};
+var LS_PREFIX = 'meta-dash-';
+
+function ls(key, val) {
+  if (val === undefined) {
+    try { return JSON.parse(localStorage.getItem(LS_PREFIX + key)); } catch(e) { return null; }
+  }
+  localStorage.setItem(LS_PREFIX + key, JSON.stringify(val));
+}
+
+function applyOrder(items, tabName) {
+  var saved = ls('order-' + tabName) || [];
+  var ordered = [];
+  var remaining = items.slice();
+  saved.forEach(function(id) {
+    var idx = remaining.findIndex(function(it) { return it.id === id; });
+    if (idx !== -1) ordered.push(remaining.splice(idx, 1)[0]);
+  });
+  return ordered.concat(remaining);
+}
+
+function saveOrder(tabName) {
+  var grid = document.getElementById('grid-' + tabName);
+  var ids = Array.from(grid.children).map(function(el) { return el.dataset.id; }).filter(Boolean);
+  ls('order-' + tabName, ids);
+}
+
+function getClientName(clientId) {
+  if (!clientId) return null;
+  var c = CLIENTS_MAP[clientId];
+  return c ? c.name : clientId;
+}
+
+function getClientColor(clientId) {
+  if (!clientId) return '#6b7280';
+  var c = CLIENTS_MAP[clientId];
+  return c ? c.accentColor : '#6b7280';
+}
+
+function statusClass(s) {
+  if (s === 'active') return 'status-active';
+  if (s === 'paused') return 'status-paused';
+  if (s === 'planned') return 'status-planned';
+  if (s === 'dev') return 'status-dev';
+  return 'status-ended';
+}
+
+function statusLabel(s) {
+  var map = { active: 'Aktivni', paused: 'Pozastaveno', planned: 'Planovano', dev: 'Ve vyvoji', ended: 'Ukonceno' };
+  return map[s] || s;
+}
+
+function fileTypeColor(type) {
+  var map = { orders: 'file-type-orders', strategy: 'file-type-strategy', seo: 'file-type-seo',
+    communication: 'file-type-communication', report: 'file-type-report' };
+  return map[type] || 'file-type-other';
+}
+
+function renderDashboards(filter) {
+  var grid = document.getElementById('grid-dashboards');
+  var items = applyOrder(DATA.dashboards, 'dashboards');
+  if (filter && filter !== 'all') {
+    items = items.filter(function(d) { return d.client === filter; });
+  }
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state"><p>Zadne dashboardy pro tento filtr.</p></div>';
+    return;
+  }
+  items.forEach(function(d) {
+    var clientName = getClientName(d.client);
+    var clientColor = getClientColor(d.client);
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = d.id;
+    card.dataset.client = d.client || '';
+    card.innerHTML =
+      '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
+      '<div class="card-icon">' + d.icon + '</div>' +
+      '<h3>' + esc(d.name) + '</h3>' +
+      '<p class="card-desc">' + esc(d.description) + '</p>' +
+      (d.url ? '<a class="card-cta" href="' + esc(d.url) + '" target="_blank" rel="noopener">Otevrit</a>' : '') +
+      '<div class="card-meta">' +
+        (clientName ? '<span class="badge badge-client" style="background:' + clientColor + '">' + esc(clientName) + '</span>' : '') +
+        '<span>' + esc(d.techStack) + '</span>' +
+        (d.lastDataUpdate ? '<span>Data: ' + esc(d.lastDataUpdate) + '</span>' : '') +
+      '</div>';
+    grid.appendChild(card);
+  });
+  updateCount('dashboards', items.length);
+  initSortable('dashboards');
+}
+
+function renderProjects(filter) {
+  var grid = document.getElementById('grid-projects');
+  var items = applyOrder(DATA.projects, 'projects');
+  if (filter && filter !== 'all') {
+    items = items.filter(function(p) { return p.client === filter; });
+  }
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state"><p>Zadne projekty pro tento filtr.</p></div>';
+    return;
+  }
+  items.forEach(function(p) {
+    var clientName = getClientName(p.client);
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = p.id;
+    card.dataset.client = p.client || '';
+    var outputsHtml = '';
+    if (p.keyOutputs && p.keyOutputs.length) {
+      outputsHtml = '<div style="margin-top:6px"><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px">Vystupy</div>';
+      p.keyOutputs.forEach(function(o) {
+        outputsHtml += '<div style="font-size:12px;color:var(--text-sec);padding-left:8px">&middot; ' + esc(o) + '</div>';
+      });
+      outputsHtml += '</div>';
+    }
+    card.innerHTML =
+      '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between">' +
+        '<h3>' + esc(p.name) + '</h3>' +
+        '<span style="font-size:12px"><span class="status-dot ' + statusClass(p.status) + '"></span>' + statusLabel(p.status) + '</span>' +
+      '</div>' +
+      '<p class="card-desc">' + esc(p.description) + '</p>' +
+      '<div style="font-size:12px;color:var(--text-sec);display:flex;flex-wrap:wrap;gap:12px">' +
+        (clientName ? '<span>Klient: <strong>' + esc(clientName) + '</strong></span>' : '<span>Vlastni</span>') +
+        '<span>Typ: ' + esc(p.type) + '</span>' +
+        (p.dashboardCount > 0 ? '<span>Dashboardy: ' + p.dashboardCount + '</span>' : '') +
+      '</div>' +
+      outputsHtml +
+      '<div class="card-meta">' +
+        '<span>Aktivita: ' + esc(p.lastActivity) + '</span>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+  updateCount('projects', items.length);
+  initSortable('projects');
+}
+
+function renderClients(filter) {
+  var grid = document.getElementById('grid-clients');
+  var items = applyOrder(DATA.clients, 'clients');
+  if (filter && filter !== 'all') {
+    items = items.filter(function(c) { return c.id === filter; });
+  }
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state"><p>Zadni klienti pro tento filtr.</p></div>';
+    return;
+  }
+  items.forEach(function(c) {
+    var projCount = c.projects ? c.projects.length : 0;
+    var dashCount = c.dashboards ? c.dashboards.length : 0;
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = c.id;
+    card.dataset.client = c.id;
+
+    var servicesHtml = '';
+    if (c.services && c.services.length) {
+      c.services.forEach(function(s) {
+        servicesHtml += '<span class="pill">' + esc(s) + '</span>';
+      });
+    }
+
+    var quickLinksHtml = '';
+    if (c.dashboards && c.dashboards.length) {
+      quickLinksHtml = '<div class="quick-links">';
+      c.dashboards.forEach(function(dId) {
+        var dash = DATA.dashboards.find(function(d) { return d.id === dId; });
+        if (dash && dash.url) {
+          quickLinksHtml += '<a class="quick-link" href="' + esc(dash.url) + '" target="_blank" rel="noopener">' + dash.icon + ' ' + esc(dash.name) + '</a>';
+        }
+      });
+      quickLinksHtml += '</div>';
+    }
+
+    var filesHtml = '';
+    if (c.files && c.files.length) {
+      filesHtml = '<div class="files-section"><h4>Soubory</h4>';
+      c.files.forEach(function(f) {
+        filesHtml +=
+          '<div class="file-item">' +
+            '<span class="file-type-tag ' + fileTypeColor(f.type) + '">' + esc(f.type) + '</span>' +
+            '<span class="file-name">' + esc(f.name) + '</span>' +
+            '<span class="file-date">' + esc(f.date) + '</span>' +
+            '<span class="file-size">' + esc(f.size) + '</span>' +
+            (f.path ? '<a class="file-dl" href="' + esc(f.path) + '" download>Stahnout</a>' : '') +
+          '</div>';
+      });
+      filesHtml += '</div>';
+    }
+
+    card.innerHTML =
+      '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
+      '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">' +
+        '<div style="width:6px;height:40px;background:' + c.accentColor + '"></div>' +
+        '<div style="flex:1">' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<h3>' + esc(c.name) + '</h3>' +
+            '<span style="font-size:12px"><span class="status-dot ' + statusClass(c.status) + '"></span>' + statusLabel(c.status) + '</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--text-muted)">' +
+            (c.domain ? esc(c.domain) : '') +
+            (c.platform ? ' &middot; ' + esc(c.platform) : '') +
+            (c.market ? ' &middot; ' + esc(c.market) : '') +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:4px">' + servicesHtml + '</div>' +
+      '<div class="kpi-row">' +
+        '<div class="kpi-box"><div class="kpi-val">' + projCount + '</div><div class="kpi-label">Projekty</div></div>' +
+        '<div class="kpi-box"><div class="kpi-val">' + dashCount + '</div><div class="kpi-label">Dashboardy</div></div>' +
+      '</div>' +
+      (c.notes ? '<p style="font-size:12px;color:var(--text-sec)">' + esc(c.notes) + '</p>' : '') +
+      quickLinksHtml +
+      filesHtml;
+
+    grid.appendChild(card);
+  });
+
+  if ((!filter || filter === 'all') && DATA.portfolioSites && DATA.portfolioSites.length) {
+    var section = document.createElement('div');
+    section.className = 'portfolio-section';
+    var linksHtml = '';
+    DATA.portfolioSites.forEach(function(s) {
+      linksHtml += '<a class="portfolio-pill" href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>';
+    });
+    section.innerHTML = '<h3>Vlastni portfolio (' + DATA.portfolioSites.length + ' webu)</h3><div class="portfolio-grid">' + linksHtml + '</div>';
+    grid.parentNode.appendChild(section);
+  }
+
+  updateCount('clients', items.length);
+  initSortable('clients');
+}
+
+function initSortable(tabName) {
+  if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
+  var grid = document.getElementById('grid-' + tabName);
+  SORTABLES[tabName] = new Sortable(grid, {
+    animation: 150,
+    handle: '.drag-handle',
+    ghostClass: 'sortable-ghost',
+    chosenClass: 'sortable-chosen',
+    onEnd: function() { saveOrder(tabName); }
+  });
+}
+
+function updateCount(tabName, count) {
+  document.getElementById('count-' + tabName).textContent = count;
+}
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.tab === tabName);
+  });
+  document.querySelectorAll('.tab-content').forEach(function(content) {
+    content.classList.toggle('active', content.id === 'content-' + tabName);
+  });
+  ls('active-tab', tabName);
+}
+
+function populateFilter() {
+  var select = document.getElementById('clientFilter');
+  DATA.clients.forEach(function(c) {
+    var opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = c.name;
+    select.appendChild(opt);
+  });
+  var saved = ls('filter-client') || 'all';
+  select.value = saved;
+}
+
+function renderAll() {
+  var filter = document.getElementById('clientFilter').value;
+
+  var oldPortfolio = document.querySelector('.portfolio-section');
+  if (oldPortfolio) oldPortfolio.remove();
+
+  renderDashboards(filter);
+  renderProjects(filter);
+  renderClients(filter);
+
+  var dCount = DATA.dashboards.length;
+  var pCount = DATA.projects.length;
+  var cCount = DATA.clients.length;
+  document.getElementById('footerStats').textContent =
+    'Posledni update: ' + DATA.lastUpdated +
+    ' · ' + dCount + ' dashboardu' +
+    ' · ' + pCount + ' projektu' +
+    ' · ' + cCount + ' klientu';
+}
+
+function esc(str) {
+  if (!str) return '';
+  var d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+document.getElementById('tabBar').addEventListener('click', function(e) {
+  var btn = e.target.closest('.tab-btn');
+  if (btn) switchTab(btn.dataset.tab);
+});
+
+document.getElementById('clientFilter').addEventListener('change', function() {
+  ls('filter-client', this.value);
+  renderAll();
+});
+
+fetch('data.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    DATA = data;
+    data.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
+    populateFilter();
+    var savedTab = ls('active-tab') || 'dashboards';
+    switchTab(savedTab);
+    renderAll();
+  })
+  .catch(function(err) {
+    document.querySelector('main').innerHTML =
+      '<div class="empty-state"><p>Chyba pri nacitani data.json: ' + err.message + '</p></div>';
+  });
+</script>
+</body>
+</html>
