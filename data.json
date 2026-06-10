@@ -1,14 +1,26 @@
 {
-  "lastUpdated": "2026-06-08",
+  "lastUpdated": "2026-06-10",
 
   "dashboards": [
     {
+      "id": "osobni",
+      "name": "Osobni dashboard",
+      "client": null,
+      "url": "",
+      "icon": "🧠",
+      "description": "Net worth tracking, finance projekce, zdravotni metriky, Gallup personality, DNA insighty, klientska profitabilita.",
+      "techStack": "HTML",
+      "lastDataUpdate": "2026-05-17",
+      "status": "active",
+      "tags": ["personal", "finance", "health"]
+    },
+    {
       "id": "ef-orders",
-      "name": "Dashboard objednávek",
+      "name": "Dashboard objednavek",
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-dashboard/",
       "icon": "📦",
-      "description": "Klouzavý rok prodejů s počasím — měsíční trendy, dny v týdnu, teplotní pásma, hodiny, velikosti, cohort retention, basket analysis, kategorie, geografie krajů.",
+      "description": "Klouzavy rok prodeju s pocasim — mesicni trendy, dny v tydnu, teplotni pasma, hodiny, velikosti, cohort retention, basket analysis, kategorie, geografie kraju.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
@@ -16,11 +28,11 @@
     },
     {
       "id": "ef-vratky",
-      "name": "Dashboard vrátek",
+      "name": "Dashboard vratek",
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-vratky/",
       "icon": "↩️",
-      "description": "Return rate analytics — sezónnost vrátek, per kategorie/velikost, TOP nejvratkovější ze 100 nejprodávanějších, heatmapa kategorie × velikost.",
+      "description": "Return rate analytics — sezonnost vratek, per kategorie/velikost, TOP nejvratkovejsi ze 100 nejprodavanejsich, heatmapa kategorie x velikost.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
@@ -28,11 +40,11 @@
     },
     {
       "id": "ef-produkty-a",
-      "name": "Katalog & Obrátkovost",
+      "name": "Katalog & Obratkovost",
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-produkty-a/",
       "icon": "🏷️",
-      "description": "23 591 produktů, 62 833 variant. Inventory turnover, dead stock, velikost × kategorie heatmapa, dodavatelé s váženou marží.",
+      "description": "23 591 produktu, 62 833 variant. Inventory turnover, dead stock, velikost x kategorie heatmapa, dodavatele s vazenou marzi.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
@@ -44,7 +56,7 @@
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-produkty-b/",
       "icon": "📊",
-      "description": "478 kategorií ve 3 úrovních. TOP obrátkovost, měsíční trend per kategorie, marže × obrat matrix, cenové pásmo, Pareto.",
+      "description": "478 kategorii ve 3 urovnich. TOP obratkovost, mesicni trend per kategorie, marze x obrat matrix, cenove pasmo, Pareto.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
@@ -56,7 +68,7 @@
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-sos/",
       "icon": "🔍",
-      "description": "Kompetitivní analýza českého fashion trhu — brandové vyhledávání, organická návštěvnost, GSC, share of voice mezi 18 značkami.",
+      "description": "Kompetitivni analyza ceskeho fashion trhu — brandove vyhledavani, organicka navstevnost, GSC, share of voice mezi 18 znackami.",
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-05-01",
       "status": "active",
@@ -67,8 +79,8 @@
       "name": "Filtry — prodejnost",
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-filtry/",
-      "icon": "🏛️",
-      "description": "Analýza 16 user-facing filtrů (Barva, Materiál, Velikost, Rukáv, Střih, Délka…) × prodeje × sklad × vrátkovost. Kombinace filtrů + dead values.",
+      "icon": "🎛️",
+      "description": "Analyza 16 user-facing filtru (Barva, Material, Velikost, Rukav, Strih, Delka) x prodeje x sklad x vratkovost. Kombinace filtru + dead values.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
@@ -76,11 +88,11 @@
     },
     {
       "id": "ef-plavky",
-      "name": "Plavky — nákupčí + SEO",
+      "name": "Plavky — nakupci + SEO",
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-plavky/",
       "icon": "🩱",
-      "description": "Google Trends + Ahrefs + vlastní katalog. Klastry typů, TOP keywords s URL návrhy, rising 3M + 24h, curated trendy 2026.",
+      "description": "Google Trends + Ahrefs + vlastni katalog. Klastry typu, TOP keywords s URL navrhy, rising 3M + 24h, curated trendy 2026.",
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-03-01",
       "status": "active",
@@ -92,7 +104,7 @@
       "client": "erikafashion",
       "url": "https://patrikpilous-dev.github.io/erikafashion-home/",
       "icon": "🏠",
-      "description": "Povlečení, dárky, parfémy, aviváže. Days of supply, reorder pointy, doporučené objednávky, bottlenecks, dead stock, sezónní trend.",
+      "description": "Povleceni, darky, parfemy, avivaze. Days of supply, reorder pointy, doporucene objednavky, bottlenecks, dead stock, sezonni trend.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
@@ -100,11 +112,11 @@
     },
     {
       "id": "pr-orders",
-      "name": "Orders přehled",
+      "name": "Orders prehled",
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/",
       "icon": "📦",
-      "description": "Klouzavý rok prodejů s počasím (Berlin). Měsíční trendy, dny v týdnu, teplotní pásma, DE státní svátky.",
+      "description": "Klouzavy rok prodeju s pocasim (Berlin). Mesicni trendy, dny v tydnu, teplotni pasma, DE statni svatky.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -116,7 +128,7 @@
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/storna.html",
       "icon": "⛔",
-      "description": "Stornované objednávky, neúspěšné platby, sezónnost storen, B2B vs B2C storno-rate, rozpad všech DE statusů.",
+      "description": "Stornovane objednavky, neuspesne platby, sezonnost storen, B2B vs B2C storno-rate, rozpad vsech DE statusu.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -124,11 +136,11 @@
     },
     {
       "id": "pr-b2b",
-      "name": "B2B vs B2C srovnání",
+      "name": "B2B vs B2C srovnani",
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/b2b.html",
       "icon": "🏢",
-      "description": "V čem se B2B (firmy s IČO) liší od B2C. Repeat rate, Pareto, dny v týdnu, hodiny, top města, top produkty.",
+      "description": "V cem se B2B (firmy s ICO) lisi od B2C. Repeat rate, Pareto, dny v tydnu, hodiny, top mesta, top produkty.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -140,7 +152,7 @@
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/produkty.html",
       "icon": "🏆",
-      "description": "Top 50 SKU + B2B/B2C split, top 20 variant, co-occurrence pairs (basket analysis), distribuce kusů per obj.",
+      "description": "Top 50 SKU + B2B/B2C split, top 20 variant, co-occurrence pairs (basket analysis), distribuce kusu per obj.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -148,11 +160,11 @@
     },
     {
       "id": "pr-kategorie",
-      "name": "Kategorie produktů",
+      "name": "Kategorie produktu",
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/kategorie.html",
       "icon": "📦",
-      "description": "14 kategorií malířských potřeb. Obrat, AOV per kategorie, B2B podíl, storno-rate. Strategická doporučení.",
+      "description": "14 kategorii malirskych potreb. Obrat, AOV per kategorie, B2B podil, storno-rate. Strategicka doporuceni.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -164,7 +176,7 @@
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/geografie.html",
       "icon": "🗺️",
-      "description": "Top 50 měst DE, PLZ-Leitzahl distribuce, non-DE země (AT, CZ, BE, LU, NL), mapa 16 Bundesländer.",
+      "description": "Top 50 mest DE, PLZ-Leitzahl distribuce, non-DE zeme (AT, CZ, BE, LU, NL), mapa 16 Bundeslander.",
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
@@ -172,11 +184,11 @@
     },
     {
       "id": "pr-content-gap",
-      "name": "Content gap analýza",
+      "name": "Content gap analyza",
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-dashboard/content-gap.html",
       "icon": "📑",
-      "description": "92 KW od 4 niche konkurentů. Topic clustery, priority, doporučené blog hub-y (tapezieren, malervlies).",
+      "description": "92 KW od 4 niche konkurentu. Topic clustery, priority, doporucene blog hub-y (tapezieren, malervlies).",
       "techStack": "HTML",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
@@ -188,19 +200,67 @@
       "client": "prema",
       "url": "https://patrikpilous-dev.github.io/prema-sos/",
       "icon": "🔍",
-      "description": "Brand search — Tier 1 (Erfurt, Storch, Brillux, Caparol) + Tier 2 niche vs. Prema. 25 brandů.",
+      "description": "Brand search — Tier 1 (Erfurt, Storch, Brillux, Caparol) + Tier 2 niche vs. Prema. 25 brandu.",
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
       "tags": ["sos", "competitive"]
     },
     {
+      "id": "pr-filtry",
+      "name": "Filtry — doporuceni",
+      "client": "prema",
+      "url": "",
+      "icon": "🎛️",
+      "description": "Dashboard doporuceni filtru a kategorii pro i-prema.de. Checkbox persistence, prioritizace.",
+      "techStack": "HTML",
+      "lastDataUpdate": "2026-04-01",
+      "status": "active",
+      "tags": ["filters", "seo"]
+    },
+    {
+      "id": "ch-mapa",
+      "name": "Mapa zakazniku",
+      "client": "chlorito",
+      "url": "",
+      "icon": "🗺️",
+      "description": "Interaktivni mapy zakazniku — kraje, okresy, mesta. Folium/Plotly geoJSON vizualizace.",
+      "techStack": "Plotly.js",
+      "lastDataUpdate": "2026-04-01",
+      "status": "active",
+      "tags": ["geography", "map"]
+    },
+    {
+      "id": "ch-pno",
+      "name": "PNO analyza",
+      "client": "chlorito",
+      "url": "",
+      "icon": "📊",
+      "description": "Podil nakladu na obratu — analyza ziskovosti objednavek, kanalu a produktu.",
+      "techStack": "HTML",
+      "lastDataUpdate": "2026-03-01",
+      "status": "active",
+      "tags": ["analytics", "profitability"]
+    },
+    {
+      "id": "ch-crosssell",
+      "name": "Cross-sell & Upsell",
+      "client": "chlorito",
+      "url": "",
+      "icon": "🛒",
+      "description": "Basket analysis, doporucovaci widgety (karta, kategorie, kosik). Datovy model + HTML preview.",
+      "techStack": "HTML",
+      "lastDataUpdate": "2026-04-01",
+      "status": "active",
+      "tags": ["crosssell", "recommendations"]
+    },
+    {
       "id": "lb-domains",
-      "name": "Linkbuilding domény",
+      "name": "Linkbuilding domeny",
       "client": null,
       "url": "",
       "icon": "🔗",
-      "description": "Interaktivní tabulka prospektových domén. DR badge, filtrování, řazení.",
+      "description": "Interaktivni tabulka prospektovych domen. DR badge, filtrovani, razeni.",
       "techStack": "HTML",
       "lastDataUpdate": "2026-03-01",
       "status": "active",
@@ -208,15 +268,27 @@
     },
     {
       "id": "cv-pruzkumy",
-      "name": "Volební průzkumy",
+      "name": "Volebni pruzkumy",
       "client": null,
       "url": "https://patrikpilous-dev.github.io/ceske-volby-pruzkumy/web/",
       "icon": "🗳️",
-      "description": "Interaktivní graf volebních průzkumů — CVVM, Median, Kantar, IPSOS, NMS, STEM. Stránky per agentura.",
+      "description": "Interaktivni graf volebnich pruzkumu — CVVM, Median, Kantar, IPSOS, NMS, STEM. Stranky per agentura.",
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-06-01",
       "status": "active",
       "tags": ["elections", "data-viz"]
+    },
+    {
+      "id": "agregator-preview",
+      "name": "Agregator realit",
+      "client": null,
+      "url": "",
+      "icon": "🏠",
+      "description": "Preview agregator realitnich nabidek — Sreality/Bezrealitky/Reality.cz, price/m2 scoring.",
+      "techStack": "HTML",
+      "lastDataUpdate": "2026-03-01",
+      "status": "dev",
+      "tags": ["real-estate", "scraping"]
     }
   ],
 
@@ -227,9 +299,9 @@
       "client": "erikafashion",
       "type": "seo",
       "status": "active",
-      "description": "E-shop dámská móda, Shoptet. Filtry, dashboardy, AI prompty, CTR optimalizace.",
+      "description": "E-shop damska moda, Shoptet. Filtry, dashboardy, AI prompty, CTR optimalizace.",
       "dashboardCount": 8,
-      "keyOutputs": ["GAP analýzy filtrů", "Dashboard suite (8)", "60 AI promptů"],
+      "keyOutputs": ["GAP analyzy filtru", "Dashboard suite (8)", "60 AI promptu"],
       "lastActivity": "2026-06-02"
     },
     {
@@ -238,9 +310,9 @@
       "client": "erikafashion",
       "type": "dashboard",
       "status": "active",
-      "description": "Share of Search competitive dashboard — 18 značek, 25 měsíců historie, Ahrefs + GSC.",
+      "description": "Share of Search competitive dashboard — 18 znacek, 25 mesicu historie, Ahrefs + GSC.",
       "dashboardCount": 1,
-      "keyOutputs": ["SoS dashboard", "Měsíční Ahrefs update"],
+      "keyOutputs": ["SoS dashboard", "Mesicni Ahrefs update"],
       "lastActivity": "2026-05-01"
     },
     {
@@ -249,9 +321,9 @@
       "client": "prema",
       "type": "seo",
       "status": "active",
-      "description": "DE malířské potřeby, Shoptet. 2600+ produktů, 188 kategorií, filtry SEO optimalizace.",
-      "dashboardCount": 8,
-      "keyOutputs": ["Dashboard suite (8)", "Filtrová analýza", "Content gap"],
+      "description": "DE malirske potreby, Shoptet. 2600+ produktu, 188 kategorii, filtry SEO optimalizace.",
+      "dashboardCount": 9,
+      "keyOutputs": ["Dashboard suite (9)", "Filtrova analyza", "Content gap"],
       "lastActivity": "2026-05-11"
     },
     {
@@ -260,9 +332,9 @@
       "client": "chlorito",
       "type": "seo",
       "status": "active",
-      "description": "Bazénová chemie e-shop. GA4 analytika, AI viditelnost, cross-sell/upsell, weather korelace.",
-      "dashboardCount": 0,
-      "keyOutputs": ["70 AI promptů", "Weather-order korelace", "Cross-sell analýza"],
+      "description": "Bazenova chemie e-shop. GA4 analytika, AI viditelnost, cross-sell/upsell, weather korelace.",
+      "dashboardCount": 3,
+      "keyOutputs": ["70 AI promptu", "Weather-order korelace", "Cross-sell analyza"],
       "lastActivity": "2026-04-01"
     },
     {
@@ -271,9 +343,9 @@
       "client": "manboxeo",
       "type": "seo",
       "status": "paused",
-      "description": "Dárkové boxy, multimarket CZ/SK/DE/HU. SEO + linkbuilding, redesign webu čeká.",
+      "description": "Darkove boxy, multimarket CZ/SK/DE/HU. SEO + linkbuilding, redesign webu ceka.",
       "dashboardCount": 0,
-      "keyOutputs": ["Manažerské shrnutí 2024-2026", "PPTX prezentace (12 slidů)", "Měsíční report"],
+      "keyOutputs": ["Manazerske shrnuti 2024-2026", "PPTX prezentace (12 slidu)", "Mesicni report"],
       "lastActivity": "2026-03-01"
     },
     {
@@ -282,9 +354,9 @@
       "client": "wood",
       "type": "seo",
       "status": "active",
-      "description": "Asset management, nemovitostní fondy. 65 AI promptů, schema.org JSON-LD.",
+      "description": "Asset management, nemovitostni fondy. 65 AI promptu, schema.org JSON-LD.",
       "dashboardCount": 0,
-      "keyOutputs": ["65 AI promptů ve 4 clusterech", "Schema.org JSON-LD"],
+      "keyOutputs": ["65 AI promptu ve 4 clusterech", "Schema.org JSON-LD"],
       "lastActivity": "2026-04-01"
     },
     {
@@ -293,9 +365,9 @@
       "client": "esgrovia",
       "type": "seo",
       "status": "active",
-      "description": "ESG poradenství, 9 jazykových mutací. Web sotva indexovaný, 813 HTML stránek.",
+      "description": "ESG poradenstvi, 9 jazykovych mutaci. Web sotva indexovany, 813 HTML stranek.",
       "dashboardCount": 0,
-      "keyOutputs": ["KW sběr (90 keywords)", "Screaming Frog crawl"],
+      "keyOutputs": ["KW sber (90 keywords)", "Screaming Frog crawl"],
       "lastActivity": "2026-02-01"
     },
     {
@@ -304,31 +376,31 @@
       "client": null,
       "type": "framework",
       "status": "active",
-      "description": "Centralizovaný framework pro linkbuilding — Ahrefs integrace, prospekty, outreach.",
+      "description": "Centralizovany framework pro linkbuilding — Ahrefs integrace, prospekty, outreach.",
       "dashboardCount": 1,
-      "keyOutputs": ["Domény DB", "Backlink analýzy", "Outreach emaily"],
+      "keyOutputs": ["Domeny DB", "Backlink analyzy", "Outreach emaily"],
       "lastActivity": "2026-03-01"
     },
     {
       "id": "ceske-volby-pruzkumy",
-      "name": "České volby — průzkumy",
+      "name": "Ceske volby — pruzkumy",
       "client": null,
       "type": "data-viz",
       "status": "active",
-      "description": "Interaktivní graf volebních průzkumů. Python scrapery + Chart.js + GitHub Pages.",
+      "description": "Interaktivni graf volebnich pruzkumu. Python scrapery + Chart.js + GitHub Pages.",
       "dashboardCount": 1,
-      "keyOutputs": ["Interaktivní graf", "Embed pro weby", "CSV/JSON data"],
+      "keyOutputs": ["Interaktivni graf", "Embed pro weby", "CSV/JSON data"],
       "lastActivity": "2026-06-01"
     },
     {
       "id": "stavimeutulek",
-      "name": "Stavíme útulek",
+      "name": "Stavime utulek",
       "client": "anidef",
       "type": "web",
       "status": "active",
-      "description": "Fundraisingový web pro AniDef — sbírka na útulek (32M Kč), GitHub Pages + Donio widget.",
+      "description": "Fundraisingovy web pro AniDef — sbirka na utulek (32M Kc), GitHub Pages + Donio widget.",
       "dashboardCount": 0,
-      "keyOutputs": ["Statický web", "Donio integrace"],
+      "keyOutputs": ["Staticky web", "Donio integrace"],
       "lastActivity": "2026-01-01"
     },
     {
@@ -337,20 +409,20 @@
       "client": null,
       "type": "framework",
       "status": "active",
-      "description": "Modulární SEO audity ze znovupoužitelných bloků. DOCX output per klient.",
+      "description": "Modularni SEO audity ze znovupouzitelnych bloku. DOCX output per klient.",
       "dashboardCount": 0,
-      "keyOutputs": ["Bloky auditů", "Snippety", "Klientské reporty"],
+      "keyOutputs": ["Bloky auditu", "Snippety", "Klientske reporty"],
       "lastActivity": "2026-05-01"
     },
     {
       "id": "notion-casova-alokace",
-      "name": "Notion — časová alokace",
+      "name": "Notion — casova alokace",
       "client": null,
       "type": "tool",
       "status": "active",
-      "description": "Fakturační systém v Notionu — PP živnost + IdeUp s.r.o., měsíční DB od 3/2024.",
+      "description": "Fakturacni system v Notionu — PP zivnost + IdeUp s.r.o., mesicni DB od 3/2024.",
       "dashboardCount": 0,
-      "keyOutputs": ["Notion inline DB", "Kvartální report"],
+      "keyOutputs": ["Notion inline DB", "Kvartalni report"],
       "lastActivity": "2026-06-01"
     },
     {
@@ -359,9 +431,9 @@
       "client": null,
       "type": "portfolio",
       "status": "active",
-      "description": "Osobní brand, freelance positioning. Pitch decky pro nové klienty (11-slide šablona).",
+      "description": "Osobni brand, freelance positioning. Pitch decky pro nove klienty (11-slide sablona).",
       "dashboardCount": 0,
-      "keyOutputs": ["Pitch deck šablona", "Akvizice PPTX"],
+      "keyOutputs": ["Pitch deck sablona", "Akvizice PPTX"],
       "lastActivity": "2026-05-01"
     },
     {
@@ -370,21 +442,21 @@
       "client": null,
       "type": "portfolio",
       "status": "active",
-      "description": "Kenny S. dámská móda — WordPress + WooCommerce. Obsahový fokus (barvy, styly, dress codes).",
+      "description": "Kenny S. damska moda — WordPress + WooCommerce. Obsahovy fokus (barvy, styly, dress codes).",
       "dashboardCount": 0,
-      "keyOutputs": ["12 článků batch 1", "Content gap mapa"],
+      "keyOutputs": ["12 clanku batch 1", "Content gap mapa"],
       "lastActivity": "2026-04-01"
     },
     {
       "id": "agregator",
-      "name": "Agregátor realit",
+      "name": "Agregator realit",
       "client": null,
       "type": "tool",
       "status": "planned",
-      "description": "Agregátor realitních nabídek ze Sreality/Bezrealitky/Reality.cz s price/m2 scoring.",
-      "dashboardCount": 0,
-      "keyOutputs": ["Python scrapery (Scrapy)", "PostgreSQL schema"],
-      "lastActivity": "2026-01-01"
+      "description": "Agregator realitnich nabidek ze Sreality/Bezrealitky/Reality.cz s price/m2 scoring.",
+      "dashboardCount": 1,
+      "keyOutputs": ["Python scrapery (Scrapy)", "PostgreSQL schema", "Preview dashboard"],
+      "lastActivity": "2026-03-01"
     },
     {
       "id": "pavrd",
@@ -392,9 +464,9 @@
       "client": null,
       "type": "tool",
       "status": "dev",
-      "description": "Marketing Operating System — PAVRD framework (Povědomí/Akvizice/Výkon/Retence/Doporučení) + PESO.",
+      "description": "Marketing Operating System — PAVRD framework (Povedomí/Akvizice/Vykon/Retence/Doporuceni) + PESO.",
       "dashboardCount": 0,
-      "keyOutputs": ["React + Supabase app", "7 DB migrací"],
+      "keyOutputs": ["React + Supabase app", "7 DB migraci"],
       "lastActivity": "2026-03-01"
     }
   ],
@@ -411,8 +483,17 @@
       "services": ["SEO", "dashboardy", "linkbuilding", "AI viditelnost"],
       "projects": ["erikafashion", "erikafashion-sos"],
       "dashboards": ["ef-orders", "ef-vratky", "ef-produkty-a", "ef-produkty-b", "ef-sos", "ef-filtry", "ef-plavky", "ef-home"],
-      "notes": "~100K obj/rok, obrat 91M Kč. Organické 2026 +34 %.",
-      "files": []
+      "notes": "~100K obj/rok, obrat 91M Kc. Organicke 2026 +34 %.",
+      "files": [
+        { "name": "Objednavky (komplet)", "type": "orders", "format": "csv", "date": "2026-05-04", "size": "141.6 MB" },
+        { "name": "Produkty", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "7.2 MB" },
+        { "name": "Kategorie", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "9.9 MB" },
+        { "name": "Filtry / parametry", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "6.6 MB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-05-04", "size": "39 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-05-04", "size": "27 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-05-04", "size": "11 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "10 KB" }
+      ]
     },
     {
       "id": "prema",
@@ -424,9 +505,15 @@
       "accentColor": "#1565C0",
       "services": ["SEO", "dashboardy", "content"],
       "projects": ["prema"],
-      "dashboards": ["pr-orders", "pr-storna", "pr-b2b", "pr-produkty", "pr-kategorie", "pr-geografie", "pr-content-gap", "pr-sos"],
-      "notes": "4 619 obj/rok, 759K EUR. DE malířské potřeby.",
-      "files": []
+      "dashboards": ["pr-orders", "pr-storna", "pr-b2b", "pr-produkty", "pr-kategorie", "pr-geografie", "pr-content-gap", "pr-sos", "pr-filtry"],
+      "notes": "4 619 obj/rok, 759K EUR. DE malirske potreby.",
+      "files": [
+        { "name": "Objednavky (komplet)", "type": "orders", "format": "csv", "date": "2026-05-11", "size": "8.9 MB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-05-11", "size": "45 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-05-11", "size": "34 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-05-11", "size": "11 KB" },
+        { "name": "Obsahovy plan blog 2026", "type": "strategy", "format": "xlsx", "date": "2026-04-01", "size": "15 KB" }
+      ]
     },
     {
       "id": "chlorito",
@@ -438,9 +525,24 @@
       "accentColor": "#0097A7",
       "services": ["SEO", "GA4 analytika", "AI viditelnost"],
       "projects": ["chlorito"],
-      "dashboards": [],
-      "notes": "Bazénová chemie. Weather-order korelace, 70 AI promptů.",
-      "files": []
+      "dashboards": ["ch-mapa", "ch-pno", "ch-crosssell"],
+      "notes": "Bazenova chemie. Weather-order korelace, 70 AI promptu.",
+      "files": [
+        { "name": "Objednavky 2024", "type": "orders", "format": "csv", "date": "2025-12-01", "size": "19.4 MB" },
+        { "name": "Objednavky 2026", "type": "orders", "format": "csv", "date": "2026-04-01", "size": "28.8 MB" },
+        { "name": "SEO navrhy v1", "type": "seo", "format": "xlsx", "date": "2026-02-01", "size": "631 KB" },
+        { "name": "SEO navrhy v2 (exhaustivni)", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "229 KB" },
+        { "name": "SEO navrhy v3 — filtry a doplneni", "type": "seo", "format": "xlsx", "date": "2026-03-15", "size": "21 KB" },
+        { "name": "Navrhy filtru a podkategorii", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "62 KB" },
+        { "name": "Cross-sell products SEO", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "682 KB" },
+        { "name": "Basket map (JSON)", "type": "report", "format": "json", "date": "2026-04-01", "size": "687 KB" },
+        { "name": "Recommendations (JSON)", "type": "report", "format": "json", "date": "2026-04-01", "size": "779 KB" },
+        { "name": "Obsahovy plan blog 2026", "type": "strategy", "format": "csv", "date": "2026-03-01", "size": "48 KB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-04-01", "size": "34 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-04-01", "size": "27 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-04-01", "size": "11 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "9 KB" }
+      ]
     },
     {
       "id": "manboxeo",
@@ -453,8 +555,11 @@
       "services": ["SEO", "linkbuilding"],
       "projects": ["manboxeo"],
       "dashboards": [],
-      "notes": "Dárkové boxy, multimarket. LB pozastavený, redesign čeká.",
-      "files": []
+      "notes": "Darkove boxy, multimarket. LB pozastaveny, redesign ceka.",
+      "files": [
+        { "name": "Shrnuti spoluprace 2024-2026", "type": "report", "format": "pptx", "date": "2026-03-01", "size": "328 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "10 KB" }
+      ]
     },
     {
       "id": "wood",
@@ -467,8 +572,10 @@
       "services": ["SEO", "AI viditelnost"],
       "projects": ["wood-cz"],
       "dashboards": [],
-      "notes": "Asset management, HNW klienti 4M+ Kč. 65 AI promptů.",
-      "files": []
+      "notes": "Asset management, HNW klienti 4M+ Kc. 65 AI promptu.",
+      "files": [
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "9 KB" }
+      ]
     },
     {
       "id": "xtb",
@@ -495,7 +602,7 @@
       "services": ["linkbuilding"],
       "projects": [],
       "dashboards": [],
-      "notes": "MBA/DBA vzdělávání. Linkbuilding klient.",
+      "notes": "MBA/DBA vzdelavani. Linkbuilding klient.",
       "files": []
     },
     {
@@ -509,7 +616,7 @@
       "services": ["SEO"],
       "projects": ["esgrovia"],
       "dashboards": [],
-      "notes": "ESG poradenství, 9 jazykových mutací. Early stage SEO.",
+      "notes": "ESG poradenstvi, 9 jazykovych mutaci. Early stage SEO.",
       "files": []
     },
     {
@@ -523,7 +630,7 @@
       "services": ["web"],
       "projects": ["stavimeutulek"],
       "dashboards": [],
-      "notes": "Fundraisingový web — sbírka na útulek (32M Kč). Pro bono.",
+      "notes": "Fundraisingovy web — sbirka na utulek (32M Kc). Pro bono.",
       "files": []
     }
   ],
