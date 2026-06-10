@@ -219,10 +219,22 @@
       "tags": ["filters", "seo"]
     },
     {
+      "id": "ch-main",
+      "name": "Chlorito marketing",
+      "client": "chlorito",
+      "url": "https://patrikpilous-dev.github.io/chlorito-marketing/",
+      "icon": "🧪",
+      "description": "Hlavni marketingovy dashboard — objednavky, pocasi korelace, geografie, sezonnost, denni/tydenni trendy.",
+      "techStack": "Plotly.js",
+      "lastDataUpdate": "2026-04-01",
+      "status": "active",
+      "tags": ["orders", "weather", "main"]
+    },
+    {
       "id": "ch-mapa",
       "name": "Mapa zakazniku",
       "client": "chlorito",
-      "url": "",
+      "url": "https://patrikpilous-dev.github.io/chlorito-marketing/mapa_kraj.html",
       "icon": "🗺️",
       "description": "Interaktivni mapy zakazniku — kraje, okresy, mesta. Folium/Plotly geoJSON vizualizace.",
       "techStack": "Plotly.js",
@@ -258,7 +270,7 @@
       "id": "lb-domains",
       "name": "Linkbuilding domeny",
       "client": null,
-      "url": "",
+      "url": "https://patrikpilous-dev.github.io/linkbuilding/",
       "icon": "🔗",
       "description": "Interaktivni tabulka prospektovych domen. DR badge, filtrovani, razeni.",
       "techStack": "HTML",
@@ -525,7 +537,7 @@
       "accentColor": "#0097A7",
       "services": ["SEO", "GA4 analytika", "AI viditelnost"],
       "projects": ["chlorito"],
-      "dashboards": ["ch-mapa", "ch-pno", "ch-crosssell"],
+      "dashboards": ["ch-main", "ch-mapa", "ch-pno", "ch-crosssell"],
       "notes": "Bazenova chemie. Weather-order korelace, 70 AI promptu.",
       "files": [
         { "name": "Objednavky 2024", "type": "orders", "format": "csv", "date": "2025-12-01", "size": "19.4 MB" },
