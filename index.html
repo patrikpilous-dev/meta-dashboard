@@ -127,6 +127,8 @@ main { padding: 32px; }
 }
 .card:hover { border-color: var(--accent); transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(91,33,182,0.12); }
+.card.card-link { cursor: pointer; }
+.card.card-link .card-cta { pointer-events: none; }
 
 .drag-handle {
   position: absolute; top: 12px; right: 12px;
@@ -448,15 +450,21 @@ function renderDashboards(filter) {
     var clientName = getClientName(d.client);
     var clientColor = getClientColor(d.client);
     var card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card' + (d.url ? ' card-link' : '');
     card.dataset.id = d.id;
     card.dataset.client = d.client || '';
+    if (d.url) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.drag-handle')) return;
+        window.open(d.url, '_blank', 'noopener');
+      });
+    }
     card.innerHTML =
       '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
       '<div class="card-icon">' + d.icon + '</div>' +
       '<h3>' + esc(d.name) + '</h3>' +
       '<p class="card-desc">' + esc(d.description) + '</p>' +
-      (d.url ? '<a class="card-cta" href="' + esc(d.url) + '" target="_blank" rel="noopener">Otevrit</a>' : '') +
+      (d.url ? '<span class="card-cta">Otevrit</span>' : '<span style="font-size:11px;color:var(--text-muted);margin-top:4px">Lokalni</span>') +
       '<div class="card-meta">' +
         (clientName ? '<span class="badge badge-client" style="background:' + clientColor + '">' + esc(clientName) + '</span>' : '') +
         '<span>' + esc(d.techStack) + '</span>' +
@@ -482,9 +490,18 @@ function renderProjects(filter) {
   items.forEach(function(p) {
     var clientName = getClientName(p.client);
     var card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card' + (p.client ? ' card-link' : '');
     card.dataset.id = p.id;
     card.dataset.client = p.client || '';
+    if (p.client) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.drag-handle')) return;
+        document.getElementById('clientFilter').value = p.client;
+        ls('filter-client', p.client);
+        switchTab('dashboards');
+        renderAll();
+      });
+    }
     var outputsHtml = '';
     if (p.keyOutputs && p.keyOutputs.length) {
       outputsHtml = '<div style="margin-top:6px"><div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px">Vystupy</div>';
@@ -530,9 +547,16 @@ function renderClients(filter) {
     var projCount = c.projects ? c.projects.length : 0;
     var dashCount = c.dashboards ? c.dashboards.length : 0;
     var card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card card-link';
     card.dataset.id = c.id;
     card.dataset.client = c.id;
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.drag-handle') || e.target.closest('.quick-link') || e.target.closest('.file-dl')) return;
+      document.getElementById('clientFilter').value = c.id;
+      ls('filter-client', c.id);
+      switchTab('dashboards');
+      renderAll();
+    });
 
     var servicesHtml = '';
     if (c.services && c.services.length) {
