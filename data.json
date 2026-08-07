@@ -647,6 +647,79 @@
     }
   ],
 
+  "skills": [
+    {
+      "id": "seo-filter-gap-analyza",
+      "name": "SEO filter GAP analyza",
+      "status": "active",
+      "domain": "SEO",
+      "description": "Z Ahrefs matching-terms exportu a kategorie e-shopu vytvori GAP analyzu, jake nove filtry / hodnoty filtru pridat (nebo nepridavat).",
+      "triggers": "nove filtry, parametry kategorie, gap analyza filtru, matching terms",
+      "clients": ["erikafashion", "prema", "chlorito"],
+      "path": "~/.claude/skills/seo-filter-gap-analyza/"
+    },
+    {
+      "id": "implementace-strukturovanych-dat-seo",
+      "name": "Strukturovana data (JSON-LD)",
+      "status": "active",
+      "domain": "SEO",
+      "description": "Z Screaming Frog / Crawly exportu vygeneruje implementacni tabulku schema.org JSON-LD pro cely web vcetne sablon.",
+      "triggers": "strukturovana data, schema.org, JSON-LD, rich snippets",
+      "clients": [],
+      "path": "~/.claude/skills/implementace-strukturovanych-dat-seo/"
+    },
+    {
+      "id": "update-sos",
+      "name": "Update Share of Search",
+      "status": "needs-move",
+      "domain": "dashboardy",
+      "description": "Mesicni aktualizace SoS dashboardu z Ahrefs. Existuje jen v erikafashion-sos projektu — je potreba presunout do globalu a zobecnit na vsechny klienty.",
+      "triggers": "/update-sos, aktualizuj data v dashboardu",
+      "clients": ["erikafashion", "prema"],
+      "path": "projects/erikafashion-sos/.claude/commands/"
+    },
+    {
+      "id": "zpracuj-schuzku",
+      "name": "Zpracuj schuzku",
+      "status": "planned",
+      "domain": "workflow",
+      "description": "Nahravka z telefonu (Google Disk inbox) → lokalni Whisper transkript → strukturovany zapis s action items do projects/<klient>/meetings/.",
+      "triggers": "zpracuj schuzku, novy zaznam, transkript",
+      "clients": [],
+      "path": "—"
+    },
+    {
+      "id": "klient-status",
+      "name": "Klient status",
+      "status": "planned",
+      "domain": "workflow",
+      "description": "Pred schuzkou: Gmail + projekt + zapisy → co je rozdelane, dalsi krok na mne / na klientovi.",
+      "triggers": "co mame rozdelane s klientem X, pred schuzkou",
+      "clients": [],
+      "path": "—"
+    },
+    {
+      "id": "shoptet-orders-dashboard",
+      "name": "Shoptet orders dashboard",
+      "status": "planned",
+      "domain": "dashboardy",
+      "description": "Parametrizovana pipeline objednavky CSV + pocasi → dashboard. Nahradi 3 zkopirovane verze skriptu (chlorito/erika/prema).",
+      "triggers": "novy dashboard objednavek, refresh dat",
+      "clients": ["chlorito", "erikafashion", "prema"],
+      "path": "—"
+    },
+    {
+      "id": "ahrefs-produktovy-text",
+      "name": "Ahrefs produktovy text",
+      "status": "planned",
+      "domain": "SEO",
+      "description": "Nejcastejsi uloha: Ahrefs keywords → CZ/SK produktovy text / meta popisky → dualni ulozeni.",
+      "triggers": "text pro produkt, rozsir o KW, titulek a meta description",
+      "clients": ["chlorito", "erikafashion", "wood"],
+      "path": "—"
+    }
+  ],
+
   "portfolioSites": [
     { "id": "zijuspesne", "name": "zijuspesne.cz", "url": "https://zijuspesne.cz", "status": "active" },
     { "id": "moony", "name": "moony.cz", "url": "https://moony.cz", "status": "active" },

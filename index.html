@@ -315,6 +315,7 @@ footer {
   <button class="tab-btn active" data-tab="dashboards">Dashboardy <span class="tab-count" id="count-dashboards">0</span></button>
   <button class="tab-btn" data-tab="projects">Projekty <span class="tab-count" id="count-projects">0</span></button>
   <button class="tab-btn" data-tab="clients">Klienti <span class="tab-count" id="count-clients">0</span></button>
+  <button class="tab-btn" data-tab="skills">Skilly <span class="tab-count" id="count-skills">0</span></button>
 </nav>
 
 <main class="shell">
@@ -326,6 +327,9 @@ footer {
   </div>
   <div class="tab-content" id="content-clients">
     <div class="grid grid-wide" id="grid-clients"></div>
+  </div>
+  <div class="tab-content" id="content-skills">
+    <div class="grid" id="grid-skills"></div>
   </div>
 </main>
 
@@ -418,14 +422,14 @@ function getClientColor(clientId) {
 
 function statusClass(s) {
   if (s === 'active') return 'status-active';
-  if (s === 'paused') return 'status-paused';
+  if (s === 'paused' || s === 'needs-move') return 'status-paused';
   if (s === 'planned') return 'status-planned';
   if (s === 'dev') return 'status-dev';
   return 'status-ended';
 }
 
 function statusLabel(s) {
-  var map = { active: 'Aktivni', paused: 'Pozastaveno', planned: 'Planovano', dev: 'Ve vyvoji', ended: 'Ukonceno' };
+  var map = { active: 'Aktivni', paused: 'Pozastaveno', planned: 'Planovano', dev: 'Ve vyvoji', ended: 'Ukonceno', 'needs-move': 'K presunu' };
   return map[s] || s;
 }
 
@@ -636,6 +640,47 @@ function renderClients(filter) {
   initSortable('clients');
 }
 
+function renderSkills(filter) {
+  var grid = document.getElementById('grid-skills');
+  var items = applyOrder(DATA.skills || [], 'skills');
+  if (filter && filter !== 'all') {
+    items = items.filter(function(s) {
+      return !s.clients || !s.clients.length || s.clients.indexOf(filter) !== -1;
+    });
+  }
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state"><p>Zadne skilly pro tento filtr.</p></div>';
+    return;
+  }
+  items.forEach(function(s) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = s.id;
+    var clientBadges = '';
+    (s.clients || []).forEach(function(cId) {
+      var c = CLIENTS_MAP[cId];
+      if (c) clientBadges += '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>';
+    });
+    card.innerHTML =
+      '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
+        '<h3>' + esc(s.name) + '</h3>' +
+        '<span style="font-size:12px;white-space:nowrap"><span class="status-dot ' + statusClass(s.status) + '"></span>' + statusLabel(s.status) + '</span>' +
+      '</div>' +
+      '<span class="pill" style="align-self:flex-start">' + esc(s.domain) + '</span>' +
+      '<p class="card-desc" style="-webkit-line-clamp:3">' + esc(s.description) + '</p>' +
+      (s.triggers ? '<div style="font-size:11px;color:var(--text-muted)"><strong>Triggery:</strong> ' + esc(s.triggers) + '</div>' : '') +
+      '<div class="card-meta">' +
+        clientBadges +
+        (s.path && s.path !== '—' ? '<span>' + esc(s.path) + '</span>' : '<span>Zatim neexistuje</span>') +
+      '</div>';
+    grid.appendChild(card);
+  });
+  updateCount('skills', items.length);
+  initSortable('skills');
+}
+
 function initSortable(tabName) {
   if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
   var grid = document.getElementById('grid-' + tabName);
@@ -683,6 +728,7 @@ function renderAll() {
   renderDashboards(filter);
   renderProjects(filter);
   renderClients(filter);
+  renderSkills(filter);
 
   var dCount = DATA.dashboards.length;
   var pCount = DATA.projects.length;
