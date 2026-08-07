@@ -828,11 +828,15 @@ document.getElementById('clientFilter').addEventListener('change', function() {
   renderAll();
 });
 
-fetch('data.json')
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    DATA = data;
-    data.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
+Promise.all([
+  fetch('data.json').then(function(r) { return r.json(); }),
+  // nahravky.json je jen lokalni (.gitignore) — na GitHub Pages neexistuje
+  fetch('nahravky.json').then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; })
+])
+  .then(function(results) {
+    DATA = results[0];
+    DATA.nahravky = results[1].nahravky || [];
+    DATA.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
     populateFilter();
     var savedTab = ls('active-tab') || 'dashboards';
     switchTab(savedTab);
