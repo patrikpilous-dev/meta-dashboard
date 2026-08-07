@@ -681,12 +681,12 @@
     {
       "id": "zpracuj-schuzku",
       "name": "Zpracuj schuzku",
-      "status": "planned",
+      "status": "active",
       "domain": "workflow",
-      "description": "Nahravka z telefonu (Google Disk inbox) → lokalni Whisper transkript → strukturovany zapis s action items do projects/<klient>/meetings/.",
-      "triggers": "zpracuj schuzku, novy zaznam, transkript",
+      "description": "Nahravka z telefonu (Syncthing → Nahravky/inbox) → lokalni Whisper transkript → strukturovany zapis s action items do projects/<klient>/meetings/.",
+      "triggers": "zpracuj schuzku, novy zaznam, mam novou nahravku",
       "clients": [],
-      "path": "—"
+      "path": "~/.claude/skills/zpracuj-schuzku/"
     },
     {
       "id": "klient-status",
