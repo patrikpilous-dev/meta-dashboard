@@ -1,2 +1,5 @@
 # Nahravky obsahuji shrnuti soukromych hovoru — NIKDY necommitovat
 nahravky.json
+
+# Pripravene deploye jinych dashboardu (osobni data) — patri do vlastnich rep
+deploy/
