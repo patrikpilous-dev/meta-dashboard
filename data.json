@@ -647,6 +647,21 @@
     }
   ],
 
+  "nahravky": [
+    {
+      "id": "2026-08-07-koule-do-bazenu",
+      "datum": "2026-08-07",
+      "cas": "13:49",
+      "klient": "chlorito",
+      "typ": "poznamka",
+      "tema": "Koule do bazénu — výrobci, ceny, konkurence",
+      "shrnuti": "Na projektu Chlorito se budou dělat koule do bazénu. Cíl: vybrat výrobce, zjistit ceny, srovnat konkurenci.",
+      "actionItems": 3,
+      "zdroj": "Hlas 260807_134909.m4a",
+      "zapis": "projects/chlorito/meetings/2026-08-07-koule-do-bazenu.md"
+    }
+  ],
+
   "skills": [
     {
       "id": "seo-filter-gap-analyza",

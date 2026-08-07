@@ -226,6 +226,33 @@ main { padding: 32px; }
 }
 .file-dl:hover { text-decoration: underline; }
 
+.rec-row {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 16px 20px; margin-bottom: 10px; box-shadow: var(--shadow);
+  display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  transition: border-color .15s;
+}
+.rec-row:hover { border-color: var(--accent); }
+.rec-date {
+  min-width: 90px; font-size: 12px; color: var(--text-muted);
+  font-weight: 600; padding-top: 2px;
+}
+.rec-date .rec-time { display: block; font-weight: 400; font-size: 11px; }
+.rec-body { flex: 1; min-width: 240px; }
+.rec-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.rec-body p { font-size: 13px; color: var(--text-sec); }
+.rec-meta {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  font-size: 11px; color: var(--text-muted);
+}
+.rec-type {
+  display: inline-block; padding: 2px 8px; font-size: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: #fff;
+}
+.rec-type-hovor { background: #0284c7; }
+.rec-type-poznamka { background: #7c3aed; }
+.rec-type-schuzka { background: #059669; }
+
 .portfolio-section {
   margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
 }
@@ -316,6 +343,7 @@ footer {
   <button class="tab-btn" data-tab="projects">Projekty <span class="tab-count" id="count-projects">0</span></button>
   <button class="tab-btn" data-tab="clients">Klienti <span class="tab-count" id="count-clients">0</span></button>
   <button class="tab-btn" data-tab="skills">Skilly <span class="tab-count" id="count-skills">0</span></button>
+  <button class="tab-btn" data-tab="nahravky">Nahravky <span class="tab-count" id="count-nahravky">0</span></button>
 </nav>
 
 <main class="shell">
@@ -330,6 +358,9 @@ footer {
   </div>
   <div class="tab-content" id="content-skills">
     <div class="grid" id="grid-skills"></div>
+  </div>
+  <div class="tab-content" id="content-nahravky">
+    <div id="list-nahravky"></div>
   </div>
 </main>
 
@@ -681,6 +712,45 @@ function renderSkills(filter) {
   initSortable('skills');
 }
 
+function renderNahravky(filter) {
+  var list = document.getElementById('list-nahravky');
+  var items = (DATA.nahravky || []).slice();
+  if (filter && filter !== 'all') {
+    items = items.filter(function(n) { return n.klient === filter; });
+  }
+  items.sort(function(a, b) {
+    return (b.datum + (b.cas || '')).localeCompare(a.datum + (a.cas || ''));
+  });
+  list.innerHTML = '';
+  if (!items.length) {
+    list.innerHTML = '<div class="empty-state"><p>Zadne nahravky pro tento filtr.</p></div>';
+    updateCount('nahravky', 0);
+    return;
+  }
+  items.forEach(function(n) {
+    var c = CLIENTS_MAP[n.klient];
+    var clientBadge = c
+      ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>'
+      : '<span class="badge" style="background:#6b7280;color:#fff">Neurceno</span>';
+    var row = document.createElement('div');
+    row.className = 'rec-row';
+    row.innerHTML =
+      '<div class="rec-date">' + esc(n.datum) + '<span class="rec-time">' + esc(n.cas || '') + '</span></div>' +
+      '<div class="rec-body">' +
+        '<h4>' + esc(n.tema) + '</h4>' +
+        '<p>' + esc(n.shrnuti) + '</p>' +
+        '<div class="rec-meta" style="margin-top:8px">' +
+          '<span class="rec-type rec-type-' + esc(n.typ) + '">' + esc(n.typ) + '</span>' +
+          clientBadge +
+          (n.actionItems ? '<span>' + n.actionItems + ' action items</span>' : '') +
+          '<span>' + esc(n.zdroj) + '</span>' +
+        '</div>' +
+      '</div>';
+    list.appendChild(row);
+  });
+  updateCount('nahravky', items.length);
+}
+
 function initSortable(tabName) {
   if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
   var grid = document.getElementById('grid-' + tabName);
@@ -729,6 +799,7 @@ function renderAll() {
   renderProjects(filter);
   renderClients(filter);
   renderSkills(filter);
+  renderNahravky(filter);
 
   var dCount = DATA.dashboards.length;
   var pCount = DATA.projects.length;
