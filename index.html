@@ -891,10 +891,11 @@ document.getElementById('clientFilter').addEventListener('change', function() {
   renderAll();
 });
 
+var CACHE_BUST = '?v=' + Date.now();
 Promise.all([
-  fetch('data.json').then(function(r) { return r.json(); }),
+  fetch('data.json' + CACHE_BUST).then(function(r) { return r.json(); }),
   // nahravky.json je jen lokalni (.gitignore) — na GitHub Pages neexistuje
-  fetch('nahravky.json').then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; })
+  fetch('nahravky.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; })
 ])
   .then(function(results) {
     DATA = results[0];
