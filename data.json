@@ -495,7 +495,7 @@
     {
       "id": "exportio",
       "name": "Exportio",
-      "client": "exportio",
+      "client": null,
       "type": "byznys",
       "status": "active",
       "description": "Interni projekt s Kubou: marketplace servis, reporting nakladovosti, domaci chemie (bomby/soli do koupele), Hunscraft integrace.",
@@ -528,7 +528,7 @@
     {
       "id": "oh-my-beam",
       "name": "Oh My Beam",
-      "client": null,
+      "client": "oh-my-beam",
       "type": "seo",
       "status": "active",
       "description": "SEO tabulky a skripty pro Oh My Beam.",
@@ -701,18 +701,20 @@
       "files": []
     },
     {
-      "id": "exportio",
-      "name": "Exportio",
+      "id": "oh-my-beam",
+      "name": "Oh My Beam",
       "domain": "",
-      "platform": "interni",
+      "platform": "custom",
       "market": "CZ",
       "status": "active",
-      "accentColor": "#8E24AA",
-      "services": ["marketplace servis", "reporting", "produktovy vyvoj"],
-      "projects": ["exportio"],
+      "accentColor": "#F9A825",
+      "services": ["SEO"],
+      "projects": ["oh-my-beam"],
       "dashboards": [],
-      "notes": "Interni projekt s Kubou — marketplace sluzby, domaci chemie, Hunscraft. Vazba na Chlorito (Tomas + Lukas).",
-      "files": []
+      "notes": "SEO spoluprace — hlavni SEO tabulka, skripty.",
+      "files": [
+        { "name": "SEO hlavni tabulka", "type": "seo", "format": "xlsx", "date": "2026-05-01", "size": "—" }
+      ]
     },
     {
       "id": "anidef",
@@ -766,7 +768,7 @@
       "name": "SEO audit Ahrefs + GSC",
       "status": "active",
       "domain": "SEO",
-      "description": "Kompletni SEO audit klienta z Ahrefs Site Auditu + Site Exploreru + GSC, s povinnym zivym overenim kazde nahlasene chyby.",
+      "description": "Kompletni SEO audit s povinnym zivym overenim. v2 moduly: AI viditelnost (Brand Radar), Core Web Vitals, vlastni crawl, SERP featury, strukturovana data, backlink historie, server logy, content gap.",
       "triggers": "site audit, co se zmenilo na webu, prover chyby, 404, health score, propad trafficu",
       "clients": [],
       "path": "~/.claude/skills/seo-audit-ahrefs-gsc/"
@@ -784,12 +786,12 @@
     {
       "id": "klient-status",
       "name": "Klient status",
-      "status": "planned",
+      "status": "active",
       "domain": "workflow",
-      "description": "Pred schuzkou: Gmail + projekt + zapisy → co je rozdelane, dalsi krok na mne / na klientovi.",
-      "triggers": "co mame rozdelane s klientem X, pred schuzkou",
+      "description": "Brief pred schuzkou nebo orientace na projektu: projektovy kontext + zapisy z hovoru (otevrene action items) + Gmail + deliverables → co je rozdelane, na kom je dalsi krok, navrzena temata.",
+      "triggers": "status klienta X, co mame rozdelane s X, za chvili mam schuzku s X, zorientuj me na projektu",
       "clients": [],
-      "path": "—"
+      "path": "~/.claude/skills/klient-status/"
     },
     {
       "id": "shoptet-orders-dashboard",
