@@ -252,6 +252,19 @@ main { padding: 32px; }
 .rec-type-hovor { background: #0284c7; }
 .rec-type-poznamka { background: #7c3aed; }
 .rec-type-schuzka { background: #059669; }
+.rec-checklist { margin-top: 10px; border-top: 1px dashed var(--border); padding-top: 8px; width: 100%; }
+.rec-checklist-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.rec-checklist-head span { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+.rec-copy-btn {
+  font-family: inherit; font-size: 11px; padding: 3px 10px; cursor: pointer;
+  background: var(--accent-dim); color: var(--accent); border: none; font-weight: 600;
+}
+.rec-copy-btn:hover { background: var(--accent); color: #fff; }
+.rec-check-item { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; font-size: 13px; color: var(--text); }
+.rec-check-item input { margin-top: 3px; cursor: pointer; accent-color: var(--accent); }
+.rec-check-item.done label { text-decoration: line-through; color: var(--text-muted); }
+.rec-check-item label { cursor: pointer; flex: 1; }
+.rec-check-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; padding-top: 2px; }
 
 .portfolio-section {
   margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -742,14 +755,55 @@ function renderNahravky(filter) {
         '<div class="rec-meta" style="margin-top:8px">' +
           '<span class="rec-type rec-type-' + esc(n.typ) + '">' + esc(n.typ) + '</span>' +
           clientBadge +
-          (n.actionItems ? '<span>' + n.actionItems + ' action items</span>' : '') +
           '<span>' + esc(n.zdroj) + '</span>' +
         '</div>' +
+        buildChecklist(n) +
       '</div>';
     list.appendChild(row);
   });
   updateCount('nahravky', items.length);
 }
+
+function buildChecklist(n) {
+  if (!n.checklist || !n.checklist.length) return '';
+  var html = '<div class="rec-checklist"><div class="rec-checklist-head">' +
+    '<span>Checklist (' + n.checklist.length + ')</span>' +
+    '<button class="rec-copy-btn" data-rec="' + esc(n.id) + '">Kopirovat</button></div>';
+  n.checklist.forEach(function(item, i) {
+    var key = 'check-' + n.id + '-' + i;
+    var done = ls(key) === true;
+    html += '<div class="rec-check-item' + (done ? ' done' : '') + '">' +
+      '<input type="checkbox" id="' + key + '" data-key="' + key + '"' + (done ? ' checked' : '') + '>' +
+      '<label for="' + key + '">' + esc(item.text) + '</label>' +
+      '<span class="rec-check-kdo">' + esc(item.kdo || '') + '</span>' +
+    '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+document.getElementById('list-nahravky').addEventListener('change', function(e) {
+  if (e.target.type !== 'checkbox') return;
+  var key = e.target.dataset.key;
+  ls(key, e.target.checked);
+  e.target.closest('.rec-check-item').classList.toggle('done', e.target.checked);
+});
+
+document.getElementById('list-nahravky').addEventListener('click', function(e) {
+  var btn = e.target.closest('.rec-copy-btn');
+  if (!btn) return;
+  var rec = (DATA.nahravky || []).find(function(n) { return n.id === btn.dataset.rec; });
+  if (!rec || !rec.checklist) return;
+  var lines = rec.checklist.map(function(item, i) {
+    var done = ls('check-' + rec.id + '-' + i) === true;
+    return '- [' + (done ? 'x' : ' ') + '] ' + item.text + (item.kdo ? ' (' + item.kdo + ')' : '');
+  });
+  var text = rec.tema + ' (' + rec.datum + ')\n' + lines.join('\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Zkopirovano';
+    setTimeout(function() { btn.textContent = 'Kopirovat'; }, 1500);
+  });
+});
 
 function initSortable(tabName) {
   if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
@@ -791,6 +845,15 @@ function populateFilter() {
 
 function renderAll() {
   var filter = document.getElementById('clientFilter').value;
+
+  // Pri aktivnim filtru klienta schovej zalozku Klienti
+  var clientsTabBtn = document.querySelector('.tab-btn[data-tab="clients"]');
+  if (filter && filter !== 'all') {
+    clientsTabBtn.style.display = 'none';
+    if (clientsTabBtn.classList.contains('active')) switchTab('dashboards');
+  } else {
+    clientsTabBtn.style.display = '';
+  }
 
   var oldPortfolio = document.querySelector('.portfolio-section');
   if (oldPortfolio) oldPortfolio.remove();

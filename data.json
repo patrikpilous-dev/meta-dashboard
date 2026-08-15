@@ -480,6 +480,61 @@
       "dashboardCount": 0,
       "keyOutputs": ["React + Supabase app", "7 DB migraci"],
       "lastActivity": "2026-03-01"
+    },
+    {
+      "id": "fabini",
+      "name": "Fabini",
+      "client": "fabini",
+      "type": "seo",
+      "status": "active",
+      "description": "fabini.cz (Shopify, nadobi). Vyprodane produkty a 404, redirecty, technicke SEO.",
+      "dashboardCount": 0,
+      "keyOutputs": ["Reseni 404 a redirectu"],
+      "lastActivity": "2026-08-01"
+    },
+    {
+      "id": "exportio",
+      "name": "Exportio",
+      "client": "exportio",
+      "type": "byznys",
+      "status": "active",
+      "description": "Interni projekt s Kubou: marketplace servis, reporting nakladovosti, domaci chemie (bomby/soli do koupele), Hunscraft integrace.",
+      "dashboardCount": 0,
+      "keyOutputs": ["Marketplace reporting nastroj", "Zapisy z hovoru"],
+      "lastActivity": "2026-08-14"
+    },
+    {
+      "id": "meta-dashboard",
+      "name": "Meta-dashboard",
+      "client": null,
+      "type": "tool",
+      "status": "active",
+      "description": "Tenhle dashboard — centralni hub dashboardu, projektu, klientu, skillu a nahravek. Trvaly server na localhost:8800.",
+      "dashboardCount": 1,
+      "keyOutputs": ["5 tabu", "Login gate", "Pipeline nahravek"],
+      "lastActivity": "2026-08-15"
+    },
+    {
+      "id": "marketing-hub-li",
+      "name": "Marketing Hub LI",
+      "client": null,
+      "type": "tool",
+      "status": "active",
+      "description": "LinkedIn marketing hub — 2x denne automaticky scraping novinek do Notionu + LI drafty (jedina plne automatizovana rutina).",
+      "dashboardCount": 0,
+      "keyOutputs": ["Scheduled scraping 2x denne", "Notion pipeline"],
+      "lastActivity": "2026-08-15"
+    },
+    {
+      "id": "oh-my-beam",
+      "name": "Oh My Beam",
+      "client": null,
+      "type": "seo",
+      "status": "active",
+      "description": "SEO tabulky a skripty pro Oh My Beam.",
+      "dashboardCount": 0,
+      "keyOutputs": ["SEO hlavni tabulka"],
+      "lastActivity": "2026-05-01"
     }
   ],
 
@@ -632,6 +687,34 @@
       "files": []
     },
     {
+      "id": "fabini",
+      "name": "Fabini",
+      "domain": "fabini.cz",
+      "platform": "Shopify",
+      "market": "CZ",
+      "status": "active",
+      "accentColor": "#37474F",
+      "services": ["SEO"],
+      "projects": ["fabini"],
+      "dashboards": [],
+      "notes": "E-shop nadobi. Reseni 404, redirecty, technicke SEO.",
+      "files": []
+    },
+    {
+      "id": "exportio",
+      "name": "Exportio",
+      "domain": "",
+      "platform": "interni",
+      "market": "CZ",
+      "status": "active",
+      "accentColor": "#8E24AA",
+      "services": ["marketplace servis", "reporting", "produktovy vyvoj"],
+      "projects": ["exportio"],
+      "dashboards": [],
+      "notes": "Interni projekt s Kubou — marketplace sluzby, domaci chemie, Hunscraft. Vazba na Chlorito (Tomas + Lukas).",
+      "files": []
+    },
+    {
       "id": "anidef",
       "name": "AniDef",
       "domain": "stavimeutulek.cz",
@@ -677,6 +760,16 @@
       "triggers": "/update-sos, aktualizuj data v dashboardu",
       "clients": ["erikafashion", "prema"],
       "path": "projects/erikafashion-sos/.claude/commands/"
+    },
+    {
+      "id": "seo-audit-ahrefs-gsc",
+      "name": "SEO audit Ahrefs + GSC",
+      "status": "active",
+      "domain": "SEO",
+      "description": "Kompletni SEO audit klienta z Ahrefs Site Auditu + Site Exploreru + GSC, s povinnym zivym overenim kazde nahlasene chyby.",
+      "triggers": "site audit, co se zmenilo na webu, prover chyby, 404, health score, propad trafficu",
+      "clients": [],
+      "path": "~/.claude/skills/seo-audit-ahrefs-gsc/"
     },
     {
       "id": "zpracuj-schuzku",
