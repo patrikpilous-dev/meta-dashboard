@@ -815,6 +815,45 @@
     }
   ],
 
+  "agenti": [
+    {
+      "id": "projektak",
+      "name": "Projekťák",
+      "icon": "📋",
+      "status": "active",
+      "description": "Projektovy manazer — prochazi zapisy z nahravek, sdruzuje ukoly podle kanalu a tematu, dopisuje kontext a vazby. Vystup: zalozka Ukoly.",
+      "spousteni": "Automaticky po zpracovani nahravek, nebo 'aktualizuj ukoly'",
+      "path": "~/.claude/agents/projektak.md"
+    },
+    {
+      "id": "kanibalizace",
+      "name": "Kanibalizace",
+      "icon": "🔀",
+      "status": "active",
+      "description": "Sesbira GSC data klienta a najde dotazy, kde si o pozici konkuruje vic URL tehoz webu. Vraci kompaktni tabulku kandidatu, rozhodnuti nechava na hlavni session.",
+      "spousteni": "Z hlavni session pri overovani kanibalizace",
+      "path": "~/.claude/agents/kanibalizace.md"
+    },
+    {
+      "id": "rohlik-objednavka",
+      "name": "Rohlík objednávka",
+      "icon": "🛒",
+      "status": "active",
+      "description": "Sestavi nakupni kosik na rohlik.cz podle preferenci (3-5 receptu, akce, zdrave + cokolada). Nakup nedokoncuje.",
+      "spousteni": "'objednej rohlik', 'napln kosik'",
+      "path": "~/.claude/agents/rohlik-objednavka.md"
+    },
+    {
+      "id": "claude-code-guide",
+      "name": "Claude Code Guide",
+      "icon": "📖",
+      "status": "active",
+      "description": "Odpovida na otazky o Claude Code, Agent SDK a Claude API — features, hooks, MCP, nastaveni.",
+      "spousteni": "Otazky typu 'umi Claude...', 'jak nastavit...'",
+      "path": "vestaveny"
+    }
+  ],
+
   "portfolioSites": [
     { "id": "zijuspesne", "name": "zijuspesne.cz", "url": "https://zijuspesne.cz", "status": "active" },
     { "id": "moony", "name": "moony.cz", "url": "https://moony.cz", "status": "active" },
