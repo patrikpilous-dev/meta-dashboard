@@ -272,30 +272,53 @@ main { padding: 32px; }
 .rec-check-item:hover .rec-copy-row { opacity: 0.7; }
 .rec-copy-row:hover { opacity: 1 !important; color: var(--accent); }
 
-.uk-kanal { margin-bottom: 28px; }
+.uk-tagbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.uk-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer;
+  background: var(--card); border: 1px solid var(--border); color: var(--text-sec);
+  transition: all .15s; user-select: none;
+}
+.uk-tag:hover { border-color: var(--accent); color: var(--accent); }
+.uk-tag.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.uk-tag .uk-tag-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.uk-tag .uk-tag-count { font-size: 10px; opacity: 0.7; }
+.uk-kontext-panel {
+  background: var(--accent-dim); border-left: 3px solid var(--accent);
+  padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: var(--text);
+}
+.uk-kontext-panel .uk-souvisi-pill {
+  display: inline-block; font-size: 10px; padding: 2px 8px; margin: 6px 4px 0 0;
+  background: var(--card); color: var(--accent); font-weight: 600; cursor: pointer;
+  border: 1px solid var(--accent);
+}
+.uk-kanal { margin-bottom: 24px; }
 .uk-kanal-head {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
   padding-bottom: 6px; border-bottom: 2px solid var(--border);
 }
 .uk-kanal-head h3 { font-size: 16px; font-weight: 700; }
-.uk-temata { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 14px; }
-.uk-tema {
+.uk-row {
+  display: flex; align-items: center; gap: 10px;
   background: var(--card); border: 1px solid var(--border);
-  padding: 16px 18px; box-shadow: var(--shadow);
+  padding: 9px 14px; margin-bottom: 6px; box-shadow: var(--shadow);
+  font-size: 13px; transition: opacity .15s;
 }
-.uk-tema h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-.uk-kontext { font-size: 12px; color: var(--text-sec); margin-bottom: 8px; line-height: 1.5; }
-.uk-souvisi { margin-bottom: 8px; }
-.uk-souvisi-pill {
-  display: inline-block; font-size: 10px; padding: 2px 8px; margin: 1px 2px 1px 0;
-  background: var(--accent-dim); color: var(--accent); font-weight: 600; cursor: default;
+.uk-row.done { opacity: 0.55; }
+.uk-row.done .uk-text { text-decoration: line-through; color: var(--text-muted); }
+.uk-row .uk-tag-mini {
+  font-size: 10px; font-weight: 600; padding: 2px 8px; cursor: pointer;
+  color: #fff; white-space: nowrap;
 }
-.uk-item { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; font-size: 13px; }
-.uk-item input { margin-top: 3px; cursor: pointer; accent-color: var(--accent); }
-.uk-item.done label { text-decoration: line-through; color: var(--text-muted); }
-.uk-item label { cursor: pointer; flex: 1; }
-.uk-item .uk-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; padding-top: 2px; }
-.uk-meta { font-size: 10px; color: var(--text-muted); margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 6px; }
+.uk-row .uk-text { flex: 1; }
+.uk-row .uk-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
+.uk-done-btn {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border);
+  background: none; color: transparent; cursor: pointer; font-size: 13px; line-height: 1;
+  flex-shrink: 0; transition: all .15s; padding: 0;
+}
+.uk-done-btn:hover { border-color: #22c55e; color: #22c55e; }
+.uk-row.done .uk-done-btn { background: #22c55e; border-color: #22c55e; color: #fff; }
 
 .portfolio-section {
   margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -859,6 +882,8 @@ document.getElementById('list-nahravky').addEventListener('click', function(e) {
   });
 });
 
+var TEMA_COLORS = ['#0284c7', '#7c3aed', '#059669', '#d97706', '#dc2626', '#0891b2', '#be185d', '#4d7c0f', '#7e22ce', '#b45309', '#155e75'];
+
 function renderUkoly(filter) {
   var list = document.getElementById('list-ukoly');
   var kanaly = (DATA.ukoly && DATA.ukoly.kanaly) ? DATA.ukoly.kanaly.slice() : [];
@@ -866,59 +891,107 @@ function renderUkoly(filter) {
     kanaly = kanaly.filter(function(k) { return k.id === filter; });
   }
   list.innerHTML = '';
-  var total = 0;
   if (!kanaly.length) {
     list.innerHTML = '<div class="empty-state"><p>Zadne ukoly. Spust Projektaka ("aktualizuj ukoly").</p></div>';
     updateCount('ukoly', 0);
     return;
   }
+
+  var activeTag = ls('ukoly-tag') || null;
+
+  // Sestav temata (stitky) + ploché ukoly
+  var temataAll = [];
+  var temaColor = {};
+  var ci = 0;
   kanaly.forEach(function(k) {
-    var c = CLIENTS_MAP[k.id];
-    var sec = document.createElement('div');
-    sec.className = 'uk-kanal';
-    var badge = c
-      ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>'
-      : '';
-    var html = '<div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div><div class="uk-temata">';
     (k.temata || []).forEach(function(t) {
-      var souvisiHtml = '';
-      if (t.souvisi && t.souvisi.length) {
-        souvisiHtml = '<div class="uk-souvisi">' + t.souvisi.map(function(s) {
-          return '<span class="uk-souvisi-pill" title="Souvisejici tema">&#8646; ' + esc(s) + '</span>';
-        }).join('') + '</div>';
-      }
-      var ukolyHtml = '';
-      var zdroje = {};
+      var tagId = k.id + '/' + t.id;
+      temaColor[tagId] = TEMA_COLORS[ci % TEMA_COLORS.length]; ci++;
+      var open = 0;
       (t.ukoly || []).forEach(function(u, i) {
-        total++;
-        var key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
-        var done = ls(key) === true;
-        ukolyHtml += '<div class="uk-item' + (done ? ' done' : '') + '">' +
-          '<input type="checkbox" id="uk-' + key + '" data-key="' + key + '"' + (done ? ' checked' : '') + '>' +
-          '<label for="uk-' + key + '" title="' + esc(u.zdroj || '') + '">' + esc(u.text) + '</label>' +
-          '<span class="uk-kdo">' + esc(u.kdo || '') + '</span>' +
-        '</div>';
-        if (u.zdroj) zdroje[u.zdroj.split('/').pop() + ' (' + (u.datum || '') + ')'] = 1;
+        u._key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
+        if (ls(u._key) !== true) open++;
       });
-      html += '<div class="uk-tema"><h4>' + esc(t.nazev) + '</h4>' +
-        '<p class="uk-kontext">' + esc(t.kontext || '') + '</p>' +
-        souvisiHtml + ukolyHtml +
-        '<div class="uk-meta">Zdroje: ' + esc(Object.keys(zdroje).join(' · ')) + '</div>' +
+      temataAll.push({tagId: tagId, nazev: t.nazev, open: open, tema: t, kanal: k});
+    });
+  });
+  if (activeTag && !temataAll.some(function(t){ return t.tagId === activeTag; })) activeTag = null;
+
+  // Tag bar
+  var bar = '<div class="uk-tagbar">' +
+    '<span class="uk-tag' + (!activeTag ? ' active' : '') + '" data-tag="">Vse</span>' +
+    temataAll.map(function(t) {
+      return '<span class="uk-tag' + (activeTag === t.tagId ? ' active' : '') + '" data-tag="' + esc(t.tagId) + '">' +
+        '<span class="uk-tag-dot" style="background:' + temaColor[t.tagId] + '"></span>' +
+        esc(t.nazev) + ' <span class="uk-tag-count">' + t.open + '</span></span>';
+    }).join('') + '</div>';
+
+  // Kontext panel pro aktivni stitek
+  var panel = '';
+  if (activeTag) {
+    var at = temataAll.find(function(t){ return t.tagId === activeTag; });
+    if (at) {
+      var souvisi = (at.tema.souvisi || []).map(function(s) {
+        return '<span class="uk-souvisi-pill" data-tag="' + esc(s) + '">&#8646; ' + esc(s) + '</span>';
+      }).join('');
+      panel = '<div class="uk-kontext-panel"><strong>' + esc(at.nazev) + '</strong> — ' + esc(at.tema.kontext || '') +
+        (souvisi ? '<div>' + souvisi + '</div>' : '') + '</div>';
+    }
+  }
+
+  var html = bar + panel;
+  var openTotal = 0;
+
+  kanaly.forEach(function(k) {
+    var rows = [];
+    (k.temata || []).forEach(function(t) {
+      var tagId = k.id + '/' + t.id;
+      if (activeTag && tagId !== activeTag) return;
+      (t.ukoly || []).forEach(function(u) {
+        rows.push({u: u, tagId: tagId, temaNazev: t.nazev, done: ls(u._key) === true});
+      });
+    });
+    if (!rows.length) return;
+    // hotove ukoly na konec
+    rows.sort(function(a, b) { return (a.done === b.done) ? 0 : (a.done ? 1 : -1); });
+    openTotal += rows.filter(function(r){ return !r.done; }).length;
+
+    var c = CLIENTS_MAP[k.id];
+    var badge = c ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>' : '';
+    html += '<div class="uk-kanal"><div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div>';
+    rows.forEach(function(r) {
+      html += '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
+        '<span class="uk-tag-mini" style="background:' + temaColor[r.tagId] + '" data-tag="' + esc(r.tagId) + '" title="Filtrovat tema">' + esc(r.temaNazev) + '</span>' +
+        '<span class="uk-text" title="' + esc((r.u.zdroj || '') + ' · ' + (r.u.datum || '')) + '">' + esc(r.u.text) + '</span>' +
+        '<span class="uk-kdo">' + esc(r.u.kdo || '') + '</span>' +
+        '<button class="uk-done-btn" data-key="' + esc(r.u._key) + '" title="' + (r.done ? 'Vratit mezi otevrene' : 'Dokoncit') + '">&#10003;</button>' +
       '</div>';
     });
     html += '</div>';
-    sec.innerHTML = html;
-    list.appendChild(sec);
   });
-  updateCount('ukoly', total);
+
+  list.innerHTML = html;
+  updateCount('ukoly', openTotal);
 }
 
-document.getElementById('list-ukoly').addEventListener('change', function(e) {
-  if (e.target.type !== 'checkbox') return;
-  var key = e.target.dataset.key;
-  ls(key, e.target.checked);
-  e.target.closest('.uk-item').classList.toggle('done', e.target.checked);
-  renderNahravky(document.getElementById('clientFilter').value);
+document.getElementById('list-ukoly').addEventListener('click', function(e) {
+  // Dokonceni ukolu (zelena fajfka)
+  var btn = e.target.closest('.uk-done-btn');
+  if (btn) {
+    var key = btn.dataset.key;
+    ls(key, !(ls(key) === true));
+    var f = document.getElementById('clientFilter').value;
+    renderUkoly(f);
+    renderNahravky(f);
+    return;
+  }
+  // Kliknuti na stitek (tag bar, mini tag u ukolu, souvisi pill)
+  var tagEl = e.target.closest('[data-tag]');
+  if (tagEl) {
+    var tag = tagEl.dataset.tag || null;
+    ls('ukoly-tag', tag);
+    renderUkoly(document.getElementById('clientFilter').value);
+  }
 });
 
 function renderAgenti() {
