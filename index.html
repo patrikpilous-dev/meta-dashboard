@@ -272,6 +272,31 @@ main { padding: 32px; }
 .rec-check-item:hover .rec-copy-row { opacity: 0.7; }
 .rec-copy-row:hover { opacity: 1 !important; color: var(--accent); }
 
+.uk-kanal { margin-bottom: 28px; }
+.uk-kanal-head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  padding-bottom: 6px; border-bottom: 2px solid var(--border);
+}
+.uk-kanal-head h3 { font-size: 16px; font-weight: 700; }
+.uk-temata { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 14px; }
+.uk-tema {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 16px 18px; box-shadow: var(--shadow);
+}
+.uk-tema h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.uk-kontext { font-size: 12px; color: var(--text-sec); margin-bottom: 8px; line-height: 1.5; }
+.uk-souvisi { margin-bottom: 8px; }
+.uk-souvisi-pill {
+  display: inline-block; font-size: 10px; padding: 2px 8px; margin: 1px 2px 1px 0;
+  background: var(--accent-dim); color: var(--accent); font-weight: 600; cursor: default;
+}
+.uk-item { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; font-size: 13px; }
+.uk-item input { margin-top: 3px; cursor: pointer; accent-color: var(--accent); }
+.uk-item.done label { text-decoration: line-through; color: var(--text-muted); }
+.uk-item label { cursor: pointer; flex: 1; }
+.uk-item .uk-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; padding-top: 2px; }
+.uk-meta { font-size: 10px; color: var(--text-muted); margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 6px; }
+
 .portfolio-section {
   margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
 }
@@ -382,6 +407,12 @@ footer {
   </div>
   <div class="tab-content" id="content-nahravky">
     <div id="list-nahravky"></div>
+  </div>
+  <div class="tab-content" id="content-ukoly">
+    <div id="list-ukoly"></div>
+  </div>
+  <div class="tab-content" id="content-agenti">
+    <div class="grid" id="grid-agenti"></div>
   </div>
 </main>
 
@@ -828,6 +859,90 @@ document.getElementById('list-nahravky').addEventListener('click', function(e) {
   });
 });
 
+function renderUkoly(filter) {
+  var list = document.getElementById('list-ukoly');
+  var kanaly = (DATA.ukoly && DATA.ukoly.kanaly) ? DATA.ukoly.kanaly.slice() : [];
+  if (filter && filter !== 'all') {
+    kanaly = kanaly.filter(function(k) { return k.id === filter; });
+  }
+  list.innerHTML = '';
+  var total = 0;
+  if (!kanaly.length) {
+    list.innerHTML = '<div class="empty-state"><p>Zadne ukoly. Spust Projektaka ("aktualizuj ukoly").</p></div>';
+    updateCount('ukoly', 0);
+    return;
+  }
+  kanaly.forEach(function(k) {
+    var c = CLIENTS_MAP[k.id];
+    var sec = document.createElement('div');
+    sec.className = 'uk-kanal';
+    var badge = c
+      ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>'
+      : '';
+    var html = '<div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div><div class="uk-temata">';
+    (k.temata || []).forEach(function(t) {
+      var souvisiHtml = '';
+      if (t.souvisi && t.souvisi.length) {
+        souvisiHtml = '<div class="uk-souvisi">' + t.souvisi.map(function(s) {
+          return '<span class="uk-souvisi-pill" title="Souvisejici tema">&#8646; ' + esc(s) + '</span>';
+        }).join('') + '</div>';
+      }
+      var ukolyHtml = '';
+      var zdroje = {};
+      (t.ukoly || []).forEach(function(u, i) {
+        total++;
+        var key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
+        var done = ls(key) === true;
+        ukolyHtml += '<div class="uk-item' + (done ? ' done' : '') + '">' +
+          '<input type="checkbox" id="uk-' + key + '" data-key="' + key + '"' + (done ? ' checked' : '') + '>' +
+          '<label for="uk-' + key + '" title="' + esc(u.zdroj || '') + '">' + esc(u.text) + '</label>' +
+          '<span class="uk-kdo">' + esc(u.kdo || '') + '</span>' +
+        '</div>';
+        if (u.zdroj) zdroje[u.zdroj.split('/').pop() + ' (' + (u.datum || '') + ')'] = 1;
+      });
+      html += '<div class="uk-tema"><h4>' + esc(t.nazev) + '</h4>' +
+        '<p class="uk-kontext">' + esc(t.kontext || '') + '</p>' +
+        souvisiHtml + ukolyHtml +
+        '<div class="uk-meta">Zdroje: ' + esc(Object.keys(zdroje).join(' · ')) + '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+    sec.innerHTML = html;
+    list.appendChild(sec);
+  });
+  updateCount('ukoly', total);
+}
+
+document.getElementById('list-ukoly').addEventListener('change', function(e) {
+  if (e.target.type !== 'checkbox') return;
+  var key = e.target.dataset.key;
+  ls(key, e.target.checked);
+  e.target.closest('.uk-item').classList.toggle('done', e.target.checked);
+  renderNahravky(document.getElementById('clientFilter').value);
+});
+
+function renderAgenti() {
+  var grid = document.getElementById('grid-agenti');
+  var items = DATA.agenti || [];
+  grid.innerHTML = '';
+  items.forEach(function(a) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = a.id;
+    card.innerHTML =
+      '<div class="card-icon">' + a.icon + '</div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between">' +
+        '<h3>' + esc(a.name) + '</h3>' +
+        '<span style="font-size:12px"><span class="status-dot ' + statusClass(a.status) + '"></span>' + statusLabel(a.status) + '</span>' +
+      '</div>' +
+      '<p class="card-desc" style="-webkit-line-clamp:3">' + esc(a.description) + '</p>' +
+      '<div style="font-size:11px;color:var(--text-muted)"><strong>Spousteni:</strong> ' + esc(a.spousteni) + '</div>' +
+      '<div class="card-meta"><span>' + esc(a.path) + '</span></div>';
+    grid.appendChild(card);
+  });
+  updateCount('agenti', items.length);
+}
+
 function initSortable(tabName) {
   if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
   var grid = document.getElementById('grid-' + tabName);
@@ -886,6 +1001,8 @@ function renderAll() {
   renderClients(filter);
   renderSkills(filter);
   renderNahravky(filter);
+  renderUkoly(filter);
+  renderAgenti();
 
   var dCount = DATA.dashboards.length;
   var pCount = DATA.projects.length;
@@ -917,12 +1034,14 @@ document.getElementById('clientFilter').addEventListener('change', function() {
 var CACHE_BUST = '?v=' + Date.now();
 Promise.all([
   fetch('data.json' + CACHE_BUST).then(function(r) { return r.json(); }),
-  // nahravky.json je jen lokalni (.gitignore) — na GitHub Pages neexistuje
-  fetch('nahravky.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; })
+  // nahravky.json a ukoly.json jsou jen lokalni (.gitignore) — na GitHub Pages neexistuji
+  fetch('nahravky.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; }),
+  fetch('ukoly.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; })
 ])
   .then(function(results) {
     DATA = results[0];
     DATA.nahravky = results[1].nahravky || [];
+    DATA.ukoly = results[2];
     DATA.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
     populateFilter();
     var savedTab = ls('active-tab') || 'dashboards';
