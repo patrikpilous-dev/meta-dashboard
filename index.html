@@ -886,7 +886,8 @@ var TEMA_COLORS = ['#0284c7', '#7c3aed', '#059669', '#d97706', '#dc2626', '#0891
 
 function renderUkoly(filter) {
   var list = document.getElementById('list-ukoly');
-  var kanaly = (DATA.ukoly && DATA.ukoly.kanaly) ? DATA.ukoly.kanaly.slice() : [];
+  var U = DATA.ukoly;
+  var kanaly = (U && U.kanaly) ? U.kanaly.slice() : [];
   if (filter && filter !== 'all') {
     kanaly = kanaly.filter(function(k) { return k.id === filter; });
   }
@@ -899,69 +900,89 @@ function renderUkoly(filter) {
 
   var activeTag = ls('ukoly-tag') || null;
 
-  // Sestav temata (stitky) + ploché ukoly
-  var temataAll = [];
-  var temaColor = {};
+  // Definice stitku (v2: globalni pole; fallback v1: temata v kanalech)
+  var stitkyDef = {};
+  var stitkyPoradi = [];
   var ci = 0;
+  function regStitek(id, nazev, kontext, souvisi) {
+    if (stitkyDef[id]) return;
+    stitkyDef[id] = {nazev: nazev, kontext: kontext || '', souvisi: souvisi || [], barva: TEMA_COLORS[ci % TEMA_COLORS.length], open: 0};
+    stitkyPoradi.push(id); ci++;
+  }
+  (U.stitky || []).forEach(function(s) { regStitek(s.id, s.nazev, s.kontext, s.souvisi); });
+
+  // Ploché ukoly per kanal (v2: kanal.ukoly se stitky[]; v1 fallback: kanal.temata)
+  var kanalRows = [];
   kanaly.forEach(function(k) {
-    (k.temata || []).forEach(function(t) {
-      var tagId = k.id + '/' + t.id;
-      temaColor[tagId] = TEMA_COLORS[ci % TEMA_COLORS.length]; ci++;
-      var open = 0;
-      (t.ukoly || []).forEach(function(u, i) {
-        u._key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
-        if (ls(u._key) !== true) open++;
+    var rows = [];
+    if (k.ukoly) {
+      k.ukoly.forEach(function(u, i) {
+        u._key = u.checkKey || ('ukol-' + k.id + '-' + i);
+        var tags = (u.stitky && u.stitky.length) ? u.stitky.slice(0, 3) : ['ostatni'];
+        tags.forEach(function(t) { regStitek(t, t, '', []); });
+        rows.push({u: u, tags: tags, done: ls(u._key) === true});
       });
-      temataAll.push({tagId: tagId, nazev: t.nazev, open: open, tema: t, kanal: k});
+    } else {
+      (k.temata || []).forEach(function(t) {
+        regStitek(t.id, t.nazev, t.kontext, t.souvisi);
+        (t.ukoly || []).forEach(function(u, i) {
+          u._key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
+          rows.push({u: u, tags: [t.id], done: ls(u._key) === true});
+        });
+      });
+    }
+    rows.forEach(function(r) {
+      if (!r.done) r.tags.forEach(function(t) { if (stitkyDef[t]) stitkyDef[t].open++; });
     });
+    kanalRows.push({kanal: k, rows: rows});
   });
-  if (activeTag && !temataAll.some(function(t){ return t.tagId === activeTag; })) activeTag = null;
+  if (activeTag && !stitkyDef[activeTag]) activeTag = null;
 
   // Tag bar
   var bar = '<div class="uk-tagbar">' +
     '<span class="uk-tag' + (!activeTag ? ' active' : '') + '" data-tag="">Vse</span>' +
-    temataAll.map(function(t) {
-      return '<span class="uk-tag' + (activeTag === t.tagId ? ' active' : '') + '" data-tag="' + esc(t.tagId) + '">' +
-        '<span class="uk-tag-dot" style="background:' + temaColor[t.tagId] + '"></span>' +
-        esc(t.nazev) + ' <span class="uk-tag-count">' + t.open + '</span></span>';
+    stitkyPoradi.map(function(id) {
+      var s = stitkyDef[id];
+      return '<span class="uk-tag' + (activeTag === id ? ' active' : '') + '" data-tag="' + esc(id) + '">' +
+        '<span class="uk-tag-dot" style="background:' + s.barva + '"></span>' +
+        esc(s.nazev) + ' <span class="uk-tag-count">' + s.open + '</span></span>';
     }).join('') + '</div>';
 
   // Kontext panel pro aktivni stitek
   var panel = '';
   if (activeTag) {
-    var at = temataAll.find(function(t){ return t.tagId === activeTag; });
-    if (at) {
-      var souvisi = (at.tema.souvisi || []).map(function(s) {
-        return '<span class="uk-souvisi-pill" data-tag="' + esc(s) + '">&#8646; ' + esc(s) + '</span>';
-      }).join('');
-      panel = '<div class="uk-kontext-panel"><strong>' + esc(at.nazev) + '</strong> — ' + esc(at.tema.kontext || '') +
-        (souvisi ? '<div>' + souvisi + '</div>' : '') + '</div>';
-    }
+    var at = stitkyDef[activeTag];
+    var souvisi = (at.souvisi || []).map(function(s) {
+      var sn = stitkyDef[s] ? stitkyDef[s].nazev : s;
+      return '<span class="uk-souvisi-pill" data-tag="' + esc(s) + '">&#8646; ' + esc(sn) + '</span>';
+    }).join('');
+    panel = '<div class="uk-kontext-panel"><strong>' + esc(at.nazev) + '</strong>' +
+      (at.kontext ? ' — ' + esc(at.kontext) : '') +
+      (souvisi ? '<div>' + souvisi + '</div>' : '') + '</div>';
   }
 
   var html = bar + panel;
   var openTotal = 0;
 
-  kanaly.forEach(function(k) {
-    var rows = [];
-    (k.temata || []).forEach(function(t) {
-      var tagId = k.id + '/' + t.id;
-      if (activeTag && tagId !== activeTag) return;
-      (t.ukoly || []).forEach(function(u) {
-        rows.push({u: u, tagId: tagId, temaNazev: t.nazev, done: ls(u._key) === true});
-      });
+  kanalRows.forEach(function(kr) {
+    var rows = kr.rows.filter(function(r) {
+      return !activeTag || r.tags.indexOf(activeTag) !== -1;
     });
     if (!rows.length) return;
-    // hotove ukoly na konec
     rows.sort(function(a, b) { return (a.done === b.done) ? 0 : (a.done ? 1 : -1); });
     openTotal += rows.filter(function(r){ return !r.done; }).length;
 
+    var k = kr.kanal;
     var c = CLIENTS_MAP[k.id];
     var badge = c ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>' : '';
     html += '<div class="uk-kanal"><div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div>';
     rows.forEach(function(r) {
+      var tagsHtml = r.tags.map(function(t) {
+        var s = stitkyDef[t];
+        return '<span class="uk-tag-mini" style="background:' + s.barva + '" data-tag="' + esc(t) + '" title="Filtrovat stitek">' + esc(s.nazev) + '</span>';
+      }).join('');
       html += '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
-        '<span class="uk-tag-mini" style="background:' + temaColor[r.tagId] + '" data-tag="' + esc(r.tagId) + '" title="Filtrovat tema">' + esc(r.temaNazev) + '</span>' +
+        tagsHtml +
         '<span class="uk-text" title="' + esc((r.u.zdroj || '') + ' · ' + (r.u.datum || '')) + '">' + esc(r.u.text) + '</span>' +
         '<span class="uk-kdo">' + esc(r.u.kdo || '') + '</span>' +
         '<button class="uk-done-btn" data-key="' + esc(r.u._key) + '" title="' + (r.done ? 'Vratit mezi otevrene' : 'Dokoncit') + '">&#10003;</button>' +

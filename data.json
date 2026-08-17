@@ -494,11 +494,11 @@
     },
     {
       "id": "exportio",
-      "name": "Exportio",
-      "client": null,
+      "name": "Exportio (spoluprace Kuba)",
+      "client": "chlorito",
       "type": "byznys",
       "status": "active",
-      "description": "Interni projekt s Kubou: marketplace servis, reporting nakladovosti, domaci chemie (bomby/soli do koupele), Hunscraft integrace.",
+      "description": "Spoluprace s Kubou na projektu Chlorito: marketplace servis, reporting nakladovosti, domaci chemie (bomby/soli do koupele), Hunscraft integrace.",
       "dashboardCount": 0,
       "keyOutputs": ["Marketplace reporting nastroj", "Zapisy z hovoru"],
       "lastActivity": "2026-08-14"
