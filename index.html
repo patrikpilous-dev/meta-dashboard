@@ -685,6 +685,14 @@ function renderClients(filter) {
     card.dataset.client = c.id;
     card.addEventListener('click', function(e) {
       if (e.target.closest('.drag-handle') || e.target.closest('.quick-link') || e.target.closest('.file-dl')) return;
+      var sb = e.target.closest('.client-status-btn');
+      if (sb) {
+        navigator.clipboard.writeText('status klienta ' + c.id).then(function() {
+          sb.textContent = 'Zkopirovano — vloz do Claude Code';
+          setTimeout(function() { sb.textContent = 'Status brief'; }, 2500);
+        });
+        return;
+      }
       document.getElementById('clientFilter').value = c.id;
       ls('filter-client', c.id);
       switchTab('dashboards');
@@ -747,6 +755,7 @@ function renderClients(filter) {
         '<div class="kpi-box"><div class="kpi-val">' + projCount + '</div><div class="kpi-label">Projekty</div></div>' +
         '<div class="kpi-box"><div class="kpi-val">' + dashCount + '</div><div class="kpi-label">Dashboardy</div></div>' +
       '</div>' +
+      '<button class="client-status-btn rec-copy-btn" style="align-self:flex-start" title="Zkopiruje prikaz pro Claude Code — vygeneruje brief pred schuzkou">Status brief</button>' +
       (c.notes ? '<p style="font-size:12px;color:var(--text-sec)">' + esc(c.notes) + '</p>' : '') +
       quickLinksHtml +
       filesHtml;
