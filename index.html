@@ -718,6 +718,68 @@ function renderClients(filter) {
       quickLinksHtml += '</div>';
     }
 
+    var aiHtml = '';
+    if (c.aiVisibility && c.aiVisibility.platformy) {
+      var av = c.aiVisibility;
+      var PLAT = [
+        ['google_ai_mode', 'AI Mode'],
+        ['google_ai_overviews', 'AI Overviews'],
+        ['perplexity', 'Perplexity'],
+        ['copilot', 'Copilot'],
+        ['chatgpt', 'ChatGPT'],
+        ['grok', 'Grok'],
+        ['gemini', 'Gemini']
+      ];
+      var maxv = 0;
+      PLAT.forEach(function(p) { var v = av.platformy[p[0]] || 0; if (v > maxv) maxv = v; });
+      var barsHtml = '';
+      PLAT.forEach(function(p) {
+        var v = av.platformy[p[0]] || 0;
+        var w = maxv ? Math.round(v / maxv * 100) : 0;
+        barsHtml +=
+          '<div style="display:flex;align-items:center;gap:8px;font-size:11px;line-height:1.6">' +
+            '<span style="width:88px;color:var(--text-muted);flex:none">' + p[1] + '</span>' +
+            '<span style="flex:1;height:6px;background:rgba(127,127,127,.18);border-radius:3px;overflow:hidden">' +
+              '<span style="display:block;height:100%;width:' + w + '%;background:' + c.accentColor + '"></span>' +
+            '</span>' +
+            '<span style="width:44px;text-align:right;color:var(--text-sec);flex:none">' + v + '</span>' +
+          '</div>';
+      });
+
+      var googlePodil = av.celkem
+        ? Math.round(((av.platformy.google_ai_overviews || 0) + (av.platformy.google_ai_mode || 0)) / av.celkem * 100)
+        : 0;
+
+      var konkHtml = '';
+      if (av.konkurence && av.konkurence.length) {
+        konkHtml = '<div style="margin-top:8px;font-size:11px;color:var(--text-muted)">Konkurence: ';
+        konkHtml += av.konkurence.map(function(k) {
+          var label = '';
+          if (k.total) {
+            var r = av.celkem / k.total;
+            label = r >= 1
+              ? ' (' + r.toFixed(1).replace('.', ',') + '× víc)'
+              : ' (' + Math.round(r * 100) + ' %)';
+          }
+          return esc(k.domain) + ' ' + k.total.toLocaleString('cs-CZ') + label;
+        }).join(' &middot; ');
+        konkHtml += '</div>';
+      }
+
+      aiHtml =
+        '<div class="files-section">' +
+          '<h4>AI viditelnost</h4>' +
+          '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">' +
+            '<span style="font-size:22px;font-weight:600">' + av.celkem.toLocaleString('cs-CZ') + '</span>' +
+            '<span style="font-size:11px;color:var(--text-muted)">citací &middot; Google ' + googlePodil + ' % &middot; ' + esc(av.datum) + '</span>' +
+          '</div>' +
+          barsHtml +
+          konkHtml +
+          (av.poznamka ? '<p style="font-size:11px;color:var(--text-sec);margin-top:8px">' + esc(av.poznamka) + '</p>' : '') +
+          '<p style="font-size:10px;color:var(--text-muted);margin-top:4px">' + esc(av.zdroj) + ' &middot; ' + esc(av.merenaDomena) + '</p>' +
+        '</div>';
+    }
+
     var filesHtml = '';
     if (c.files && c.files.length) {
       filesHtml = '<div class="files-section"><h4>Soubory</h4>';
@@ -758,6 +820,7 @@ function renderClients(filter) {
       '<button class="client-status-btn rec-copy-btn" style="align-self:flex-start" title="Zkopiruje prikaz pro Claude Code — vygeneruje brief pred schuzkou">Status brief</button>' +
       (c.notes ? '<p style="font-size:12px;color:var(--text-sec)">' + esc(c.notes) + '</p>' : '') +
       quickLinksHtml +
+      aiHtml +
       filesHtml;
 
     grid.appendChild(card);

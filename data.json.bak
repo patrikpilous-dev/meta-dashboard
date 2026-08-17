@@ -1,5 +1,6 @@
 {
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-06-10",
+
   "dashboards": [
     {
       "id": "osobni",
@@ -11,11 +12,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-05-17",
       "status": "active",
-      "tags": [
-        "personal",
-        "finance",
-        "health"
-      ]
+      "tags": ["personal", "finance", "health"]
     },
     {
       "id": "ef-orders",
@@ -27,11 +24,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
-      "tags": [
-        "orders",
-        "weather",
-        "geo"
-      ]
+      "tags": ["orders", "weather", "geo"]
     },
     {
       "id": "ef-vratky",
@@ -43,10 +36,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
-      "tags": [
-        "returns",
-        "heatmap"
-      ]
+      "tags": ["returns", "heatmap"]
     },
     {
       "id": "ef-produkty-a",
@@ -58,10 +48,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
-      "tags": [
-        "inventory",
-        "products"
-      ]
+      "tags": ["inventory", "products"]
     },
     {
       "id": "ef-produkty-b",
@@ -73,10 +60,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-04",
       "status": "active",
-      "tags": [
-        "categories",
-        "trends"
-      ]
+      "tags": ["categories", "trends"]
     },
     {
       "id": "ef-sos",
@@ -88,10 +72,7 @@
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-05-01",
       "status": "active",
-      "tags": [
-        "sos",
-        "competitive"
-      ]
+      "tags": ["sos", "competitive"]
     },
     {
       "id": "ef-filtry",
@@ -103,10 +84,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "filters",
-        "seo"
-      ]
+      "tags": ["filters", "seo"]
     },
     {
       "id": "ef-plavky",
@@ -118,10 +96,7 @@
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-03-01",
       "status": "active",
-      "tags": [
-        "trends",
-        "keywords"
-      ]
+      "tags": ["trends", "keywords"]
     },
     {
       "id": "ef-home",
@@ -133,10 +108,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "inventory",
-        "forecast"
-      ]
+      "tags": ["inventory", "forecast"]
     },
     {
       "id": "pr-orders",
@@ -148,10 +120,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "orders",
-        "weather"
-      ]
+      "tags": ["orders", "weather"]
     },
     {
       "id": "pr-storna",
@@ -163,9 +132,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "cancellations"
-      ]
+      "tags": ["cancellations"]
     },
     {
       "id": "pr-b2b",
@@ -177,10 +144,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "b2b",
-        "comparison"
-      ]
+      "tags": ["b2b", "comparison"]
     },
     {
       "id": "pr-produkty",
@@ -192,10 +156,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "products",
-        "pareto"
-      ]
+      "tags": ["products", "pareto"]
     },
     {
       "id": "pr-kategorie",
@@ -207,9 +168,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "categories"
-      ]
+      "tags": ["categories"]
     },
     {
       "id": "pr-geografie",
@@ -221,10 +180,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-05-11",
       "status": "active",
-      "tags": [
-        "geography",
-        "map"
-      ]
+      "tags": ["geography", "map"]
     },
     {
       "id": "pr-content-gap",
@@ -236,10 +192,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "content",
-        "keywords"
-      ]
+      "tags": ["content", "keywords"]
     },
     {
       "id": "pr-sos",
@@ -251,10 +204,7 @@
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "sos",
-        "competitive"
-      ]
+      "tags": ["sos", "competitive"]
     },
     {
       "id": "pr-filtry",
@@ -266,10 +216,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "filters",
-        "seo"
-      ]
+      "tags": ["filters", "seo"]
     },
     {
       "id": "ch-main",
@@ -281,11 +228,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "orders",
-        "weather",
-        "main"
-      ]
+      "tags": ["orders", "weather", "main"]
     },
     {
       "id": "ch-mapa",
@@ -297,10 +240,7 @@
       "techStack": "Plotly.js",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "geography",
-        "map"
-      ]
+      "tags": ["geography", "map"]
     },
     {
       "id": "ch-pno",
@@ -312,10 +252,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-03-01",
       "status": "active",
-      "tags": [
-        "analytics",
-        "profitability"
-      ]
+      "tags": ["analytics", "profitability"]
     },
     {
       "id": "ch-crosssell",
@@ -327,10 +264,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-04-01",
       "status": "active",
-      "tags": [
-        "crosssell",
-        "recommendations"
-      ]
+      "tags": ["crosssell", "recommendations"]
     },
     {
       "id": "lb-domains",
@@ -342,10 +276,7 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-03-01",
       "status": "active",
-      "tags": [
-        "linkbuilding",
-        "database"
-      ]
+      "tags": ["linkbuilding", "database"]
     },
     {
       "id": "cv-pruzkumy",
@@ -357,10 +288,7 @@
       "techStack": "Chart.js",
       "lastDataUpdate": "2026-06-01",
       "status": "active",
-      "tags": [
-        "elections",
-        "data-viz"
-      ]
+      "tags": ["elections", "data-viz"]
     },
     {
       "id": "agregator-preview",
@@ -372,12 +300,10 @@
       "techStack": "HTML",
       "lastDataUpdate": "2026-03-01",
       "status": "dev",
-      "tags": [
-        "real-estate",
-        "scraping"
-      ]
+      "tags": ["real-estate", "scraping"]
     }
   ],
+
   "projects": [
     {
       "id": "erikafashion",
@@ -387,11 +313,7 @@
       "status": "active",
       "description": "E-shop damska moda, Shoptet. Filtry, dashboardy, AI prompty, CTR optimalizace.",
       "dashboardCount": 8,
-      "keyOutputs": [
-        "GAP analyzy filtru",
-        "Dashboard suite (8)",
-        "60 AI promptu"
-      ],
+      "keyOutputs": ["GAP analyzy filtru", "Dashboard suite (8)", "60 AI promptu"],
       "lastActivity": "2026-06-02"
     },
     {
@@ -402,10 +324,7 @@
       "status": "active",
       "description": "Share of Search competitive dashboard — 18 znacek, 25 mesicu historie, Ahrefs + GSC.",
       "dashboardCount": 1,
-      "keyOutputs": [
-        "SoS dashboard",
-        "Mesicni Ahrefs update"
-      ],
+      "keyOutputs": ["SoS dashboard", "Mesicni Ahrefs update"],
       "lastActivity": "2026-05-01"
     },
     {
@@ -416,11 +335,7 @@
       "status": "active",
       "description": "DE malirske potreby, Shoptet. 2600+ produktu, 188 kategorii, filtry SEO optimalizace.",
       "dashboardCount": 9,
-      "keyOutputs": [
-        "Dashboard suite (9)",
-        "Filtrova analyza",
-        "Content gap"
-      ],
+      "keyOutputs": ["Dashboard suite (9)", "Filtrova analyza", "Content gap"],
       "lastActivity": "2026-05-11"
     },
     {
@@ -431,11 +346,7 @@
       "status": "active",
       "description": "Bazenova chemie e-shop. GA4 analytika, AI viditelnost, cross-sell/upsell, weather korelace.",
       "dashboardCount": 3,
-      "keyOutputs": [
-        "70 AI promptu",
-        "Weather-order korelace",
-        "Cross-sell analyza"
-      ],
+      "keyOutputs": ["70 AI promptu", "Weather-order korelace", "Cross-sell analyza"],
       "lastActivity": "2026-04-01"
     },
     {
@@ -446,11 +357,7 @@
       "status": "paused",
       "description": "Darkove boxy, multimarket CZ/SK/DE/HU. SEO + linkbuilding, redesign webu ceka.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Manazerske shrnuti 2024-2026",
-        "PPTX prezentace (12 slidu)",
-        "Mesicni report"
-      ],
+      "keyOutputs": ["Manazerske shrnuti 2024-2026", "PPTX prezentace (12 slidu)", "Mesicni report"],
       "lastActivity": "2026-03-01"
     },
     {
@@ -461,10 +368,7 @@
       "status": "active",
       "description": "Asset management, nemovitostni fondy. 65 AI promptu, schema.org JSON-LD.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "65 AI promptu ve 4 clusterech",
-        "Schema.org JSON-LD"
-      ],
+      "keyOutputs": ["65 AI promptu ve 4 clusterech", "Schema.org JSON-LD"],
       "lastActivity": "2026-04-01"
     },
     {
@@ -475,10 +379,7 @@
       "status": "active",
       "description": "ESG poradenstvi, 9 jazykovych mutaci. Web sotva indexovany, 813 HTML stranek.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "KW sber (90 keywords)",
-        "Screaming Frog crawl"
-      ],
+      "keyOutputs": ["KW sber (90 keywords)", "Screaming Frog crawl"],
       "lastActivity": "2026-02-01"
     },
     {
@@ -489,11 +390,7 @@
       "status": "active",
       "description": "Centralizovany framework pro linkbuilding — Ahrefs integrace, prospekty, outreach.",
       "dashboardCount": 1,
-      "keyOutputs": [
-        "Domeny DB",
-        "Backlink analyzy",
-        "Outreach emaily"
-      ],
+      "keyOutputs": ["Domeny DB", "Backlink analyzy", "Outreach emaily"],
       "lastActivity": "2026-03-01"
     },
     {
@@ -504,11 +401,7 @@
       "status": "active",
       "description": "Interaktivni graf volebnich pruzkumu. Python scrapery + Chart.js + GitHub Pages.",
       "dashboardCount": 1,
-      "keyOutputs": [
-        "Interaktivni graf",
-        "Embed pro weby",
-        "CSV/JSON data"
-      ],
+      "keyOutputs": ["Interaktivni graf", "Embed pro weby", "CSV/JSON data"],
       "lastActivity": "2026-06-01"
     },
     {
@@ -519,10 +412,7 @@
       "status": "active",
       "description": "Fundraisingovy web pro AniDef — sbirka na utulek (32M Kc), GitHub Pages + Donio widget.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Staticky web",
-        "Donio integrace"
-      ],
+      "keyOutputs": ["Staticky web", "Donio integrace"],
       "lastActivity": "2026-01-01"
     },
     {
@@ -533,11 +423,7 @@
       "status": "active",
       "description": "Modularni SEO audity ze znovupouzitelnych bloku. DOCX output per klient.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Bloky auditu",
-        "Snippety",
-        "Klientske reporty"
-      ],
+      "keyOutputs": ["Bloky auditu", "Snippety", "Klientske reporty"],
       "lastActivity": "2026-05-01"
     },
     {
@@ -548,10 +434,7 @@
       "status": "active",
       "description": "Fakturacni system v Notionu — PP zivnost + IdeUp s.r.o., mesicni DB od 3/2024.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Notion inline DB",
-        "Kvartalni report"
-      ],
+      "keyOutputs": ["Notion inline DB", "Kvartalni report"],
       "lastActivity": "2026-06-01"
     },
     {
@@ -562,10 +445,7 @@
       "status": "active",
       "description": "Osobni brand, freelance positioning. Pitch decky pro nove klienty (11-slide sablona).",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Pitch deck sablona",
-        "Akvizice PPTX"
-      ],
+      "keyOutputs": ["Pitch deck sablona", "Akvizice PPTX"],
       "lastActivity": "2026-05-01"
     },
     {
@@ -576,10 +456,7 @@
       "status": "active",
       "description": "Kenny S. damska moda — WordPress + WooCommerce. Obsahovy fokus (barvy, styly, dress codes).",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "12 clanku batch 1",
-        "Content gap mapa"
-      ],
+      "keyOutputs": ["12 clanku batch 1", "Content gap mapa"],
       "lastActivity": "2026-04-01"
     },
     {
@@ -590,11 +467,7 @@
       "status": "planned",
       "description": "Agregator realitnich nabidek ze Sreality/Bezrealitky/Reality.cz s price/m2 scoring.",
       "dashboardCount": 1,
-      "keyOutputs": [
-        "Python scrapery (Scrapy)",
-        "PostgreSQL schema",
-        "Preview dashboard"
-      ],
+      "keyOutputs": ["Python scrapery (Scrapy)", "PostgreSQL schema", "Preview dashboard"],
       "lastActivity": "2026-03-01"
     },
     {
@@ -605,10 +478,7 @@
       "status": "dev",
       "description": "Marketing Operating System — PAVRD framework (Povedomí/Akvizice/Vykon/Retence/Doporuceni) + PESO.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "React + Supabase app",
-        "7 DB migraci"
-      ],
+      "keyOutputs": ["React + Supabase app", "7 DB migraci"],
       "lastActivity": "2026-03-01"
     },
     {
@@ -619,9 +489,7 @@
       "status": "active",
       "description": "fabini.cz (Shopify, nadobi). Vyprodane produkty a 404, redirecty, technicke SEO.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Reseni 404 a redirectu"
-      ],
+      "keyOutputs": ["Reseni 404 a redirectu"],
       "lastActivity": "2026-08-01"
     },
     {
@@ -632,10 +500,7 @@
       "status": "active",
       "description": "Spoluprace s Kubou na projektu Chlorito: marketplace servis, reporting nakladovosti, domaci chemie (bomby/soli do koupele), Hunscraft integrace.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Marketplace reporting nastroj",
-        "Zapisy z hovoru"
-      ],
+      "keyOutputs": ["Marketplace reporting nastroj", "Zapisy z hovoru"],
       "lastActivity": "2026-08-14"
     },
     {
@@ -646,11 +511,7 @@
       "status": "active",
       "description": "Tenhle dashboard — centralni hub dashboardu, projektu, klientu, skillu a nahravek. Trvaly server na localhost:8800.",
       "dashboardCount": 1,
-      "keyOutputs": [
-        "5 tabu",
-        "Login gate",
-        "Pipeline nahravek"
-      ],
+      "keyOutputs": ["5 tabu", "Login gate", "Pipeline nahravek"],
       "lastActivity": "2026-08-15"
     },
     {
@@ -661,10 +522,7 @@
       "status": "active",
       "description": "LinkedIn marketing hub — 2x denne automaticky scraping novinek do Notionu + LI drafty (jedina plne automatizovana rutina).",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "Scheduled scraping 2x denne",
-        "Notion pipeline"
-      ],
+      "keyOutputs": ["Scheduled scraping 2x denne", "Notion pipeline"],
       "lastActivity": "2026-08-15"
     },
     {
@@ -675,12 +533,11 @@
       "status": "active",
       "description": "SEO tabulky a skripty pro Oh My Beam.",
       "dashboardCount": 0,
-      "keyOutputs": [
-        "SEO hlavni tabulka"
-      ],
+      "keyOutputs": ["SEO hlavni tabulka"],
       "lastActivity": "2026-05-01"
     }
   ],
+
   "clients": [
     {
       "id": "erikafashion",
@@ -690,120 +547,20 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#AE821F",
-      "services": [
-        "SEO",
-        "dashboardy",
-        "linkbuilding",
-        "AI viditelnost"
-      ],
-      "projects": [
-        "erikafashion",
-        "erikafashion-sos"
-      ],
-      "dashboards": [
-        "ef-orders",
-        "ef-vratky",
-        "ef-produkty-a",
-        "ef-produkty-b",
-        "ef-sos",
-        "ef-filtry",
-        "ef-plavky",
-        "ef-home"
-      ],
+      "services": ["SEO", "dashboardy", "linkbuilding", "AI viditelnost"],
+      "projects": ["erikafashion", "erikafashion-sos"],
+      "dashboards": ["ef-orders", "ef-vratky", "ef-produkty-a", "ef-produkty-b", "ef-sos", "ef-filtry", "ef-plavky", "ef-home"],
       "notes": "~100K obj/rok, obrat 91M Kc. Organicke 2026 +34 %.",
       "files": [
-        {
-          "name": "Objednavky (komplet)",
-          "type": "orders",
-          "format": "csv",
-          "date": "2026-05-04",
-          "size": "141.6 MB"
-        },
-        {
-          "name": "Produkty",
-          "type": "seo",
-          "format": "csv",
-          "date": "2026-05-04",
-          "size": "7.2 MB"
-        },
-        {
-          "name": "Kategorie",
-          "type": "seo",
-          "format": "csv",
-          "date": "2026-05-04",
-          "size": "9.9 MB"
-        },
-        {
-          "name": "Filtry / parametry",
-          "type": "seo",
-          "format": "csv",
-          "date": "2026-05-04",
-          "size": "6.6 MB"
-        },
-        {
-          "name": "Denni data (weather korelace)",
-          "type": "report",
-          "format": "csv",
-          "date": "2026-05-04",
-          "size": "39 KB"
-        },
-        {
-          "name": "Teplotni analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-05-04",
-          "size": "27 KB"
-        },
-        {
-          "name": "Dny v tydnu analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-05-04",
-          "size": "11 KB"
-        },
-        {
-          "name": "AI prompty — mereni viditelnosti",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "10 KB"
-        }
-      ],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "erikafashion.cz",
-        "celkem": 853,
-        "platformy": {
-          "chatgpt": 62,
-          "perplexity": 93,
-          "gemini": 3,
-          "copilot": 125,
-          "grok": 20,
-          "google_ai_overviews": 250,
-          "google_ai_mode": 300
-        },
-        "stranky": {
-          "chatgpt": 44,
-          "perplexity": 62,
-          "copilot": 82,
-          "google_ai_overviews": 102,
-          "google_ai_mode": 116
-        },
-        "konkurence": [
-          {
-            "domain": "answear.cz",
-            "total": 920,
-            "pagesAio": 247
-          },
-          {
-            "domain": "zoot.cz",
-            "total": 50,
-            "pagesAio": 5
-          }
-        ],
-        "poznamka": "93 % citaci Answearu, ale jen 41 % jeho zaberu (102 vs 247 unikatnich stranek v AIO). Chybi pokryti temat, ne autorita."
-      }
+        { "name": "Objednavky (komplet)", "type": "orders", "format": "csv", "date": "2026-05-04", "size": "141.6 MB" },
+        { "name": "Produkty", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "7.2 MB" },
+        { "name": "Kategorie", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "9.9 MB" },
+        { "name": "Filtry / parametry", "type": "seo", "format": "csv", "date": "2026-05-04", "size": "6.6 MB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-05-04", "size": "39 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-05-04", "size": "27 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-05-04", "size": "11 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "10 KB" }
+      ]
     },
     {
       "id": "prema",
@@ -813,87 +570,17 @@
       "market": "DE",
       "status": "active",
       "accentColor": "#1565C0",
-      "services": [
-        "SEO",
-        "dashboardy",
-        "content"
-      ],
-      "projects": [
-        "prema"
-      ],
-      "dashboards": [
-        "pr-orders",
-        "pr-storna",
-        "pr-b2b",
-        "pr-produkty",
-        "pr-kategorie",
-        "pr-geografie",
-        "pr-content-gap",
-        "pr-sos",
-        "pr-filtry"
-      ],
+      "services": ["SEO", "dashboardy", "content"],
+      "projects": ["prema"],
+      "dashboards": ["pr-orders", "pr-storna", "pr-b2b", "pr-produkty", "pr-kategorie", "pr-geografie", "pr-content-gap", "pr-sos", "pr-filtry"],
       "notes": "4 619 obj/rok, 759K EUR. DE malirske potreby.",
       "files": [
-        {
-          "name": "Objednavky (komplet)",
-          "type": "orders",
-          "format": "csv",
-          "date": "2026-05-11",
-          "size": "8.9 MB"
-        },
-        {
-          "name": "Denni data (weather korelace)",
-          "type": "report",
-          "format": "csv",
-          "date": "2026-05-11",
-          "size": "45 KB"
-        },
-        {
-          "name": "Teplotni analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-05-11",
-          "size": "34 KB"
-        },
-        {
-          "name": "Dny v tydnu analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-05-11",
-          "size": "11 KB"
-        },
-        {
-          "name": "Obsahovy plan blog 2026",
-          "type": "strategy",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "15 KB"
-        }
-      ],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "i-prema.de",
-        "celkem": 370,
-        "platformy": {
-          "chatgpt": 95,
-          "perplexity": 32,
-          "gemini": 2,
-          "copilot": 54,
-          "grok": 12,
-          "google_ai_overviews": 67,
-          "google_ai_mode": 108
-        },
-        "stranky": {
-          "chatgpt": 41,
-          "perplexity": 21,
-          "copilot": 20,
-          "google_ai_overviews": 55,
-          "google_ai_mode": 111
-        },
-        "konkurence": [],
-        "poznamka": "Opacny profil nez CZ e-shopy: ChatGPT je nejsilnejsi kanal (95), Perplexity slaby (32). Stoji za zjisteni proc, je to prenositelne."
-      }
+        { "name": "Objednavky (komplet)", "type": "orders", "format": "csv", "date": "2026-05-11", "size": "8.9 MB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-05-11", "size": "45 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-05-11", "size": "34 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-05-11", "size": "11 KB" },
+        { "name": "Obsahovy plan blog 2026", "type": "strategy", "format": "xlsx", "date": "2026-04-01", "size": "15 KB" }
+      ]
     },
     {
       "id": "chlorito",
@@ -903,145 +590,26 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#0097A7",
-      "services": [
-        "SEO",
-        "GA4 analytika",
-        "AI viditelnost"
-      ],
-      "projects": [
-        "chlorito"
-      ],
-      "dashboards": [
-        "ch-main",
-        "ch-mapa",
-        "ch-pno",
-        "ch-crosssell"
-      ],
+      "services": ["SEO", "GA4 analytika", "AI viditelnost"],
+      "projects": ["chlorito"],
+      "dashboards": ["ch-main", "ch-mapa", "ch-pno", "ch-crosssell"],
       "notes": "Bazenova chemie. Weather-order korelace, 70 AI promptu.",
       "files": [
-        {
-          "name": "Objednavky 2024",
-          "type": "orders",
-          "format": "csv",
-          "date": "2025-12-01",
-          "size": "19.4 MB"
-        },
-        {
-          "name": "Objednavky 2026",
-          "type": "orders",
-          "format": "csv",
-          "date": "2026-04-01",
-          "size": "28.8 MB"
-        },
-        {
-          "name": "SEO navrhy v1",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-02-01",
-          "size": "631 KB"
-        },
-        {
-          "name": "SEO navrhy v2 (exhaustivni)",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-03-01",
-          "size": "229 KB"
-        },
-        {
-          "name": "SEO navrhy v3 — filtry a doplneni",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-03-15",
-          "size": "21 KB"
-        },
-        {
-          "name": "Navrhy filtru a podkategorii",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-03-01",
-          "size": "62 KB"
-        },
-        {
-          "name": "Cross-sell products SEO",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "682 KB"
-        },
-        {
-          "name": "Basket map (JSON)",
-          "type": "report",
-          "format": "json",
-          "date": "2026-04-01",
-          "size": "687 KB"
-        },
-        {
-          "name": "Recommendations (JSON)",
-          "type": "report",
-          "format": "json",
-          "date": "2026-04-01",
-          "size": "779 KB"
-        },
-        {
-          "name": "Obsahovy plan blog 2026",
-          "type": "strategy",
-          "format": "csv",
-          "date": "2026-03-01",
-          "size": "48 KB"
-        },
-        {
-          "name": "Denni data (weather korelace)",
-          "type": "report",
-          "format": "csv",
-          "date": "2026-04-01",
-          "size": "34 KB"
-        },
-        {
-          "name": "Teplotni analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "27 KB"
-        },
-        {
-          "name": "Dny v tydnu analyza",
-          "type": "report",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "11 KB"
-        },
-        {
-          "name": "AI prompty — mereni viditelnosti",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "9 KB"
-        }
-      ],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "chlorito.cz",
-        "celkem": 549,
-        "platformy": {
-          "chatgpt": 39,
-          "perplexity": 131,
-          "gemini": 3,
-          "copilot": 52,
-          "grok": 14,
-          "google_ai_overviews": 153,
-          "google_ai_mode": 157
-        },
-        "stranky": {
-          "chatgpt": 37,
-          "perplexity": 80,
-          "copilot": 31,
-          "google_ai_overviews": 50,
-          "google_ai_mode": 65
-        },
-        "konkurence": [],
-        "poznamka": "Perplexity je nadprumerne silne (131). Zaber v AIO je uzky (50 stranek) — prostor pro vic citovatelnych stranek."
-      }
+        { "name": "Objednavky 2024", "type": "orders", "format": "csv", "date": "2025-12-01", "size": "19.4 MB" },
+        { "name": "Objednavky 2026", "type": "orders", "format": "csv", "date": "2026-04-01", "size": "28.8 MB" },
+        { "name": "SEO navrhy v1", "type": "seo", "format": "xlsx", "date": "2026-02-01", "size": "631 KB" },
+        { "name": "SEO navrhy v2 (exhaustivni)", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "229 KB" },
+        { "name": "SEO navrhy v3 — filtry a doplneni", "type": "seo", "format": "xlsx", "date": "2026-03-15", "size": "21 KB" },
+        { "name": "Navrhy filtru a podkategorii", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "62 KB" },
+        { "name": "Cross-sell products SEO", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "682 KB" },
+        { "name": "Basket map (JSON)", "type": "report", "format": "json", "date": "2026-04-01", "size": "687 KB" },
+        { "name": "Recommendations (JSON)", "type": "report", "format": "json", "date": "2026-04-01", "size": "779 KB" },
+        { "name": "Obsahovy plan blog 2026", "type": "strategy", "format": "csv", "date": "2026-03-01", "size": "48 KB" },
+        { "name": "Denni data (weather korelace)", "type": "report", "format": "csv", "date": "2026-04-01", "size": "34 KB" },
+        { "name": "Teplotni analyza", "type": "report", "format": "xlsx", "date": "2026-04-01", "size": "27 KB" },
+        { "name": "Dny v tydnu analyza", "type": "report", "format": "xlsx", "date": "2026-04-01", "size": "11 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "9 KB" }
+      ]
     },
     {
       "id": "manboxeo",
@@ -1051,55 +619,14 @@
       "market": "CZ/SK/DE/HU",
       "status": "paused",
       "accentColor": "#E65100",
-      "services": [
-        "SEO",
-        "linkbuilding"
-      ],
-      "projects": [
-        "manboxeo"
-      ],
+      "services": ["SEO", "linkbuilding"],
+      "projects": ["manboxeo"],
       "dashboards": [],
       "notes": "Darkove boxy, multimarket. LB pozastaveny, redesign ceka.",
       "files": [
-        {
-          "name": "Shrnuti spoluprace 2024-2026",
-          "type": "report",
-          "format": "pptx",
-          "date": "2026-03-01",
-          "size": "328 KB"
-        },
-        {
-          "name": "AI prompty — mereni viditelnosti",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-03-01",
-          "size": "10 KB"
-        }
-      ],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "manboxeo.cz",
-        "celkem": 454,
-        "platformy": {
-          "chatgpt": 20,
-          "perplexity": 79,
-          "gemini": 1,
-          "copilot": 83,
-          "grok": 24,
-          "google_ai_overviews": 100,
-          "google_ai_mode": 147
-        },
-        "stranky": {
-          "chatgpt": 23,
-          "perplexity": 48,
-          "copilot": 51,
-          "google_ai_overviews": 45,
-          "google_ai_mode": 60
-        },
-        "konkurence": [],
-        "poznamka": "ChatGPT nejslabsi clanek (20) pri silnem Copilotu (83) — nezvykly pomer."
-      }
+        { "name": "Shrnuti spoluprace 2024-2026", "type": "report", "format": "pptx", "date": "2026-03-01", "size": "328 KB" },
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-03-01", "size": "10 KB" }
+      ]
     },
     {
       "id": "wood",
@@ -1109,48 +636,13 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#1B5E20",
-      "services": [
-        "SEO",
-        "AI viditelnost"
-      ],
-      "projects": [
-        "wood-cz"
-      ],
+      "services": ["SEO", "AI viditelnost"],
+      "projects": ["wood-cz"],
       "dashboards": [],
       "notes": "Asset management, HNW klienti 4M+ Kc. 65 AI promptu.",
       "files": [
-        {
-          "name": "AI prompty — mereni viditelnosti",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-04-01",
-          "size": "9 KB"
-        }
-      ],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "wood.cz",
-        "celkem": 36,
-        "platformy": {
-          "chatgpt": 1,
-          "perplexity": 4,
-          "gemini": 2,
-          "copilot": 3,
-          "grok": 0,
-          "google_ai_overviews": 14,
-          "google_ai_mode": 12
-        },
-        "stranky": {
-          "chatgpt": 1,
-          "perplexity": 4,
-          "copilot": 1,
-          "google_ai_overviews": 9,
-          "google_ai_mode": 11
-        },
-        "konkurence": [],
-        "poznamka": "36 citaci celkem je na financni instituci velmi malo. Google (AIO+AI Mode) nese 72 % z toho mala."
-      }
+        { "name": "AI prompty — mereni viditelnosti", "type": "seo", "format": "xlsx", "date": "2026-04-01", "size": "9 KB" }
+      ]
     },
     {
       "id": "xtb",
@@ -1160,37 +652,11 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#D32F2F",
-      "services": [
-        "linkbuilding"
-      ],
+      "services": ["linkbuilding"],
       "projects": [],
       "dashboards": [],
       "notes": "Online broker. Linkbuilding klient.",
-      "files": [],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "xtb.com",
-        "celkem": 19292,
-        "platformy": {
-          "chatgpt": 3634,
-          "perplexity": 5422,
-          "gemini": 1075,
-          "copilot": 536,
-          "grok": 65,
-          "google_ai_overviews": 3577,
-          "google_ai_mode": 4983
-        },
-        "stranky": {
-          "chatgpt": 2855,
-          "perplexity": 2858,
-          "copilot": 431,
-          "google_ai_overviews": 2090,
-          "google_ai_mode": 2666
-        },
-        "konkurence": [],
-        "poznamka": "Merene na cele xtb.com vcetne vsech mutaci — CZ podil z toho nelze oddelit (CZ sidli na ceste /cz, ne na vlastni domene). Pro CZ report je potreba mode=prefix."
-      }
+      "files": []
     },
     {
       "id": "cemi",
@@ -1200,37 +666,11 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#283593",
-      "services": [
-        "linkbuilding"
-      ],
+      "services": ["linkbuilding"],
       "projects": [],
       "dashboards": [],
       "notes": "MBA/DBA vzdelavani. Linkbuilding klient.",
-      "files": [],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "cemi.cz",
-        "celkem": 38,
-        "platformy": {
-          "chatgpt": 1,
-          "perplexity": 10,
-          "gemini": 0,
-          "copilot": 4,
-          "grok": 0,
-          "google_ai_overviews": 8,
-          "google_ai_mode": 15
-        },
-        "stranky": {
-          "chatgpt": 1,
-          "perplexity": 12,
-          "copilot": 3,
-          "google_ai_overviews": 8,
-          "google_ai_mode": 12
-        },
-        "konkurence": [],
-        "poznamka": "38 citaci na vysokou skolu je malo — vyber studia je pritom typicky AI dotaz. Nejlevnejsi prilezitost v portfoliu."
-      }
+      "files": []
     },
     {
       "id": "esgrovia",
@@ -1240,33 +680,11 @@
       "market": "INT",
       "status": "active",
       "accentColor": "#2E7D32",
-      "services": [
-        "SEO"
-      ],
-      "projects": [
-        "esgrovia"
-      ],
+      "services": ["SEO"],
+      "projects": ["esgrovia"],
       "dashboards": [],
       "notes": "ESG poradenstvi, 9 jazykovych mutaci. Early stage SEO.",
-      "files": [],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "esgrovia.com",
-        "celkem": 1,
-        "platformy": {
-          "chatgpt": 0,
-          "perplexity": 0,
-          "gemini": 0,
-          "copilot": 1,
-          "grok": 0,
-          "google_ai_overviews": 0,
-          "google_ai_mode": 0
-        },
-        "stranky": {},
-        "konkurence": [],
-        "poznamka": "Prakticky neviditelne v AI odpovedich."
-      }
+      "files": []
     },
     {
       "id": "fabini",
@@ -1276,39 +694,11 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#37474F",
-      "services": [
-        "SEO"
-      ],
-      "projects": [
-        "fabini"
-      ],
+      "services": ["SEO"],
+      "projects": ["fabini"],
       "dashboards": [],
       "notes": "E-shop nadobi. Reseni 404, redirecty, technicke SEO.",
-      "files": [],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "fabini.cz",
-        "celkem": 286,
-        "platformy": {
-          "chatgpt": 15,
-          "perplexity": 47,
-          "gemini": 1,
-          "copilot": 38,
-          "grok": 8,
-          "google_ai_overviews": 82,
-          "google_ai_mode": 95
-        },
-        "stranky": {
-          "chatgpt": 30,
-          "perplexity": 44,
-          "copilot": 35,
-          "google_ai_overviews": 46,
-          "google_ai_mode": 43
-        },
-        "konkurence": [],
-        "poznamka": "Nizka zakladna napric vsemi platformami. Nejlevnejsi prostor na rust."
-      }
+      "files": []
     },
     {
       "id": "oh-my-beam",
@@ -1318,22 +708,12 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#F9A825",
-      "services": [
-        "SEO"
-      ],
-      "projects": [
-        "oh-my-beam"
-      ],
+      "services": ["SEO"],
+      "projects": ["oh-my-beam"],
       "dashboards": [],
       "notes": "SEO spoluprace — hlavni SEO tabulka, skripty.",
       "files": [
-        {
-          "name": "SEO hlavni tabulka",
-          "type": "seo",
-          "format": "xlsx",
-          "date": "2026-05-01",
-          "size": "—"
-        }
+        { "name": "SEO hlavni tabulka", "type": "seo", "format": "xlsx", "date": "2026-05-01", "size": "—" }
       ]
     },
     {
@@ -1344,35 +724,14 @@
       "market": "CZ",
       "status": "active",
       "accentColor": "#6D4C41",
-      "services": [
-        "web"
-      ],
-      "projects": [
-        "stavimeutulek"
-      ],
+      "services": ["web"],
+      "projects": ["stavimeutulek"],
       "dashboards": [],
       "notes": "Fundraisingovy web — sbirka na utulek (32M Kc). Pro bono.",
-      "files": [],
-      "aiVisibility": {
-        "datum": "2026-08-17",
-        "zdroj": "Ahrefs site-explorer-ai-responses-count (mode=subdomains)",
-        "merenaDomena": "stavimeutulek.cz",
-        "celkem": 0,
-        "platformy": {
-          "chatgpt": 0,
-          "perplexity": 0,
-          "gemini": 0,
-          "copilot": 0,
-          "grok": 0,
-          "google_ai_overviews": 0,
-          "google_ai_mode": 0
-        },
-        "stranky": {},
-        "konkurence": [],
-        "poznamka": "Nulova viditelnost. U noveho sbirkoveho webu ocekavane."
-      }
+      "files": []
     }
   ],
+
   "skills": [
     {
       "id": "seo-filter-gap-analyza",
@@ -1381,11 +740,7 @@
       "domain": "SEO",
       "description": "Z Ahrefs matching-terms exportu a kategorie e-shopu vytvori GAP analyzu, jake nove filtry / hodnoty filtru pridat (nebo nepridavat).",
       "triggers": "nove filtry, parametry kategorie, gap analyza filtru, matching terms",
-      "clients": [
-        "erikafashion",
-        "prema",
-        "chlorito"
-      ],
+      "clients": ["erikafashion", "prema", "chlorito"],
       "path": "~/.claude/skills/seo-filter-gap-analyza/"
     },
     {
@@ -1405,10 +760,7 @@
       "domain": "dashboardy",
       "description": "Mesicni aktualizace SoS dashboardu z Ahrefs. Existuje jen v erikafashion-sos projektu — je potreba presunout do globalu a zobecnit na vsechny klienty.",
       "triggers": "/update-sos, aktualizuj data v dashboardu",
-      "clients": [
-        "erikafashion",
-        "prema"
-      ],
+      "clients": ["erikafashion", "prema"],
       "path": "projects/erikafashion-sos/.claude/commands/"
     },
     {
@@ -1448,11 +800,7 @@
       "domain": "dashboardy",
       "description": "Parametrizovana pipeline objednavky CSV + pocasi → dashboard. Nahradi 3 zkopirovane verze skriptu (chlorito/erika/prema).",
       "triggers": "novy dashboard objednavek, refresh dat",
-      "clients": [
-        "chlorito",
-        "erikafashion",
-        "prema"
-      ],
+      "clients": ["chlorito", "erikafashion", "prema"],
       "path": "—"
     },
     {
@@ -1462,14 +810,11 @@
       "domain": "SEO",
       "description": "Nejcastejsi uloha: Ahrefs keywords → CZ/SK produktovy text / meta popisky → dualni ulozeni.",
       "triggers": "text pro produkt, rozsir o KW, titulek a meta description",
-      "clients": [
-        "chlorito",
-        "erikafashion",
-        "wood"
-      ],
+      "clients": ["chlorito", "erikafashion", "wood"],
       "path": "—"
     }
   ],
+
   "agenti": [
     {
       "id": "projektak",
@@ -1508,72 +853,18 @@
       "path": "vestaveny"
     }
   ],
+
   "portfolioSites": [
-    {
-      "id": "zijuspesne",
-      "name": "zijuspesne.cz",
-      "url": "https://zijuspesne.cz",
-      "status": "active"
-    },
-    {
-      "id": "moony",
-      "name": "moony.cz",
-      "url": "https://moony.cz",
-      "status": "active"
-    },
-    {
-      "id": "max-reality",
-      "name": "max-reality.cz",
-      "url": "https://max-reality.cz",
-      "status": "active"
-    },
-    {
-      "id": "financni-architekti",
-      "name": "financniarchitekti.cz",
-      "url": "https://financniarchitekti.cz",
-      "status": "active"
-    },
-    {
-      "id": "zakeri-site",
-      "name": "zakeri.cz",
-      "url": "https://zakeri.cz",
-      "status": "active"
-    },
-    {
-      "id": "pixone",
-      "name": "pixone.cz",
-      "url": "https://pixone.cz",
-      "status": "active"
-    },
-    {
-      "id": "ceske-volby",
-      "name": "ceske-volby.cz",
-      "url": "https://ceske-volby.cz",
-      "status": "active"
-    },
-    {
-      "id": "politicky-slovnik",
-      "name": "politicky-slovnik.cz",
-      "url": "https://politicky-slovnik.cz",
-      "status": "active"
-    },
-    {
-      "id": "patrikpilous",
-      "name": "patrikpilous.cz",
-      "url": "https://patrikpilous.cz",
-      "status": "active"
-    },
-    {
-      "id": "ideup",
-      "name": "ideup.cz",
-      "url": "https://ideup.cz",
-      "status": "active"
-    },
-    {
-      "id": "minder",
-      "name": "minder.cz",
-      "url": "https://minder.cz",
-      "status": "active"
-    }
+    { "id": "zijuspesne", "name": "zijuspesne.cz", "url": "https://zijuspesne.cz", "status": "active" },
+    { "id": "moony", "name": "moony.cz", "url": "https://moony.cz", "status": "active" },
+    { "id": "max-reality", "name": "max-reality.cz", "url": "https://max-reality.cz", "status": "active" },
+    { "id": "financni-architekti", "name": "financniarchitekti.cz", "url": "https://financniarchitekti.cz", "status": "active" },
+    { "id": "zakeri-site", "name": "zakeri.cz", "url": "https://zakeri.cz", "status": "active" },
+    { "id": "pixone", "name": "pixone.cz", "url": "https://pixone.cz", "status": "active" },
+    { "id": "ceske-volby", "name": "ceske-volby.cz", "url": "https://ceske-volby.cz", "status": "active" },
+    { "id": "politicky-slovnik", "name": "politicky-slovnik.cz", "url": "https://politicky-slovnik.cz", "status": "active" },
+    { "id": "patrikpilous", "name": "patrikpilous.cz", "url": "https://patrikpilous.cz", "status": "active" },
+    { "id": "ideup", "name": "ideup.cz", "url": "https://ideup.cz", "status": "active" },
+    { "id": "minder", "name": "minder.cz", "url": "https://minder.cz", "status": "active" }
   ]
 }

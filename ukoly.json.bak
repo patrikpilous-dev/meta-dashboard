@@ -1,0 +1,936 @@
+{
+  "generovano": "2026-08-17 v3",
+  "gmailProhledan": true,
+  "top3": [
+    {
+      "key": "check-2026-08-12-tomas-marze-peroxid-2",
+      "duvod": "Peroxid je hotové rozhodnutí s velkou organickou hledaností a konkurencí za 220–300 Kč — každý den bez zalistované kategorie je ušlý prodej v sezóně, kdy srpen míří na +100 % meziročně. Navazuje na to celá peroxidová linka (popis oxyroztoku, rešerše cen, etikety)."
+    },
+    {
+      "key": "check-2026-08-12-tomas-marze-peroxid-0",
+      "duvod": "Historicky jen ~1,4 objednávky na zákazníka za 4–5 let při 97–98% spokojenosti na Heuréce — pokud to není chyba měření, je retence největší nevyužitá páka na tržby (databáze ~60 tis. kontaktů, emailing už jede na dvojnásobku loňska). Ověření dat je vstupní podmínka celé retenční strategie."
+    },
+    {
+      "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-0",
+      "duvod": "Akutní: Prema platí nevýhodnou, automaticky obnovenou smlouvu agentuře Adference a chce Amazon PPC předat Exportiu — specialista se uživí z Premy (~15 tis./měs.) + Chlorita (dohromady ~40 tis./měs.). Rychlé obsazení zastaví odtékající peníze u Premy a zvedne výkon marketplaces u Chlorita (Shoptet dělá jen ~3/4 obratu, zbytek marketplaces)."
+    }
+  ],
+  "stitky": [
+    {
+      "id": "peroxid",
+      "nazev": "Peroxid vodíku",
+      "kontext": "Rozhodnuto 12. 8. (Tomáš): peroxid se do sortimentu zavede — velká organická hledanost, konkurence prodává 220–300 Kč (12% za 220, 3% pětilitrovka za 300), Chlorito nyní 250 Kč za pětilitr; není nutné být nejlevnější. Peroxid má výrazně vyšší hledanost než „oxyroztok“ (zápis 14. 8., Lukáš) — oxyroztok 12 % dostane do popisu „peroxid vodíku“, chystá se 5% varianta v obalech 3/5/10 l jako technický roztok. Na straně spolupráce s Kubou (zápis 14. 8.) se řeší legislativa a ADR doprava: 5% etiketa pro 5 států, 35% jen na e-shopu s kontrolou prodeje. Shánění grafika napřímo (12. 8., první oslovený neodpověděl) je vyřešeno výběrkem dvou grafiků — etiketa peroxidu jde jako soutěžní zadání.",
+      "souvisi": [
+        "etikety",
+        "marze"
+      ]
+    },
+    {
+      "id": "marze",
+      "nazev": "Marže a reporting",
+      "kontext": "Nové téma ze zápisu 12. 8. (Tomáš): produkty se rozdělí minimálně do maržových skupin A/B/C — bazénová chemie průměrně ~40 %, broumovky spíš B, kilové tablety zvážit jako B (finančně méně zajímavé); pětikilové tablety jsou zlatý produkt. Tomáš dodá průměrné marže po skupinách (zatím jen rozpětí). Výsledky: e-shop letos +1 mil. Kč nad loňskem, celkově +6 %, srpen míří na +100 % meziročně (přeje počasí) — na konci měsíce srovnání srpna s loňskem včetně počasí. K nasměrování energie se dohledají obraty konkurenčních firem (Brainboost/Marimax jede TV kampaně za roční rozpočet Chlorita; chemie-bazen.cz agreguje ~14 značek při 40–50 mil. Kč obratu). Přímo navazuje na COGS per produkt u Alza reportingu (zápis 14. 8., Kuba).",
+      "souvisi": [
+        "provoz-reporting",
+        "peroxid"
+      ]
+    },
+    {
+      "id": "zakaznici",
+      "nazev": "Zákazníci a retence",
+      "kontext": "Ze zápisu 12. 8. (Tomáš): extrémně vysoký podíl nových zákazníků — historicky jen ~1,4 objednávky na zákazníka za 4–5 let, přitom na Heuréce 97–98 % spokojenost. Nejdřív ověřit, jestli nejde o chybu v párování dat; pokud ne, je prioritou retence (emailing už běží na dvojnásobku loňska, databáze ~60 tis. kontaktů letos 3× pročištěná). K tomu Heuréka hodnocení v košíku — opt-out je výhodnější a dřív tak bylo; Chlorito má 4–5 recenzí denně vs. ~4 týdně u chemie-bazen.cz.",
+      "souvisi": []
+    },
+    {
+      "id": "obsah-reklama",
+      "nazev": "Obsah a reklama",
+      "kontext": "Tři obsahové linky. Engagement reklama s úmyslnou hrubkou („rozvýřil se kal“ / „výřivka“) má vyvolat opravující komentáře — hříčka se přizná explicitně, načasování sedí na sezónu kalů (zápis 14. 8., Lukáš). Připravuje se video o vířivkách — chemie ověřena s Tomášem 14. 8. (pH− ano i u kyslíkové chemie, algicid jen pojistka). Ze zápisu 11. 8. plyne content gap analýza vs. konkurence, hlavní příležitost je kyselina kyanurová (dobrá hledanost, jediný konkurent s důkladným, ale složitě psaným článkem). Facebook je letos jeden z hlavních hnacích motorů Chlorita (zápis 12. 8.).",
+      "souvisi": [
+        "testery",
+        "hanscraft"
+      ]
+    },
+    {
+      "id": "testery",
+      "nazev": "Testery",
+      "kontext": "Byznys plán kolem testerů ze zápisu 11. 8. (Lukáš): stávající vlastní testery zdražit (dřív 155 Kč), nově čínské testery pod vlastní značkou za ~80–90 Kč s vlastní etiketou a českým návodem (letos vyprodané, na příští rok větší objednávka). Etikety současných testerů se oživí do nového PVS vizuálu. Chlorito navíc chystá tester na kyselinu kyanurovou (hotové řešení) a testuje elektrické testery PoolLab — navazuje na obsahové téma kyanurové kyseliny.",
+      "souvisi": [
+        "obsah-reklama",
+        "etikety"
+      ]
+    },
+    {
+      "id": "modra-skalice",
+      "nazev": "Modrá skalice",
+      "kontext": "Mail o modré skalici je finálně schválený, zbývá rozeslat na 4 adresy (zápis 11. 8., Lukáš). Navazuje etiketová linka: dotisk černou na barevné vzory vlastním tiskem, neprůhledné hliníko-plastové sáčky s grafikou produktu místo průhledítka (zápis 14. 8.). Etiketa modré skalice jde spolu s peroxidem do výběrka dvou nových grafiků.",
+      "souvisi": [
+        "etikety"
+      ]
+    },
+    {
+      "id": "koule-do-bazenu",
+      "nazev": "Koule do bazénu",
+      "kontext": "Nové téma z hlasové poznámky 7. 8.: Chlorito bude dělat koule do bazénu (plovoucí dávkovače). Cíl je vybrat výrobce, zjistit ceny a srovnat konkurenci — zatím bez dalších detailů.",
+      "souvisi": []
+    },
+    {
+      "id": "hanscraft",
+      "nazev": "Hanscraft",
+      "kontext": "Partnerství s Hanscraftem: za poslední 3 měsíce obrat ~850 tis. Kč s hrubou maržovostí do 22 %, proto se závoz omezil z 5× na 3× týdně a čeká se na export maržovosti celého portfolia (10–35 %; zápis 14. 8., Kuba). Nejvyšší marže mají vířivky (~30 %) — pokud vyjde nízká vratkovost, budou se tlačit jako hlavní kategorie; content nápad: natočit videa v showroomech s aplikací vlastní chemie. Ze zápisu 11. 8. běží automatizace zalistování: nový produkt ve feedu → skrytý produkt na shopu + notifikace ke kontrole.",
+      "souvisi": [
+        "obsah-reklama",
+        "exportio"
+      ]
+    },
+    {
+      "id": "etikety",
+      "nazev": "Etikety a grafici",
+      "kontext": "Rozjíždí se výběrko dvou nových grafiků (jeden ex-Taste, druhý z EffectX, hodinovka ~600 Kč) na etikety modré skalice a peroxidu; odvápňovač zůstává u Ošmery (zápis 14. 8., Kuba). Rozhodnutí ze zápisu 12. 8. (Tomáš): nové produkty dostanou etikety podle už hotového designového systému, grafik napřímo bez agentury — tím je pokryt i Tomášův úkol „sehnat grafika“ (první oslovený neodpověděl). Staré Tomášovy etikety designově nevyhovují, dávají smysl jen k dospotřebování (dotisk u Tomáše stojí dvojnásobek). U peroxidu se řeší legislativa a ADR doprava: 5% varianta s etiketou pro 5 států, 35% jen přes e-shop s kontrolou prodeje.",
+      "souvisi": [
+        "peroxid",
+        "modra-skalice"
+      ]
+    },
+    {
+      "id": "nove-produkty",
+      "nazev": "Nové produkty",
+      "kontext": "Rozšiřování sortimentu domácí chemie (zápis 11. 8., Kuba): jedlá soda a kyselina citronová jsou cenově mimo (Alza prodává sodu za 37 Kč), fokus se přesouvá na produkty 500–1000 Kč — bomby a soli do koupele. Tomáš to 12. 8. potvrdil: soda při aktuální nákupní ceně ne, ochucená varianta jen dlouhodobá úvaha; při hledání nových produktů směřovat k formátu pětikilových tablet (zlatý produkt); agregace cizích výrobců (model chemie-bazen.cz) nedává smysl proti vlastní výrobě. Úkol „projít zvažované produkty od Kuby“ zazněl v obou hovorech (11. i 12. 8.) — veden jednou. Bomby jsou v procesu registrace, spíš se koupí hotové s vlastním packagingem; Tomáš znovu oslovil velkovýrobce chemie (vyrábí mj. řadu Alza.Eco) — čeká se na obaly, etikety, MOQ a podmínky.",
+      "souvisi": [
+        "marze"
+      ]
+    },
+    {
+      "id": "provoz-reporting",
+      "nazev": "Provoz, tým a reporting",
+      "kontext": "Provozní a datová linka Chlorita vedená s Kubou. Po skladovém fuckupu se „šestkou v jednom“ (10 000 fiktivních kusů, ruční SK etikety) vzniká denní monitoring aktivních produktů z feedu (zápis 14. 8., Kuba). U Alza reportingu se přechází z maržových skupin na reálné COGS per produkt (~50 hotovo) — navazuje na maržové skupiny A/B/C dohodnuté s Tomášem 12. 8. Personálně: Honzovi se snižuje úvazek (nulový ownership, riziko — spravuje servery), na zářijové úpravy webu se shání Shoptet vývojář; Kuba od příštího roku převezme expedici, chybí náklady od Tomáše (tahá se 2 měsíce). Chlorito je na 73,6 mil. Kč a míří na 100 mil.",
+      "souvisi": [
+        "marze",
+        "exportio"
+      ]
+    },
+    {
+      "id": "amazon-ppc",
+      "nazev": "Amazon PPC",
+      "kontext": "Prema po vyhazovu správkyně Amazonu (a nevýhodné dvouleté smlouvě s agenturou Adference, která se před měsícem automaticky obnovila) chce předat Amazon PPC Kubovi — téma je akutní (zápis 14. 8., Kuba). Hledá se PPC specialista na 1/3 až 1/2 úvazku, uživí ho Prema (~15 tis./měs.) + Chlorito (dohromady ~40 tis./měs.). Profil: zvídavý, umí počítat, Amazon PPC ho Kuba zaškolí.",
+      "souvisi": [
+        "exportio"
+      ]
+    },
+    {
+      "id": "koordinace",
+      "nazev": "Koordinace",
+      "kontext": "Krátký koordinační hovor s Kubou 7. 8.: schůzka s Aničkou proběhla 8. 8. odpoledne (15–16 h), čas domlouval Kuba, Honza se neúčastnil. Úkoly jsou vázané na tento termín — pravděpodobně už proběhly, nechávám pro kontrolu.",
+      "souvisi": [
+        "exportio"
+      ]
+    },
+    {
+      "id": "exportio",
+      "nazev": "Exportio (spolupráce Kuba)",
+      "kontext": "Spolupráce s Kubou — marketplace servis, reporting, produktový vývoj a provoz pro Chlorito, nově s přesahem do Premy (převzetí Amazon PPC). Není to samostatný klient: úkoly z hovorů s Kubou patří kanálu podle obsahu a nesou tento štítek. Hlavní linky srpen 2026: Hanscraft partnerství, denní monitoring feedu, COGS reporting, výběrko grafiků na etikety a hledání PPC specialisty.",
+      "souvisi": [
+        "hanscraft",
+        "amazon-ppc",
+        "provoz-reporting"
+      ]
+    },
+    {
+      "id": "seo-web",
+      "nazev": "Technické SEO a web",
+      "kontext": "Technická linka Chlorito webu z mailů srpen 2026: potřebuji nejvyšší práva v Search Console pro chlorito.cz (u SK verze je mám), abych propojil CZ a SK weby hreflangy — žádost Tomášovi a Kubovi odeslána 15. 8., zatím bez reakce. Souběžně běží jazykové mutace SK/HU/DE/AT/PL na Shoptet Premium; Tomáš 11. 8. přeposlal vlákno s dotazem, zda lze pro nastavení ceníků zkopírovat data.",
+      "souvisi": [
+        "provoz-reporting"
+      ]
+    },
+    {
+      "id": "prema-web",
+      "nazev": "Prema — web a analytika",
+      "kontext": "i-prema.de (Shoptet): nasazený plugin doporučování v košíku („Kunden kaufen zu diesem Produkt auch“), klient (Gutvirth) 27. 7. potvrdil, že je za ně OK; německé texty dodány 14. 7. Čeká se na nasdílení GA4 na patrik.pilous@gmail.com (žádost 28. 7.), pak nasadím měření pluginu. Nesouvisí s Amazon PPC linkou (štítek amazon-ppc).",
+      "souvisi": []
+    },
+    {
+      "id": "erika-provoz",
+      "nazev": "Erikafashion — provoz a obsah",
+      "kontext": "Provozní linka Erikafashion z mailů srpen 2026: copywriterka Nikola Knížková (4 články CZ + 4 SK měsíčně, 5 400 Kč) čeká na zelenou k textování kategorií — 3. 8. jsem ji pozdržel, většina kategorií je hotová z mé strany. Google 6. 8. poslal poslední upozornění na migraci na Merchant API s deadlinem 18. 8. 2026 — bez migrace se produkty přestanou zobrazovat na Googlu.",
+      "souvisi": []
+    }
+  ],
+  "kanaly": [
+    {
+      "id": "chlorito",
+      "nazev": "Chlorito",
+      "ukoly": [
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-1",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-1",
+          "text": "Doplnit „peroxid vodíku“ do popisu oxyroztoku 12 % + nová kategorie peroxid",
+          "popis": "Oxyroztok 12 % dnes nemá v popisu vůbec slovo „peroxid vodíku“, přestože peroxid má výrazně vyšší hledanost (oxyroztok hledají jen bazénáři). Z hovoru s Lukášem 14. 8.: doplnit popis a založit novou kategorii peroxid pro domácnost. Stejný požadavek zazněl i od Kuby 14. 8. (jeho checklist to řeší přes Lukáše) — jde o rychlou SEO výhru před rozjezdem celé peroxidové řady.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-2",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-2",
+          "text": "Rešerše konkurence a cen peroxidu (kdo prodává, za kolik)",
+          "popis": "Zmapovat, kdo peroxid prodává a za kolik — z hovoru s Lukášem 14. 8. Známé orientační ceny z 12. 8. (Tomáš): 12% za 220 Kč, 3% pětilitrovka za 300 Kč, Chlorito má pětilitr za 250 Kč. Rešerše je podklad pro cenotvorbu při zalistování (není nutné být nejlevnější) a pro rozhodnutí o 5% variantě v obalech 3/5/10 l.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-3",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-3",
+          "text": "Zadat peroxid grafikům jako soutěžní zadání",
+          "popis": "Dva noví grafici (jeden ex-Taste, druhý z EffectX, hodinovka ~600 Kč) dostanou etiketu peroxidu jako soutěžní zadání — dohodnuto s Lukášem 14. 8., výběrko organizačně řeší Kuba. Etiketa musí respektovat legislativu: 5% varianta s etiketou pro 5 států. Vítěz výběrka pravděpodobně dostane i modrou skalici; odvápňovač zůstává u Ošmery.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid",
+            "etikety"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-0",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-0",
+          "text": "Zpracovat reklamu s hrubkou (kal/vířivka) a poslat do světa",
+          "popis": "Engagement reklama s úmyslnou pravopisnou chybou („rozvýřil se vám kal v bazénu“ / „výřivka“) má vyvolat opravující komentáře a dosah — hříčka se přizná explicitně. Dohodnuto s Lukášem 14. 8.; načasování sedí, lidi teď řeší kaly a nejsilnější kanál jsou FB skupiny. Iva k tomu dodá AI vizuál vířivky; precedens s „výřivkou“ už jednou fungoval.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-tomas-virivky-video-0",
+          "checkKey": "check-2026-08-14-tomas-virivky-video-0",
+          "text": "Poslat podklady pro video o vířivkách ke schválení (s opravenou kombinací přípravků)",
+          "popis": "Podklady pro natáčení videa o vířivkách — po krátkém doujasnění chemie s Tomášem 14. 8.: pH− se používá i u kyslíkové chemie, algicid jen minimálně jako pojistka, měření standardními chlor+pH měřáky. Cíl je, aby se do videa nedostala kombinace přípravků, která se v praxi nepoužívá. Navazuje na obsahovou linku vířivek (Hanscraft showroomy jako možná lokace natáčení).",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-tomas-virivky-video.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-1",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-1",
+          "text": "Postavit denní monitoring počtu aktivních produktů z feedu do chatu (hlídání nechtěného odskladnění)",
+          "popis": "Jednoduchý denní report do chatu: „dnes X aktivních produktů, o Y méně než včera“. Reakce na skladový fuckup se „šestkou v jednom“ (14. 8., Kuba) — v systému bylo ~10 000 fiktivních kusů a při odskladnění 20g balení se nechtěně odskladnilo i další zboží. Kořenová příčina je chybějící inventura a skladové procesy; monitoring je pojistka, aby se výpadek produktů z prodeje odhalil hned.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "provoz-reporting",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-2",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-2",
+          "text": "Dotáhnout zalistování peroxidu na e-shop + nastavit cenu vůči konkurenci (220–300 Kč)",
+          "popis": "Rozhodnutí z hovoru s Tomášem 12. 8.: peroxid se zavádí — velká organická hledanost, známý produkt. Zalistování je už rozpracované; cenu nastavit „klasicky“ vůči konkurenci (220–300 Kč, Chlorito nyní 250 Kč za pětilitr), není nutné být nejlevnější. Navazují na to úkoly kolem popisu oxyroztoku, rešerše cen a nových etiket; legislativní stranu (5% na 5 států, 35% jen e-shop) řeší Kuba.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-1",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-1",
+          "text": "Rozdělit produkty do maržových skupin A/B/C v systému (kilové tablety zvážit jako B)",
+          "popis": "Dohodnuto s Tomášem 12. 8.: produkty rozdělit minimálně do skupin A/B/C — bazénovka průměrně ~40 %, broumovky spíš B, kilové tablety zvážit jako B (finančně méně zajímavé), pětikilové tablety jsou zlatý produkt. Blokuje to Tomášovo dodání průměrných marží po skupinách. Dlouhodobě se přechází na reálné COGS per produkt (Kuba, Alza reporting) — skupiny jsou mezikrok, se kterým Patrikovi stačí přesnost ~2 %.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "marze"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-5",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-5",
+          "text": "Na konci měsíce srovnat srpen s loňským rokem včetně počasí",
+          "popis": "Srpen míří na +100 % meziročně, ale přeje počasí — nelze to plně připsat výkonu (hovor s Tomášem 12. 8.). Na konci měsíce udělat srovnání srpna s loňskem včetně počasí, aby šlo oddělit vliv sezóny od vlivu marketingu. Data i metodika jsou v dashboardu objednávek + počasí; termín cca 31. 8.–1. 9.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "marze"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-6",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-6",
+          "text": "Dohledat obraty konkurenčních firem v bazénové chemii",
+          "popis": "Z hovoru s Tomášem 12. 8.: zjistit obraty konkurence, aby bylo jasné, kam směřovat energii. Známé opěrné body: chemie-bazen.cz agreguje ~14 značek při obratu 40–50 mil. Kč bez DPH; Marimax (přes Brainboost) jede TV kampaně za zhruba celý roční marketingový rozpočet Chlorita. Výstup pomůže kalibrovat ambici 100 mil. Kč a prioritizaci kanálů.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "marze"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-0",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-0",
+          "text": "Ověřit, zda extrémní podíl nových zákazníků není chyba v párování / metrice",
+          "popis": "Chlorito má neobvykle vysoký podíl nových zákazníků — historicky jen ~1,4 objednávky na zákazníka za 4–5 let, přitom 97–98 % spokojenost na Heuréce (hovor s Tomášem 12. 8.). Nejdřív ověřit, jestli nejde o chybu v párování dat / metrice; pokud čísla sedí, je prioritou retence (emailing na dvojnásobku loňska, databáze ~60 tis. kontaktů). Možné vysvětlení: dokupující zákazníci z hobbymarketů a nákupy „hned teď“ mimo e-shop.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "zakaznici"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-0",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-0",
+          "text": "Projít zadané produkty v Teamworku (ceny) a vyhodnotit, co dává smysl; případně předat Ivě",
+          "popis": "V Teamworku jsou zadané zvažované produkty domácí chemie včetně výrobních cen (hovor s Kubou 11. 8.). Jedlá soda a kyselina citronová jsou cenově mimo (Alza prodává sodu za 37 Kč) — fokus na produkty 500–1000 Kč, tj. bomby a soli do koupele. Stejný úkol potvrdil Tomáš 12. 8. (veden jednou); kritéria: směřovat k formátu pětikilových tablet, neagregovat cizí výrobce proti vlastní výrobě. Tomáš 11. 8. poslal mailem první nástřel výrobních cen (ocet 9,9%, soda, peroxid 5%, destilka) — Kuba zapsal do Teamworku, po spuštění produktů se propíše do COGS tabulky.",
+          "kdo": "já",
+          "datum": "2026-08-12",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "nove-produkty",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-1",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-1",
+          "text": "Návrh nových článků — content gap vs. konkurence, vč. kyseliny kyanurové",
+          "popis": "Content gap analýza: co konkurence má a Chlorito ne, je nejhrubší chyba (hovor s Lukášem 11. 8.). Hlavní příležitost je kyselina kyanurová — dobrá hledanost, jen jeden konkurent s důkladným, ale složitě psaným článkem; prostor odlišit se srozumitelností. Web má silný tematický hub a dobře se umisťuje, vyplatí se pokrýt bazénařinu systematicky; téma podpoří i chystaný vlastní tester na kyanurovou kyselinu.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-2",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-2",
+          "text": "Tabulka testerů + ceny na příští rok (staré vs. nové čínské, paralelní prodej)",
+          "popis": "Sestavit cenovou tabulku testerů na příští rok — dohodnuto s Lukášem 11. 8. Stávající vlastní testery zdražit (dřív 155 Kč, jít výš); nové čínské testery pod vlastní značkou za ~80–90 Kč s vlastní etiketou a českým návodem (letos vyprodané, na příští rok větší objednávka, krabičky přijdou bez etiket). Řešit paralelní prodej obou řad; čeká se na podklady od Lukáše (ID ~2386/2389, ceny).",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "testery"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-3",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-3",
+          "text": "Návrh oživení etiket testerů do nového (PVS) vizuálu",
+          "popis": "Etikety současných testerů oživit do nového PVS vizuálu — dohodnuto s Lukášem 11. 8. Součást širší etiketové linky (designový systém, výběrko grafiků na skalici a peroxid); testery jsou samostatná menší zakázka. Návaznost na tabulku testerů a rebranding čínských testerů pod vlastní značkou.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "testery",
+            "etikety"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-0",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-0",
+          "text": "Rozeslat mail o modré skalici na 4 adresy",
+          "popis": "Finální verze mailu o modré skalici (kterou jsem navrhl) je schválená Lukášem 11. 8. — zbývá jen rozeslat na 4 e-mailové adresy. Rychlý úkol bez blokací. Na modrou skalici navazuje etiketová linka: dotisk černou na barevné vzory a neprůhledné sáčky s grafikou (14. 8.). Podle Gmailu odesláno 12. 8. (mail „Modrá skalice Chlorito“ skrytou kopií na 4 zákaznické adresy) — zbývá jen odškrtnout.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "modra-skalice"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-3",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-3",
+          "text": "Odklikávat nově založené skryté produkty z Hunscraft feedu (až Kuba spustí flow)",
+          "popis": "Kuba staví flow: nový produkt v Hanscraft feedu → automaticky založený skrytý produkt na shopu → notifikace ke kontrole (hovor 11. 8.). Můj krok je průběžně schvalovat/odklikávat nově založené produkty — objem je malý, ~5 produktů 1× za 14 dní, popisky přes Claude/MCP. Čeká na spuštění flow na Kubově straně.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "hanscraft",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-2",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-2",
+          "text": "Kouknout na velkovýrobce chemie (odkaz od Kuby ve WhatsAppu)",
+          "popis": "Kuba poslal ve WhatsAppu odkaz na velkovýrobce chemie, který vyrábí mj. řadu Alza.Eco (hovor 11. 8.) — projít, co dělají. Tomáš je znovu oslovil a čeká se na obaly, etikety, MOQ a podmínky. Podklad pro rozhodování o nových produktech 500–1000 Kč (bomby, soli do koupele).",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "nove-produkty",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-1",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-1",
+          "text": "Zadat Ivě do Teamworku kontrolu slovenské verze webu (vše online + kompletní)",
+          "popis": "Zadat Ivě v Teamworku úkol projít slovenskou verzi webu — ověřit, že je vše online a kompletní (hovor s Kubou 11. 8.). Kontext: na SK byly skladové nesrovnalosti (SK etikety, odskladnění „šestky v jednom“) a Slovensko je spolu s Německem klíč ke škálování na potenciálních 150 mil. Kč příští rok.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "provoz-reporting",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-koule-do-bazenu-0",
+          "checkKey": "check-2026-08-07-koule-do-bazenu-0",
+          "text": "Vybrat výrobce koulí do bazénu",
+          "popis": "Nové téma z hlasové poznámky 7. 8.: Chlorito bude dělat koule do bazénu (plovoucí dávkovače). První krok je najít a vybrat výrobce; navazuje zjištění cen a srovnání konkurence. Zatím bez dalších detailů — poznámka byla krátká (test pipeline zpracuj-schuzku).",
+          "kdo": "já",
+          "datum": "2026-08-07",
+          "zdroj": "projects/chlorito/meetings/2026-08-07-koule-do-bazenu.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koule-do-bazenu"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-koule-do-bazenu-1",
+          "checkKey": "check-2026-08-07-koule-do-bazenu-1",
+          "text": "Zjistit ceny (koule do bazénu)",
+          "popis": "Druhý krok tématu koule do bazénu z poznámky 7. 8.: zjistit nákupní ceny u vybraných výrobců plovoucích dávkovačů. Navazuje na výběr výrobce a je vstupem pro cenotvorbu a rozhodnutí, zda produkt zalistovat.",
+          "kdo": "já",
+          "datum": "2026-08-07",
+          "zdroj": "projects/chlorito/meetings/2026-08-07-koule-do-bazenu.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koule-do-bazenu"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-koule-do-bazenu-2",
+          "checkKey": "check-2026-08-07-koule-do-bazenu-2",
+          "text": "Srovnat konkurenci (koule do bazénu)",
+          "popis": "Třetí krok tématu koule do bazénu z poznámky 7. 8.: srovnat, kdo koule/plovoucí dávkovače prodává a za kolik. Spolu s cenami od výrobců dá obrázek, jestli má produkt pro Chlorito smysl a s jakou marží.",
+          "kdo": "já",
+          "datum": "2026-08-07",
+          "zdroj": "projects/chlorito/meetings/2026-08-07-koule-do-bazenu.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koule-do-bazenu"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-kuba-domluva-schuzky-0",
+          "checkKey": "check-2026-08-07-kuba-domluva-schuzky-0",
+          "text": "Být k dispozici 8. 8. 15–16 h (čekat na potvrzení času od Kuby)",
+          "popis": "Koordinační hovor s Kubou 7. 8.: schůzka s Aničkou 8. 8. odpoledne 15–16 h, přesný čas domlouval Kuba, Honza se neúčastnil. Termín už proběhl — úkol je v přehledu jen pro kontrolu/odškrtnutí.",
+          "kdo": "já",
+          "datum": "2026-08-07",
+          "zdroj": "projects/exportio/meetings/2026-08-07-kuba-domluva-schuzky.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koordinace",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-5",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-5",
+          "text": "Potvrdit obaly 5% peroxidu (3/5/10 l) a přípravu výroby",
+          "popis": "Z hovoru s Lukášem 14. 8.: 5% peroxid půjde do obalů 3, 5 a 10 l (1 l ne — speciální odplyňovací víčko se dělá ručně výměnou těsnění, malé objemy se nevyplatí). Lukáš potřebuje nárůst objemu, aby se vyplatil plnicí stroj (teď se plní ručně); obava z výroby palety, která bude dva roky ležet — proto méně variant a nejdřív ověřit poptávku. Popis produktu držet jako „technický roztok“ kvůli lékárenské regulaci.",
+          "kdo": "Lukáš/Tomáš",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-lukas-reklama-peroxid-4",
+          "checkKey": "check-2026-08-14-lukas-reklama-peroxid-4",
+          "text": "AI vizuál vířivky s hrubkou",
+          "popis": "Iva zadá do AI vygenerování vizuálu vířivky pro engagement reklamu s úmyslnou hrubkou (hovor s Lukášem 14. 8.). Vizuál je vstup pro můj úkol „zpracovat reklamu a poslat do světa“ — dokud není, reklama stojí.",
+          "kdo": "Iva",
+          "datum": "2026-08-14",
+          "zdroj": "projects/chlorito/meetings/2026-08-14-lukas-reklama-peroxid.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-2",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-2",
+          "text": "Získat od Hanscraft IT export maržovosti celého portfolia a přeposlat",
+          "popis": "Požadavek na export maržovosti celého Hanscraft portfolia (rozptyl 10–35 %) už Kuba odeslal mailem, čeká se na IT (hovor 14. 8.). Podle exportu se rozhodne, co s produkty s marží ~10 %: vyřadit, méně častý závoz, nebo nepromovaná promo skupina. Kontext: za 3 měsíce obrat ~850 tis. Kč s maržovostí do 22 % (~170 tis. marže, ~800 Kč denně) — proto už omezení závozu z 5× na 3× týdně.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "hanscraft",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-3",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-3",
+          "text": "Ověřit vratkovost vířivek; pokud je nízká, tlačit vířivky (marže ~30 %) jako hlavní kategorii",
+          "popis": "Po obdržení dat z Hanscraftu ověřit vratkovost vířivek (hovor s Kubou 14. 8.). Vířivky, jejich chemie a sauny mají nejvyšší marže (25–35 %) — u vířivky za ~10 tis. Kč s 30% marží dává smysl je tlačit jako hlavní kategorii, ale jen pokud nebude vysoká vratkovost. Navazuje content nápad: natočit videa v showroomech s 2–3 vířivkami s nejnižší vratkovostí + aplikací vlastní chemie.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "hanscraft",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-5",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-5",
+          "text": "Rozjet výběrko dvou grafiků na etikety modrá skalice + peroxid; dotáhnout odvápňovač s Ošmerou",
+          "popis": "Kuba organizuje výběrko dvou nových grafiků (jeden ex-Taste, druhý z EffectX, hodinovka ~600 Kč) na etikety modré skalice a peroxidu; odvápňovač dělá Ošmera (hovor 14. 8.). Řeší i Tomášovo zadání z 12. 8. „sehnat grafika napřímo“ — první oslovený neodpověděl. Já grafikům zadávám peroxid jako soutěžní zadání (samostatný úkol).",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "etikety",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-6",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-6",
+          "text": "Peroxid: 5% etiketa na 5 států, 35% jen e-shop s kontrolou, doplnit popis oxiroztoku (přes Lukáše)",
+          "popis": "Legislativně-logistická strana peroxidu (hovor s Kubou 14. 8.): koncentrace ovlivňuje ADR dopravu i to, komu lze prodávat. Do 10 % lze podle rychlé rešerše prodávat do všech zemí — proto 5% varianta s etiketou pro 5 států; 35% jen přes e-shop s kontrolou prodeje (konkurence se brání i cenou, litr za 9 990 Kč). Doplnění popisu oxiroztoku se s Lukášem řeší i napřímo (můj úkol z téhož dne) — po dokončení odškrtnout obojí.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "etikety",
+            "peroxid",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-9",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-9",
+          "text": "Kubova provozní agenda: bomby do koupele, doprava Slovensko, Podzim Wellness",
+          "popis": "Souhrn Kubovy provozní agendy z hovoru 14. 8.: dotáhnout bomby do koupele (registrace → nákupky, viz linka nových produktů z 11. 8.), vyřešit dopravu na Slovensko a připravit akci Podzim Wellness. Sleduju jako celek — jednotlivé kroky jsou na Kubovi.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "nove-produkty",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-4",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-4",
+          "text": "Tlačit Tomáše na doplnění dalších COGS do tabulky (Alza / reporting)",
+          "popis": "Alza reporting přechází z maržových skupin na reálné COGS per produkt — doplněno je ~50 produktů (hovor s Kubou 14. 8.). Kuba se bojí, že špatně určené maržové skupiny by na konci roku nesedly („100 mil. obratu, ale málo v peněžence“); mně by stačily dobře určené skupiny (rozdíl ~2 %). Navazuje na maržové skupiny A/B/C dohodnuté s Tomášem 12. 8.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "provoz-reporting",
+            "marze",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-7",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-7",
+          "text": "Vytáhnout z Tomáše náklady na současnou expedici (podklad pro převzetí expedice)",
+          "popis": "Kuba od příštího roku převezme expedici Chlorita (rozdělení rolí: Patrik marketing, Kuba provoz/sklad/expedice) — plán je hala, regály, válečkové dráhy, cíl odstřihnout Tomáše s Lukášem od operativy. Chybí náklady na současnou expedici od Tomáše, tahá se to už 2 měsíce (hovor 14. 8.). Bez čísel nejde postavit byznys case převzetí.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "provoz-reporting",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-8",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-8",
+          "text": "Snížit Honzovi úvazek a sehnat Shoptet vývojáře na zářijové úpravy Chlorito webu",
+          "popis": "Honza má nulový ownership, práci dělá pozdě a draho; riziko je, že spravuje servery se službami pro Chlorito i Premu — proto postupné snižování úvazku (nechat jako specialistu 1× týdně) místo okamžitého konce (hovor s Kubou 14. 8.). Na zářijové úpravy Chlorito webu Kuba sežene Shoptet vývojáře — září se blíží, úkol je časově citlivý.",
+          "kdo": "Kuba",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "provoz-reporting",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-8",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-8",
+          "text": "Spočítat zásobu starých etiket na peroxid (odhad 100–300 ks, jen k dospotřebování)",
+          "popis": "Tomáš spočítá, kolik starých etiket na peroxid je skladem — odhad 100–300 ks (hovor 12. 8.). Staré etikety designově nevyhovují a dotisk u Tomáše stojí dvojnásobek (prefabrikát + ruční potisk), dávají smysl jen k dospotřebování. Číslo určí, kdy musí být hotová nová etiketa z výběrka grafiků.",
+          "kdo": "Tomáš",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "peroxid",
+            "etikety"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-7",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-7",
+          "text": "Dodat průměrné marže po skupinách do systému (bazénovka ~40 %)",
+          "popis": "Tomáš dodá průměrné marže po skupinách — zatím jsou známá jen rozpětí, bazénovka průměrně ~40 % (hovor 12. 8.). Blokuje můj úkol rozdělit produkty do maržových skupin A/B/C a napojuje se na Kubův tlak na reálné COGS per produkt v Alza reportingu. Mailem 12. 8. („Hrubé přiřazení marže skupinám“) jsem poslal nástřel MPAS 52 / MPBS 43 / MPCS 30 / MPDS 25 / MPES 15 % a požádal o jedno číslo za skupinu (případně přidat skupinu F) — Tomáš zatím jen poděkoval, čísla nepotvrdil.",
+          "kdo": "Tomáš",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "marze"
+          ]
+        },
+        {
+          "key": "check-2026-08-12-tomas-marze-peroxid-9",
+          "checkKey": "check-2026-08-12-tomas-marze-peroxid-9",
+          "text": "Ověřit nastavení Heuréka hodnocení v košíku (opt-out vs. opt-in)",
+          "popis": "Tomáš ověří, jestli musí zákazník v košíku odškrtnout, že nechce hodnotit (opt-out) — to je výhodnější a dřív to tak bylo (hovor 12. 8.). Chlorito má 4–5 recenzí denně vs. ~4 týdně u chemie-bazen.cz; recenze jsou levná konkurenční výhoda a souvisí s retenčním tématem (97–98 % spokojenost při nízké opakovanosti nákupů).",
+          "kdo": "Tomáš",
+          "datum": "2026-08-12",
+          "zdroj": "projects/chlorito/meetings/2026-08-12-tomas-marze-peroxid-konkurence.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "zakaznici"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-4",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-4",
+          "text": "Dodat podklady k novým čínským testerům (ID ~2386/2389, ceny)",
+          "popis": "Lukáš dodá podklady k novým čínským testerům — ID ~2386/2389 a ceny (hovor 11. 8.). Testery se budou prodávat pod vlastní značkou za ~80–90 Kč s vlastní etiketou a českým návodem; krabičky přijdou bez etiket, etiketáž bude vlastní. Podklady blokují mou tabulku testerů s cenami na příští rok.",
+          "kdo": "Lukáš",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "testery"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-5",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-5",
+          "text": "Tester na kyselinu kyanurovou — dát dohromady hotové řešení",
+          "popis": "Lukáš dává dohromady hotové řešení testeru na kyselinu kyanurovou — koupí se hotové (tabletový k fotometru + trubicový), nevyvíjí se vlastní (hovor 11. 8.). Kyanurová kyselina je zároveň hlavní obsahová příležitost (dobrá hledanost, slabá konkurence) — tester a obsah se navzájem podpoří.",
+          "kdo": "Lukáš",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "testery"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-lukas-testery-obsah-6",
+          "checkKey": "check-2026-08-11-lukas-testery-obsah-6",
+          "text": "PoolLab elektrické testery — dorazí 4 ks na test",
+          "popis": "Objednané 4 ks elektrických testerů PoolLab na otestování (hovor s Lukášem 11. 8.). Pokud se osvědčí, rozšíří nabídku testerů nahoru (nad čínské ~80–90 Kč a vlastní zdražené). Čeká se na doručení a vyzkoušení.",
+          "kdo": "Lukáš",
+          "datum": "2026-08-11",
+          "zdroj": "projects/chlorito/meetings/2026-08-11-lukas-testery-obsah.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "testery"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-4",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-4",
+          "text": "Flow: nový produkt ve feedu → skrytý produkt na shopu + notifikace",
+          "popis": "Kuba připraví automatizaci: nový produkt v Hanscraft feedu se automaticky založí na shopu jako skrytý a přijde mi notifikace ke kontrole (hovor 11. 8.). Objem ~5 produktů 1× za 14 dní, popisky přes Claude/MCP; hromadné úpravy případně přes export-import/API. Až flow poběží, navazuje můj úkol odklikávat založené produkty.",
+          "kdo": "Kuba",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "hanscraft",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-5",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-5",
+          "text": "Dojet zalistování Hunscraft produktů",
+          "popis": "Kuba dokončí zalistování zbývajících Hanscraft produktů na shop (hovor 11. 8.). Souvisí s optimalizací závozu (externí sklad na delivery 48 h, ježdění 2× týdně místo denního za ~4 000 Kč obratu) a s čekáním na export maržovosti, podle kterého se nízkomaržové produkty vyřadí nebo přesunou.",
+          "kdo": "Kuba",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "hanscraft",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-7",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-7",
+          "text": "Bomby do koupele: potvrzení registrací → nákupky",
+          "popis": "Bomby do koupele jsou v procesu registrace; jakmile se potvrdí, jdou nákupky (hovor s Kubou 11. 8.). Strategie: koupit hotové bomby + vlastní packaging, vlastní forma by se před sezónou nestihla. Spadá do fokusu na produkty 500–1000 Kč; u dodavatele solí a olejů hlídat vzhled obalů (pytlíky vypadají hrozně — dávat feedback).",
+          "kdo": "Kuba",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "nove-produkty",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-11-kuba-produkty-reporting-6",
+          "checkKey": "check-2026-08-11-kuba-produkty-reporting-6",
+          "text": "Podmínky od velkovýrobce chemie (obaly, MOQ, etikety)",
+          "popis": "Tomáš znovu oslovil velkovýrobce chemie (vyrábí mj. řadu Alza.Eco) — čeká se na obaly, etikety, MOQ a podmínky (hovor s Kubou 11. 8.). Výstup rozhodne, jestli se přes něj dá postavit řada nových produktů 500–1000 Kč; párový úkol na mně je projít, co ten výrobce dělá (odkaz ve WhatsAppu).",
+          "kdo": "Tomáš",
+          "datum": "2026-08-11",
+          "zdroj": "projects/exportio/meetings/2026-08-11-kuba-produkty-reporting.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "nove-produkty",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-kuba-domluva-schuzky-1",
+          "checkKey": "check-2026-08-07-kuba-domluva-schuzky-1",
+          "text": "Zavolat Aničce, domluvit čas schůzky, dát vědět",
+          "popis": "Kuba měl 7. 8. zavolat Aničce, domluvit přesný čas schůzky na 8. 8. (okno 15–16 h) a dát vědět. Termín už proběhl — v přehledu jen pro kontrolu/odškrtnutí.",
+          "kdo": "Kuba",
+          "datum": "2026-08-07",
+          "zdroj": "projects/exportio/meetings/2026-08-07-kuba-domluva-schuzky.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koordinace",
+            "exportio"
+          ]
+        },
+        {
+          "key": "check-2026-08-07-kuba-domluva-schuzky-2",
+          "checkKey": "check-2026-08-07-kuba-domluva-schuzky-2",
+          "text": "Zavolat Tomášovi (poslal věci do mailu)",
+          "popis": "Kuba měl 7. 8. zavolat Tomášovi, který mu poslal věci do mailu (bez bližších detailů v zápisu). Vázané na tehdejší koordinaci — pravděpodobně proběhlo, v přehledu pro kontrolu/odškrtnutí.",
+          "kdo": "Kuba",
+          "datum": "2026-08-07",
+          "zdroj": "projects/exportio/meetings/2026-08-07-kuba-domluva-schuzky.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "koordinace",
+            "exportio"
+          ]
+        },
+        {
+          "key": "gm-2026-08-15-gsc-prava-chlorito-cz",
+          "text": "Přidat mi nejvyšší práva v GSC pro chlorito.cz (kvůli hreflang propojení CZ/SK)",
+          "popis": "15. 8. jsem požádal Tomáše a Kubu o nejvyšší práva v Google Search Console pro chlorito.cz — u SK verze je mám, u CZ ne. Bez nich nejde nastavit propojení CZ a SK stránek (hreflangy). Zatím bez odpovědi — pokud nepřijde, urgovat.",
+          "kdo": "Tomáš/Kuba",
+          "datum": "2026-08-15",
+          "zdroj": "Přidání práv v Google Search Console chlorito.cz (mail 15. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "seo-web"
+          ]
+        },
+        {
+          "key": "gm-2026-08-13-virivky-influenceri-balicek",
+          "text": "Sestavit vířivkový balíček pro influencery + doplnit vířivky na kartu OXI granulátu",
+          "popis": "Influenceři na vířivky jsou teď nejlepší cesta, jak roztáhnout sezónu (můj mail 13. 8.). Tomáš týž den odpověděl: do vířivek patří bromové tablety, 5v1/6v1 mini, peroxid roztok a OXY krystaly; dávkovat 2–3× více než v bazénu, balení spíš 1 l/1 kg. Sestavit finální sadu produktů (seznam od influencerů obsahoval i věci, které nedávají smysl) a doplnit na kartu OXI granulátu 1 kg, že je vhodný i do vířivky a jak ho aplikovat.",
+          "kdo": "já",
+          "datum": "2026-08-13",
+          "zdroj": "Vířivky OXI granulát a další (mail 13. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "obsah-reklama",
+            "hanscraft"
+          ]
+        },
+        {
+          "key": "gm-2026-08-06-data-validace-emailu",
+          "text": "Poslat Tomášovi data k validaci e-mailů ze zákaznické schránky",
+          "popis": "Tomáš se 6. 8. ptá, jestli jsem mu posílal data k validaci z e-mailů — mail je bez odpovědi. Podklad mám: Honza 3. 8. nasdílel export odeslané pošty ze zákaznické schránky (17 005 z 18 354 mailů, v datech jsou chyby). Navazuje na retenční linku — čištění databáze kontaktů a ověření párování zákazníků.",
+          "kdo": "já",
+          "datum": "2026-08-06",
+          "zdroj": "dotaz + Přístupy k mailům ze zákaznické (maily 1.–6. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "zakaznici"
+          ]
+        },
+        {
+          "key": "gm-2026-08-06-dotazy-fb-video",
+          "text": "Odpovědět Tomášovi: komunikace na FB + video a demolice tablet",
+          "popis": "Dva jednořádkové statusové dotazy od Tomáše z 6. 8., oba bez odpovědi — jak pokračuje komunikace na Facebooku a co je s videem a demolicí tablet. Stačí krátký status update; FB je letos jeden z hlavních hnacích motorů Chlorita, takže to nenechávat viset.",
+          "kdo": "já",
+          "datum": "2026-08-06",
+          "zdroj": "komunikace na FB? / video a demolici tablet? (maily 6. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "gm-2026-08-05-koloidni-stribro",
+          "text": "Koloidní stříbro: potvrdit přesun do Domácnosti + proces změn textací přes mě",
+          "popis": "Dana 30. 7. smazala z krátkých popisů koloidního stříbra tvrzení o bazénech (není to bazénový přípravek, mátlo to zákazníky). 3. 8. jsem navrhl přesun z podkategorie „Příslušenství do bazénu“ do „Domácnosti“ a 5. 8. urgoval + požádal, aby změny textací šly předem a přes mě (procesně domluveno s Tomášem). Od 5. 8. bez reakce — čeká na Daně.",
+          "kdo": "Dana",
+          "datum": "2026-08-05",
+          "zdroj": "Marketing a nepravdivé informace - koloidní stříbro (maily 30. 7.–5. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "gm-2026-07-29-fb-koment-tablety",
+          "text": "Poradit Ivě s FB komentářem k rozbitým tabletám",
+          "popis": "Iva 29. 7. prosí o radu, zda komentář s fotkou rozbitých tablet na FB skrýt, napsat pánovi soukromou zprávu, nebo veřejně vysvětlit, že jde o vinu přepravce. Mail je stále bez odpovědi (a neotevřený) — rychlá odpověď; správa FB komunit je klíčový kanál a Iva na tom stojí.",
+          "kdo": "já",
+          "datum": "2026-07-29",
+          "zdroj": "Prosím radu k facebooku (mail 29. 7.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "obsah-reklama"
+          ]
+        },
+        {
+          "key": "gm-2026-08-11-ceniky-jazykove-mutace",
+          "text": "Odpovědět Tomášovi ke kopírování dat pro ceníky jazykových mutací",
+          "popis": "Tomáš mi 11. 8. přeposlal vlákno se Shoptet Premium k jazykovým mutacím SK/HU/DE/AT/PL s dotazem, zda lze pro nastavení ceníků zkopírovat data. Směřováno přímo na mě, zatím bez odpovědi — ověřit možnosti (případně s Honzou / supportem Shoptet Premium) a dát Tomášovi vědět.",
+          "kdo": "já",
+          "datum": "2026-08-11",
+          "zdroj": "FW: Shoptet Premium x nové jazykové mutace SK/HU/DE/AT/PL (mail 11. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "seo-web",
+            "provoz-reporting"
+          ]
+        },
+        {
+          "key": "gm-2026-08-07-poradna-schvaleni",
+          "text": "Odsouhlasit nasazení nástroje poradna (spustit hned + rozeslat mailingem)",
+          "popis": "Tomáš chtěl bazénovou poradnu (rozšíření monitor.chlorito.cz) odložit na příští rok, aby neradila konkurenci. Já s Kubou jsme pro nasadit hned a rozeslat mailingem mezi stávající zákazníky — otestovat a vylepšit před příští sezónou, budovat pozici inovátora. Kuba 7. 8. mailem požádal o odsouhlasení Tomáše a Lukáše, „na tom to stojí“ — od té doby bez reakce.",
+          "kdo": "Tomáš/Lukáš",
+          "datum": "2026-08-07",
+          "zdroj": "nástroj poradna (maily 4.–7. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "obsah-reklama",
+            "zakaznici"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prema",
+      "nazev": "Prema",
+      "ukoly": [
+        {
+          "key": "check-2026-08-14-kuba-hanscraft-prema-ppc-0",
+          "checkKey": "check-2026-08-14-kuba-hanscraft-prema-ppc-0",
+          "text": "Oslovit PPC specialistku (ex-Expando, 2 roky Amazon PPC) ohledně správy PPC pro Premu + Chlorito",
+          "popis": "Akutní úkol z hovoru s Kubou 14. 8.: Prema po vyhazovu správkyně Amazonu (a automaticky obnovené, téměř nevypověditelné dvouleté smlouvě s agenturou Adference) chce předat Amazon PPC Exportiu. Oslovím kandidátku — ex-Expando, 2 roky Amazon PPC, nyní performance agentura pod Seznamem. Úvazek 1/3 až 1/2, uživí ji Prema (~15 tis./měs.) + Chlorito (dohromady ~40 tis./měs.); profil: zvídavá, umí počítat, Amazon PPC doškolí Kuba.",
+          "kdo": "já",
+          "datum": "2026-08-14",
+          "zdroj": "projects/exportio/meetings/2026-08-14-kuba-hanscraft-prema-ppc-etikety.md",
+          "zdrojTyp": "hovor",
+          "stitky": [
+            "amazon-ppc",
+            "exportio"
+          ]
+        },
+        {
+          "key": "gm-2026-07-28-prema-ga4-mereni",
+          "text": "Urgovat nasdílení GA4 a dokončit měření pluginu v košíku",
+          "popis": "Plugin doporučování v košíku na i-prema.de je nasazený a klient ho 27. 7. potvrdil jako OK. 28. 7. jsem požádal o nasdílení GA4 na patrik.pilous@gmail.com, abych do pluginu nasadil měření — přes tři týdny bez reakce, urgovat Daniela Gutvirtha. Po získání přístupu doladit analytiku (slíbeno v témže vlákně).",
+          "kdo": "já",
+          "datum": "2026-07-28",
+          "zdroj": "Německé texty (maily 14.–28. 7.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "prema-web"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erikafashion",
+      "nazev": "Erikafashion",
+      "ukoly": [
+        {
+          "key": "gm-2026-08-03-nikola-kategorie",
+          "text": "Dát Nikole vědět, kdy může textovat kategorie",
+          "popis": "Nikola 1. 8. poslala vyúčtování za srpen (4 články CZ + 4 SK, 5 400 Kč) a ptá se, jestli může textovat i další věci (kategorie apod.). 3. 8. jsem odpověděl, ať s kategoriemi vyčká — většinu máme hotovou. Zbývá jí dát vědět, až bude prostor, případně zadat jiné texty, ať se copywriterka nezasekne.",
+          "kdo": "já",
+          "datum": "2026-08-03",
+          "zdroj": "Copy - srpen (maily 1.–3. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "erika-provoz"
+          ]
+        },
+        {
+          "key": "gm-2026-08-06-merchant-api-migrace",
+          "text": "Ověřit migraci na Merchant API — deadline 18. 8.",
+          "popis": "Google 6. 8. poslal poslední upozornění: do 18. 8. 2026 dokončit migraci z Content API na Merchant API, jinak se produkty Erika Fashion přestanou zobrazovat na Googlu. Termín je prakticky teď — ověřit (s PPC specialistou / Zbyňkem), jestli je migrace hotová, případně požádat o prodloužení. Systémová notifikace, ale s tvrdým deadlinem, proto ji vedu jako úkol.",
+          "kdo": "já",
+          "datum": "2026-08-06",
+          "zdroj": "Poslední upozornění: migrace na Merchant API do 18. 8. (mail 6. 8.)",
+          "zdrojTyp": "gmail",
+          "stitky": [
+            "erika-provoz"
+          ]
+        }
+      ]
+    }
+  ]
+}
