@@ -319,6 +319,29 @@ main { padding: 32px; }
 }
 .uk-done-btn:hover { border-color: #22c55e; color: #22c55e; }
 .uk-row.done .uk-done-btn { background: #22c55e; border-color: #22c55e; color: #fff; }
+.uk-row { flex-wrap: wrap; }
+.uk-main { display: flex; align-items: center; gap: 10px; width: 100%; }
+.uk-popis { font-size: 12px; color: var(--text-sec); line-height: 1.45; width: 100%; padding-left: 2px; margin-top: 3px; }
+.uk-zdrojtyp {
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
+  padding: 1px 6px; white-space: nowrap;
+}
+.uk-zdrojtyp-gmail { background: #fee2e2; color: #b91c1c; }
+.uk-zdrojtyp-hovor { background: #e0f2fe; color: #0369a1; }
+.uk-top3 {
+  background: linear-gradient(135deg, rgba(91,33,182,0.06), rgba(217,119,6,0.06));
+  border: 1px solid #d97706; padding: 16px 18px; margin-bottom: 18px;
+}
+.uk-top3 h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #b45309; }
+.uk-top3 .uk-row { background: var(--card); border-color: #f0d9b5; }
+.uk-top3 .uk-duvod { font-size: 12px; color: #92400e; width: 100%; padding-left: 2px; margin-top: 2px; font-style: italic; }
+.uk-archiv { margin-top: 24px; }
+.uk-archiv summary {
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+  padding: 8px 0; user-select: none;
+}
+.uk-archiv .uk-row { opacity: 0.6; }
+.uk-datum-dokonceni { font-size: 10px; color: #16a34a; white-space: nowrap; font-weight: 600; }
 
 .portfolio-section {
   margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -833,7 +856,7 @@ function buildChecklist(n) {
     '<button class="rec-copy-btn" data-rec="' + esc(n.id) + '" title="Zkopiruje zaskrtnute polozky (kdyz nic nezaskrtnes, zkopiruje vse)">Kopirovat oznacene</button></div>';
   n.checklist.forEach(function(item, i) {
     var key = 'check-' + n.id + '-' + i;
-    var done = ls(key) === true;
+    var done = isDone(key);
     html += '<div class="rec-check-item' + (done ? ' done' : '') + '">' +
       '<input type="checkbox" id="' + key + '" data-key="' + key + '"' + (done ? ' checked' : '') + '>' +
       '<label for="' + key + '">' + esc(item.text) + '</label>' +
@@ -848,8 +871,10 @@ function buildChecklist(n) {
 document.getElementById('list-nahravky').addEventListener('change', function(e) {
   if (e.target.type !== 'checkbox') return;
   var key = e.target.dataset.key;
-  ls(key, e.target.checked);
+  if (e.target.checked) { ls(key, {done: true, date: new Date().toISOString().slice(0, 10)}); }
+  else { ls(key, false); }
   e.target.closest('.rec-check-item').classList.toggle('done', e.target.checked);
+  renderUkoly(document.getElementById('clientFilter').value);
 });
 
 document.getElementById('list-nahravky').addEventListener('click', function(e) {
@@ -870,7 +895,7 @@ document.getElementById('list-nahravky').addEventListener('click', function(e) {
   if (!btn) return;
   var rec = (DATA.nahravky || []).find(function(n) { return n.id === btn.dataset.rec; });
   if (!rec || !rec.checklist) return;
-  var checked = rec.checklist.filter(function(item, i) { return ls('check-' + rec.id + '-' + i) === true; });
+  var checked = rec.checklist.filter(function(item, i) { return isDone('check-' + rec.id + '-' + i); });
   var subset = checked.length ? checked : rec.checklist;
   var lines = subset.map(function(item) {
     return '- ' + item.text + (item.kdo ? ' (' + item.kdo + ')' : '');
@@ -883,6 +908,20 @@ document.getElementById('list-nahravky').addEventListener('click', function(e) {
 });
 
 var TEMA_COLORS = ['#0284c7', '#7c3aed', '#059669', '#d97706', '#dc2626', '#0891b2', '#be185d', '#4d7c0f', '#7e22ce', '#b45309', '#155e75'];
+
+// Stav dokonceni: true (legacy) nebo {done: true, date: "YYYY-MM-DD"}
+function isDone(key) {
+  var v = ls(key);
+  return v === true || (v && v.done === true);
+}
+function doneDate(key) {
+  var v = ls(key);
+  return (v && v.date) ? v.date : null;
+}
+function toggleDone(key) {
+  if (isDone(key)) { ls(key, false); }
+  else { ls(key, {done: true, date: new Date().toISOString().slice(0, 10)}); }
+}
 
 function renderUkoly(filter) {
   var list = document.getElementById('list-ukoly');
@@ -911,23 +950,23 @@ function renderUkoly(filter) {
   }
   (U.stitky || []).forEach(function(s) { regStitek(s.id, s.nazev, s.kontext, s.souvisi); });
 
-  // Ploché ukoly per kanal (v2: kanal.ukoly se stitky[]; v1 fallback: kanal.temata)
+  // Ploché ukoly per kanal (v3/v2: kanal.ukoly se stitky[]; v1 fallback: kanal.temata)
   var kanalRows = [];
   kanaly.forEach(function(k) {
     var rows = [];
     if (k.ukoly) {
       k.ukoly.forEach(function(u, i) {
-        u._key = u.checkKey || ('ukol-' + k.id + '-' + i);
+        u._key = u.key || u.checkKey || ('ukol-' + k.id + '-' + i);
         var tags = (u.stitky && u.stitky.length) ? u.stitky.slice(0, 3) : ['ostatni'];
         tags.forEach(function(t) { regStitek(t, t, '', []); });
-        rows.push({u: u, tags: tags, done: ls(u._key) === true});
+        rows.push({u: u, tags: tags, kanal: k, done: isDone(u._key)});
       });
     } else {
       (k.temata || []).forEach(function(t) {
         regStitek(t.id, t.nazev, t.kontext, t.souvisi);
         (t.ukoly || []).forEach(function(u, i) {
           u._key = u.checkKey || ('ukol-' + k.id + '-' + t.id + '-' + i);
-          rows.push({u: u, tags: [t.id], done: ls(u._key) === true});
+          rows.push({u: u, tags: [t.id], kanal: k, done: isDone(u._key)});
         });
       });
     }
@@ -937,6 +976,42 @@ function renderUkoly(filter) {
     kanalRows.push({kanal: k, rows: rows});
   });
   if (activeTag && !stitkyDef[activeTag]) activeTag = null;
+
+  function rowHtml(r, extra) {
+    var tagsHtml = r.tags.map(function(t) {
+      var s = stitkyDef[t];
+      return '<span class="uk-tag-mini" style="background:' + s.barva + '" data-tag="' + esc(t) + '" title="Filtrovat stitek">' + esc(s.nazev) + '</span>';
+    }).join('');
+    var zt = r.u.zdrojTyp ? '<span class="uk-zdrojtyp uk-zdrojtyp-' + esc(r.u.zdrojTyp) + '">' + esc(r.u.zdrojTyp) + '</span>' : '';
+    var dd = r.done && doneDate(r.u._key) ? '<span class="uk-datum-dokonceni">&#10003; ' + esc(doneDate(r.u._key)) + '</span>' : '';
+    return '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
+      '<div class="uk-main">' + tagsHtml + zt +
+        '<span class="uk-text" title="' + esc((r.u.zdroj || '') + ' · ' + (r.u.datum || '')) + '">' + esc(r.u.text) + '</span>' +
+        dd +
+        '<span class="uk-kdo">' + esc(r.u.kdo || '') + '</span>' +
+        '<button class="uk-done-btn" data-key="' + esc(r.u._key) + '" title="' + (r.done ? 'Vratit mezi otevrene' : 'Dokoncit') + '">&#10003;</button>' +
+      '</div>' +
+      (r.u.popis ? '<div class="uk-popis">' + esc(r.u.popis) + '</div>' : '') +
+      (extra || '') +
+    '</div>';
+  }
+
+  // TOP 3 podle dopadu na trzby
+  var allRowsByKey = {};
+  kanalRows.forEach(function(kr) { kr.rows.forEach(function(r) { allRowsByKey[r.u._key] = r; }); });
+  var top3Html = '';
+  if (U.top3 && U.top3.length && !activeTag) {
+    var top3Rows = U.top3.map(function(t) {
+      var r = allRowsByKey[t.key];
+      return r && !r.done ? {r: r, duvod: t.duvod} : null;
+    }).filter(Boolean);
+    if (top3Rows.length) {
+      top3Html = '<div class="uk-top3"><h3>&#9733; TOP 3 podle dopadu na trzby (Projektak)</h3>' +
+        top3Rows.map(function(t) {
+          return rowHtml(t.r, '<div class="uk-duvod">&#9733; ' + esc(t.duvod) + '</div>');
+        }).join('') + '</div>';
+    }
+  }
 
   // Tag bar
   var bar = '<div class="uk-tagbar">' +
@@ -961,37 +1036,45 @@ function renderUkoly(filter) {
       (souvisi ? '<div>' + souvisi + '</div>' : '') + '</div>';
   }
 
-  var html = bar + panel;
+  var html = bar + panel + top3Html;
   var openTotal = 0;
+  var archivRows = [];
 
   kanalRows.forEach(function(kr) {
     var rows = kr.rows.filter(function(r) {
       return !activeTag || r.tags.indexOf(activeTag) !== -1;
     });
     if (!rows.length) return;
-    rows.sort(function(a, b) { return (a.done === b.done) ? 0 : (a.done ? 1 : -1); });
-    openTotal += rows.filter(function(r){ return !r.done; }).length;
+    var open = rows.filter(function(r){ return !r.done; });
+    archivRows = archivRows.concat(rows.filter(function(r){ return r.done; }));
+    openTotal += open.length;
+    if (!open.length) return;
 
     var k = kr.kanal;
     var c = CLIENTS_MAP[k.id];
     var badge = c ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>' : '';
     html += '<div class="uk-kanal"><div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div>';
-    rows.forEach(function(r) {
-      var tagsHtml = r.tags.map(function(t) {
-        var s = stitkyDef[t];
-        return '<span class="uk-tag-mini" style="background:' + s.barva + '" data-tag="' + esc(t) + '" title="Filtrovat stitek">' + esc(s.nazev) + '</span>';
-      }).join('');
-      html += '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
-        tagsHtml +
-        '<span class="uk-text" title="' + esc((r.u.zdroj || '') + ' · ' + (r.u.datum || '')) + '">' + esc(r.u.text) + '</span>' +
-        '<span class="uk-kdo">' + esc(r.u.kdo || '') + '</span>' +
-        '<button class="uk-done-btn" data-key="' + esc(r.u._key) + '" title="' + (r.done ? 'Vratit mezi otevrene' : 'Dokoncit') + '">&#10003;</button>' +
-      '</div>';
-    });
+    open.forEach(function(r) { html += rowHtml(r); });
     html += '</div>';
   });
 
+  // Archiv dokoncenych s datem
+  if (archivRows.length) {
+    archivRows.sort(function(a, b) {
+      return (doneDate(b.u._key) || '').localeCompare(doneDate(a.u._key) || '');
+    });
+    html += '<details class="uk-archiv"' + (ls('ukoly-archiv-open') === true ? ' open' : '') + '>' +
+      '<summary>Archiv dokoncenych (' + archivRows.length + ')</summary>' +
+      archivRows.map(function(r) {
+        var c = CLIENTS_MAP[r.kanal.id];
+        var kb = c ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>' : '';
+        return rowHtml(r).replace('<div class="uk-main">', '<div class="uk-main">' + kb);
+      }).join('') + '</details>';
+  }
+
   list.innerHTML = html;
+  var arch = list.querySelector('.uk-archiv');
+  if (arch) arch.addEventListener('toggle', function() { ls('ukoly-archiv-open', arch.open); });
   updateCount('ukoly', openTotal);
 }
 
@@ -999,8 +1082,7 @@ document.getElementById('list-ukoly').addEventListener('click', function(e) {
   // Dokonceni ukolu (zelena fajfka)
   var btn = e.target.closest('.uk-done-btn');
   if (btn) {
-    var key = btn.dataset.key;
-    ls(key, !(ls(key) === true));
+    toggleDone(btn.dataset.key);
     var f = document.getElementById('clientFilter').value;
     renderUkoly(f);
     renderNahravky(f);
