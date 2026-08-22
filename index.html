@@ -6,27 +6,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@600;700&family=Rubik:wght@400;500;600;700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 <style>
 :root {
-  --bg: #f5f6fa;
+  --bg: #F6F7F9;
   --card: #ffffff;
-  --border: #e2e5ed;
-  --text: #1a1a2e;
-  --text-sec: #4a5568;
-  --text-muted: #9ca3af;
-  --accent: #5B21B6;
-  --accent-dim: rgba(91,33,182,0.08);
-  --accent-hover: #4c1d95;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --border: #E4E7EC;
+  --text: #1E2430;
+  --text-sec: #4E5560;
+  --text-muted: #8B919C;
+  --accent: #AE821F;
+  --accent-dim: rgba(174,130,31,0.07);
+  --accent-hover: #8F6A18;
+  --shadow: 0 1px 2px rgba(30,36,48,0.04), 0 4px 16px rgba(30,36,48,0.05);
+  --heading: 'Source Sans 3', 'Source Sans Pro', -apple-system, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.5;
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.55;
   min-height: 100vh; -webkit-font-smoothing: antialiased;
 }
+h1, h2, h3, h4, .login-title { font-family: var(--heading); font-weight: 700; }
 
 .login-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg);
@@ -65,6 +67,12 @@ body {
 .login-error { margin-top: 14px; font-size: 13px; color: #d32f2f; }
 body.locked { overflow: hidden; }
 body.locked > *:not(#loginOverlay):not(script) { display: none !important; }
+
+/* Zaobleni a jemnost (varianta B) */
+.card, .rec-row, .uk-row, .login-card, .kpi-box, .uk-kontext-panel, .uk-top3, .portfolio-pill, .rec-checklist { border-radius: 6px; }
+.uk-tag, .pill, .rec-copy-btn, .client-status-btn, .quick-link, .header-filter select, .hub-logout { border-radius: 5px; }
+.uk-tag-mini, .badge, .rec-type, .file-type-tag, .uk-zdrojtyp { border-radius: 4px; }
+.login-form input, .login-form button { border-radius: 5px; }
 
 .shell { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
@@ -125,8 +133,8 @@ main { padding: 32px; }
   padding: 24px; display: flex; flex-direction: column; gap: 10px;
   box-shadow: var(--shadow); transition: all .2s; position: relative;
 }
-.card:hover { border-color: var(--accent); transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(91,33,182,0.12); }
+.card:hover { border-color: var(--accent); transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(30,36,48,0.05), 0 8px 24px rgba(30,36,48,0.08); }
 .card.card-link { cursor: pointer; }
 .card.card-link .card-cta { pointer-events: none; }
 
@@ -328,13 +336,24 @@ main { padding: 32px; }
 }
 .uk-zdrojtyp-gmail { background: #fee2e2; color: #b91c1c; }
 .uk-zdrojtyp-hovor { background: #e0f2fe; color: #0369a1; }
-.uk-top3 {
-  background: linear-gradient(135deg, rgba(91,33,182,0.06), rgba(217,119,6,0.06));
-  border: 1px solid #d97706; padding: 16px 18px; margin-bottom: 18px;
+.uk-prio {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.5px;
+  padding: 2px 6px; white-space: nowrap; border: 1px solid transparent;
 }
-.uk-top3 h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #b45309; }
-.uk-top3 .uk-row { background: var(--card); border-color: #f0d9b5; }
-.uk-top3 .uk-duvod { font-size: 12px; color: #92400e; width: 100%; padding-left: 2px; margin-top: 2px; font-style: italic; }
+.uk-prio-P1 { background: #dc2626; color: #fff; }
+.uk-prio-P2 { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+.uk-prio-P3 { background: var(--bg); color: var(--text-muted); border-color: var(--border); }
+.uk-prio-sep {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--text-muted); margin: 12px 0 6px; padding-left: 2px;
+}
+.uk-top3 {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent); border-left-width: 3px; padding: 16px 18px; margin-bottom: 18px;
+}
+.uk-top3 h3 { font-size: 14px; margin-bottom: 10px; color: var(--accent-hover); }
+.uk-top3 .uk-row { background: var(--card); border-color: rgba(174,130,31,0.3); }
+.uk-top3 .uk-duvod { font-size: 12px; color: var(--accent-hover); width: 100%; padding-left: 2px; margin-top: 2px; font-style: italic; }
 .uk-archiv { margin-top: 24px; }
 .uk-archiv summary {
   cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
@@ -432,6 +451,7 @@ footer {
   <button class="tab-btn active" data-tab="dashboards">Dashboardy <span class="tab-count" id="count-dashboards">0</span></button>
   <button class="tab-btn" data-tab="projects">Projekty <span class="tab-count" id="count-projects">0</span></button>
   <button class="tab-btn" data-tab="clients">Klienti <span class="tab-count" id="count-clients">0</span></button>
+  <button class="tab-btn" data-tab="koncepty">Koncepty <span class="tab-count" id="count-koncepty">0</span></button>
   <button class="tab-btn" data-tab="skills">Skilly <span class="tab-count" id="count-skills">0</span></button>
   <button class="tab-btn" data-tab="nahravky">Nahravky <span class="tab-count" id="count-nahravky">0</span></button>
   <button class="tab-btn" data-tab="ukoly">Ukoly <span class="tab-count" id="count-ukoly">0</span></button>
@@ -448,10 +468,14 @@ footer {
   <div class="tab-content" id="content-clients">
     <div class="grid grid-wide" id="grid-clients"></div>
   </div>
+  <div class="tab-content" id="content-koncepty">
+    <div class="grid" id="grid-koncepty"></div>
+  </div>
   <div class="tab-content" id="content-skills">
     <div class="grid" id="grid-skills"></div>
   </div>
   <div class="tab-content" id="content-nahravky">
+    <div id="rec-status"></div>
     <div id="list-nahravky"></div>
   </div>
   <div class="tab-content" id="content-ukoly">
@@ -841,6 +865,56 @@ function renderClients(filter) {
   initSortable('clients');
 }
 
+// Kreativni koncepty. Zdroj je koncepty.json (lokalni, gitignore — obsahuje klientskou strategii).
+// Karta vede na lokalni preview, v patce je artifact a odkaz na produkt.
+function renderKoncepty(filter) {
+  var grid = document.getElementById('grid-koncepty');
+  var items = applyOrder(DATA.koncepty || [], 'koncepty');
+  if (filter && filter !== 'all') {
+    items = items.filter(function(k) { return k.client === filter; });
+  }
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state"><p>Zadne kreativni koncepty pro tento filtr.</p></div>';
+    updateCount('koncepty', 0);
+    return;
+  }
+  items.forEach(function(k) {
+    var clientName = getClientName(k.client);
+    var clientColor = getClientColor(k.client);
+    var target = k.localUrl || k.artifactUrl;
+    var card = document.createElement('div');
+    card.className = 'card' + (target ? ' card-link' : '');
+    card.dataset.id = k.id;
+    card.dataset.client = k.client || '';
+    if (target) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.drag-handle') || e.target.closest('a')) return;
+        window.open(target, '_blank', 'noopener');
+      });
+    }
+    card.innerHTML =
+      '<span class="drag-handle" title="Pretahni">&#x2807;</span>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
+        '<h3>' + esc(k.name) + '</h3>' +
+        (k.faze ? '<span style="font-size:12px;white-space:nowrap"><span class="status-dot ' + statusClass(k.status) + '"></span>' + esc(k.faze) + '</span>' : '') +
+      '</div>' +
+      (k.product ? '<span class="pill" style="align-self:flex-start">' + esc(k.product) + '</span>' : '') +
+      (k.idea ? '<p style="font-size:13px;font-style:italic;color:var(--text-muted);margin:0">' + esc(k.idea) + '</p>' : '') +
+      '<p class="card-desc" style="-webkit-line-clamp:3">' + esc(k.description) + '</p>' +
+      (target ? '<span class="card-cta">Otevrit koncept</span>' : '') +
+      '<div class="card-meta">' +
+        (clientName ? '<span class="badge badge-client" style="background:' + clientColor + '">' + esc(clientName) + '</span>' : '') +
+        (k.artifactUrl && k.localUrl ? '<a href="' + esc(k.artifactUrl) + '" target="_blank" rel="noopener">Artifact</a>' : '') +
+        (k.productUrl ? '<a href="' + esc(k.productUrl) + '" target="_blank" rel="noopener">Produkt</a>' : '') +
+        (k.date ? '<span>' + esc(k.date) + '</span>' : '') +
+      '</div>';
+    grid.appendChild(card);
+  });
+  updateCount('koncepty', items.length);
+  initSortable('koncepty');
+}
+
 function renderSkills(filter) {
   var grid = document.getElementById('grid-skills');
   var items = applyOrder(DATA.skills || [], 'skills');
@@ -882,7 +956,68 @@ function renderSkills(filter) {
   initSortable('skills');
 }
 
+// Stavovy pruh Meet Recorderu — zdroj je recorder-stav.json, ktery pise watcher.
+function renderRecStatus() {
+  var el = document.getElementById('rec-status');
+  if (!el) return;
+  var s = DATA.recorder;
+  if (!s) { el.innerHTML = ''; return; }
+
+  // Kdyz watcher bezi, prepisuje stav kazdych par vterin. Stare razitko = nebezi.
+  var stari = (Date.now() - new Date(s.cas).getTime()) / 60000;
+  var bezi = stari < 5;
+
+  var barvy = { nahravam: '#dc2626', ceka: '#d97706', necinny: '#16a34a', pauza: '#6b7280' };
+  var popisy = {
+    nahravam: 'Nahravam hovor' + (s.minut ? ' — ' + s.minut + ' min' : ''),
+    ceka: 'Mikrofon aktivni, cekam na potvrzeni',
+    necinny: 'Pripraven, ceka na hovor',
+    pauza: 'Pozastaveno (soubor PAUZA)'
+  };
+
+  var barva = bezi ? (barvy[s.stav] || '#6b7280') : '#6b7280';
+  var popis = bezi ? (popisy[s.stav] || s.stav)
+                   : 'Watcher nebezi — posledni zprava pred ' + Math.round(stari) + ' min';
+
+  var detaily = [];
+  if (s.prepis) detaily.push('prepisuje se ' + esc(s.prepis));
+  if (s.ceka_na_prepis) detaily.push(s.ceka_na_prepis + 'x ceka na prepis');
+  if (s.ceka_na_zapis) detaily.push(s.ceka_na_zapis + 'x prepsano, ceka na zapis');
+
+  var fronta = (s.fronta || []).map(function(f) {
+    return '<div style="display:flex;gap:10px;align-items:center;padding:4px 0;font-size:13px">' +
+      '<span style="width:8px;height:8px;border-radius:50%;background:' +
+        (f.prepsano ? '#16a34a' : '#d97706') + '"></span>' +
+      '<span style="opacity:.7">' + esc((f.start || '').replace('T', ' ').slice(0, 16)) + '</span>' +
+      '<span>' + esc(f.tema_odhad || f.soubor) + '</span>' +
+      '<span style="opacity:.5;margin-left:auto">' + (f.delka_min || '?') + ' min · ' +
+        (f.prepsano ? 'prepsano' : 'ceka na prepis') + '</span>' +
+    '</div>';
+  }).join('');
+
+  el.innerHTML =
+    '<div style="border:1px solid rgba(128,128,128,.25);border-radius:10px;padding:12px 14px;margin-bottom:16px">' +
+      '<div style="display:flex;align-items:center;gap:10px">' +
+        '<span style="width:10px;height:10px;border-radius:50%;background:' + barva + '"></span>' +
+        '<strong>Meet Recorder</strong>' +
+        '<span style="opacity:.75">' + esc(popis) + '</span>' +
+        (detaily.length ? '<span style="margin-left:auto;opacity:.6;font-size:13px">' +
+          esc(detaily.join(' · ')) + '</span>' : '') +
+      '</div>' +
+      (fronta ? '<div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(128,128,128,.15)">' +
+        fronta + '</div>' : '') +
+    '</div>';
+}
+
+function refreshRecStatus() {
+  fetch('recorder-stav.json?v=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(s) { if (s) { DATA.recorder = s; renderRecStatus(); } })
+    .catch(function() {});
+}
+
 function renderNahravky(filter) {
+  renderRecStatus();
   var list = document.getElementById('list-nahravky');
   var items = (DATA.nahravky || []).slice();
   if (filter && filter !== 'all') {
@@ -1055,9 +1190,10 @@ function renderUkoly(filter) {
       return '<span class="uk-tag-mini" style="background:' + s.barva + '" data-tag="' + esc(t) + '" title="Filtrovat stitek">' + esc(s.nazev) + '</span>';
     }).join('');
     var zt = r.u.zdrojTyp ? '<span class="uk-zdrojtyp uk-zdrojtyp-' + esc(r.u.zdrojTyp) + '">' + esc(r.u.zdrojTyp) + '</span>' : '';
+    var pr = r.u.priorita ? '<span class="uk-prio uk-prio-' + esc(r.u.priorita) + '" title="Priorita">' + esc(r.u.priorita) + '</span>' : '';
     var dd = r.done && doneDate(r.u._key) ? '<span class="uk-datum-dokonceni">&#10003; ' + esc(doneDate(r.u._key)) + '</span>' : '';
     return '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
-      '<div class="uk-main">' + tagsHtml + zt +
+      '<div class="uk-main">' + pr + tagsHtml + zt +
         '<span class="uk-text" title="' + esc((r.u.zdroj || '') + ' · ' + (r.u.datum || '')) + '">' + esc(r.u.text) + '</span>' +
         dd +
         '<span class="uk-kdo">' + esc(r.u.kdo || '') + '</span>' +
@@ -1126,7 +1262,35 @@ function renderUkoly(filter) {
     var c = CLIENTS_MAP[k.id];
     var badge = c ? '<span class="badge badge-client" style="background:' + c.accentColor + '">' + esc(c.name) + '</span>' : '';
     html += '<div class="uk-kanal"><div class="uk-kanal-head"><h3>' + esc(k.nazev) + '</h3>' + badge + '</div>';
-    open.forEach(function(r) { html += rowHtml(r); });
+
+    // Razeni a sekce podle priority (P1 nahore, v ramci priority ukoly "ja" prvni)
+    var PRIO_RANK = {P1: 0, P2: 1, P3: 2};
+    var PRIO_POPIS = {
+      P1: 'P1 — hned, ma termin nebo blokuje trzby',
+      P2: 'P2 — tento a pristi tyden',
+      P3: 'P3 — az bude cas'
+    };
+    var maPriority = open.some(function(r) { return !!r.u.priorita; });
+    if (maPriority) {
+      open = open.map(function(r, i) { return {r: r, i: i}; }).sort(function(a, b) {
+        var pa = PRIO_RANK[a.r.u.priorita] != null ? PRIO_RANK[a.r.u.priorita] : 1;
+        var pb = PRIO_RANK[b.r.u.priorita] != null ? PRIO_RANK[b.r.u.priorita] : 1;
+        if (pa !== pb) return pa - pb;
+        var ja = (a.r.u.kdo || '').indexOf('já') === 0 ? 0 : 1;
+        var jb = (b.r.u.kdo || '').indexOf('já') === 0 ? 0 : 1;
+        if (ja !== jb) return ja - jb;
+        return a.i - b.i;
+      }).map(function(x) { return x.r; });
+    }
+    var lastPrio = null;
+    open.forEach(function(r) {
+      var p = r.u.priorita || null;
+      if (maPriority && p && p !== lastPrio) {
+        html += '<div class="uk-prio-sep">' + esc(PRIO_POPIS[p] || p) + '</div>';
+        lastPrio = p;
+      }
+      html += rowHtml(r);
+    });
     html += '</div>';
   });
 
@@ -1247,6 +1411,7 @@ function renderAll() {
   renderDashboards(filter);
   renderProjects(filter);
   renderClients(filter);
+  renderKoncepty(filter);
   renderSkills(filter);
   renderNahravky(filter);
   renderUkoly(filter);
@@ -1284,17 +1449,22 @@ Promise.all([
   fetch('data.json' + CACHE_BUST).then(function(r) { return r.json(); }),
   // nahravky.json a ukoly.json jsou jen lokalni (.gitignore) — na GitHub Pages neexistuji
   fetch('nahravky.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; }),
-  fetch('ukoly.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; })
+  fetch('ukoly.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
+  fetch('recorder-stav.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
+  fetch('koncepty.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {koncepty: []}; }).catch(function() { return {koncepty: []}; })
 ])
   .then(function(results) {
     DATA = results[0];
     DATA.nahravky = results[1].nahravky || [];
     DATA.ukoly = results[2];
+    DATA.recorder = results[3];
+    DATA.koncepty = results[4].koncepty || [];
     DATA.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
     populateFilter();
     var savedTab = ls('active-tab') || 'dashboards';
     switchTab(savedTab);
     renderAll();
+    setInterval(refreshRecStatus, 20000);
   })
   .catch(function(err) {
     document.querySelector('main').innerHTML =
