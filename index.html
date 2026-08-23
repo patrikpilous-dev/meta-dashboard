@@ -322,6 +322,14 @@ main.shell { padding: 40px 32px 56px; }
 }
 .uk-row .uk-text { flex: 1; }
 .uk-row .uk-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
+.uk-prio {
+  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff; cursor: default;
+}
+.uk-prio-1 { background: linear-gradient(135deg, #C89B3C, #8F6A18); box-shadow: 0 1px 3px rgba(174,130,31,0.4); }
+.uk-prio-2 { background: linear-gradient(135deg, #B4BAC4, #8B919C); }
+.uk-prio-3 { background: linear-gradient(135deg, #C08F62, #96674A); }
 .uk-done-btn {
   width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border);
   background: none; color: transparent; cursor: pointer; font-size: 13px; line-height: 1;
@@ -338,13 +346,6 @@ main.shell { padding: 40px 32px 56px; }
 }
 .uk-zdrojtyp-gmail { background: #fee2e2; color: #b91c1c; }
 .uk-zdrojtyp-hovor { background: #e0f2fe; color: #0369a1; }
-.uk-prio {
-  font-size: 9px; font-weight: 800; letter-spacing: 0.5px;
-  padding: 2px 6px; white-space: nowrap; border: 1px solid transparent;
-}
-.uk-prio-P1 { background: #dc2626; color: #fff; }
-.uk-prio-P2 { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
-.uk-prio-P3 { background: var(--bg); color: var(--text-muted); border-color: var(--border); }
 .uk-prio-sep {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
   color: var(--text-muted); margin: 12px 0 6px; padding-left: 2px;
@@ -1198,7 +1199,9 @@ function renderUkoly(filter) {
       return '<span class="uk-tag-mini" style="background:' + s.barva + '" data-tag="' + esc(t) + '" title="Filtrovat stitek">' + esc(s.nazev) + '</span>';
     }).join('');
     var zt = r.u.zdrojTyp ? '<span class="uk-zdrojtyp uk-zdrojtyp-' + esc(r.u.zdrojTyp) + '">' + esc(r.u.zdrojTyp) + '</span>' : '';
-    var pr = r.u.priorita ? '<span class="uk-prio uk-prio-' + esc(r.u.priorita) + '" title="Priorita">' + esc(r.u.priorita) + '</span>' : '';
+    var pn = ({P1: 1, P2: 2, P3: 3})[r.u.priorita] || 2;
+    var prioTitles = {1: 'Priorita 1 — hned', 2: 'Priorita 2 — tento tyden', 3: 'Priorita 3 — az bude cas'};
+    var pr = '<span class="uk-prio uk-prio-' + pn + '" title="' + prioTitles[pn] + '">' + pn + '</span>';
     var dd = r.done && doneDate(r.u._key) ? '<span class="uk-datum-dokonceni">&#10003; ' + esc(doneDate(r.u._key)) + '</span>' : '';
     return '<div class="uk-row' + (r.done ? ' done' : '') + '" data-key="' + esc(r.u._key) + '">' +
       '<div class="uk-main">' + pr + tagsHtml + zt +
