@@ -68,6 +68,30 @@ h1, h2, h3, h4, .login-title { font-family: var(--heading); font-weight: 700; }
 body.locked { overflow: hidden; }
 body.locked > *:not(#loginOverlay):not(script) { display: none !important; }
 
+/* Tym */
+.tym-osoba { margin-bottom: 32px; }
+.tym-head {
+  display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--border);
+}
+.tym-head h3 { font-size: 19px; }
+.tym-head .tym-role { font-size: 12px; color: var(--text-muted); }
+.tym-head .tym-kontakt { margin-left: auto; font-size: 11px; color: var(--text-muted); }
+.tym-shrnuti { font-size: 13px; color: var(--text-sec); margin: 8px 0 14px; line-height: 1.5; }
+.tym-temata { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 14px; }
+.tym-tema {
+  background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+  padding: 14px 16px; box-shadow: var(--shadow);
+}
+.tym-tema h4 { font-size: 14px; margin-bottom: 4px; }
+.tym-tema .tym-stav { font-size: 12px; color: var(--text-sec); margin-bottom: 8px; line-height: 1.45; }
+.tym-item { display: flex; align-items: flex-start; gap: 8px; padding: 3px 0; font-size: 13px; }
+.tym-item input { margin-top: 3px; cursor: pointer; accent-color: var(--accent); }
+.tym-item.done label { text-decoration: line-through; color: var(--text-muted); }
+.tym-item label { cursor: pointer; flex: 1; }
+.tym-item .tym-kdo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; padding-top: 2px; }
+@media (max-width: 600px) { .tym-temata { grid-template-columns: 1fr; } }
+
 /* Zaobleni a jemnost (varianta B) */
 .card, .rec-row, .uk-row, .login-card, .kpi-box, .uk-kontext-panel, .uk-top3, .portfolio-pill, .rec-checklist { border-radius: 6px; }
 .uk-tag, .pill, .rec-copy-btn, .client-status-btn, .quick-link, .header-filter select, .hub-logout { border-radius: 5px; }
@@ -465,6 +489,7 @@ footer::before {
   <button class="tab-btn" data-tab="nahravky">Nahravky <span class="tab-count" id="count-nahravky">0</span></button>
   <button class="tab-btn" data-tab="ukoly">Ukoly <span class="tab-count" id="count-ukoly">0</span></button>
   <button class="tab-btn" data-tab="agenti">Agenti <span class="tab-count" id="count-agenti">0</span></button>
+  <button class="tab-btn" data-tab="tym">Tym <span class="tab-count" id="count-tym">0</span></button>
 </nav>
 
 <main class="shell">
@@ -492,6 +517,9 @@ footer::before {
   </div>
   <div class="tab-content" id="content-agenti">
     <div class="grid" id="grid-agenti"></div>
+  </div>
+  <div class="tab-content" id="content-tym">
+    <div id="list-tym"></div>
   </div>
 </main>
 
@@ -1366,6 +1394,55 @@ function renderAgenti() {
   updateCount('agenti', items.length);
 }
 
+function renderTym() {
+  var list = document.getElementById('list-tym');
+  var osoby = (DATA.tym && DATA.tym.osoby) ? DATA.tym.osoby : [];
+  list.innerHTML = '';
+  if (!osoby.length) {
+    list.innerHTML = '<div class="empty-state"><p>Zadna data tymu. Spust Projektaka ("aktualizuj ukoly").</p></div>';
+    updateCount('tym', 0);
+    return;
+  }
+  var otevrene = 0;
+  osoby.forEach(function(o) {
+    var html = '<div class="tym-osoba"><div class="tym-head">' +
+      '<h3>' + esc(o.jmeno) + '</h3>' +
+      '<span class="tym-role">' + esc(o.role || '') + '</span>' +
+      (o.posledniKontakt ? '<span class="tym-kontakt">Posledni kontakt: ' + esc(o.posledniKontakt) + '</span>' : '') +
+      '</div>' +
+      (o.shrnuti ? '<p class="tym-shrnuti">' + esc(o.shrnuti) + '</p>' : '') +
+      '<div class="tym-temata">';
+    (o.temata || []).forEach(function(t) {
+      html += '<div class="tym-tema"><h4>' + esc(t.nazev) + '</h4>' +
+        (t.stav ? '<p class="tym-stav">' + esc(t.stav) + '</p>' : '');
+      (t.polozky || []).forEach(function(p, i) {
+        var key = p.key || ('tym-' + o.id + '-' + (t.id || t.nazev) + '-' + i);
+        var done = isDone(key);
+        if (!done) otevrene++;
+        var zt = p.zdrojTyp ? '<span class="uk-zdrojtyp uk-zdrojtyp-' + esc(p.zdrojTyp) + '">' + esc(p.zdrojTyp) + '</span>' : '';
+        html += '<div class="tym-item' + (done ? ' done' : '') + '">' +
+          '<input type="checkbox" id="ti-' + esc(key) + '" data-key="' + esc(key) + '"' + (done ? ' checked' : '') + '>' +
+          '<label for="ti-' + esc(key) + '" title="' + esc((p.zdroj || '') + ' · ' + (p.datum || '')) + '">' + esc(p.text) + '</label>' +
+          zt +
+          '<span class="tym-kdo">' + esc(p.kdo || '') + '</span>' +
+        '</div>';
+      });
+      html += '</div>';
+    });
+    html += '</div></div>';
+    list.innerHTML += html;
+  });
+  updateCount('tym', otevrene);
+}
+
+document.getElementById('list-tym').addEventListener('change', function(e) {
+  if (e.target.type !== 'checkbox') return;
+  var key = e.target.dataset.key;
+  if (e.target.checked) { ls(key, {done: true, date: new Date().toISOString().slice(0, 10)}); }
+  else { ls(key, false); }
+  renderTym();
+});
+
 function initSortable(tabName) {
   if (SORTABLES[tabName]) SORTABLES[tabName].destroy();
   var grid = document.getElementById('grid-' + tabName);
@@ -1427,6 +1504,7 @@ function renderAll() {
   renderNahravky(filter);
   renderUkoly(filter);
   renderAgenti();
+  renderTym();
 
   var dCount = DATA.dashboards.length;
   var pCount = DATA.projects.length;
@@ -1462,7 +1540,8 @@ Promise.all([
   fetch('nahravky.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {nahravky: []}; }).catch(function() { return {nahravky: []}; }),
   fetch('ukoly.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
   fetch('recorder-stav.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
-  fetch('koncepty.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {koncepty: []}; }).catch(function() { return {koncepty: []}; })
+  fetch('koncepty.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {koncepty: []}; }).catch(function() { return {koncepty: []}; }),
+  fetch('tym.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; })
 ])
   .then(function(results) {
     DATA = results[0];
@@ -1470,6 +1549,7 @@ Promise.all([
     DATA.ukoly = results[2];
     DATA.recorder = results[3];
     DATA.koncepty = results[4].koncepty || [];
+    DATA.tym = results[5];
     DATA.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
     populateFilter();
     var savedTab = ls('active-tab') || 'dashboards';
