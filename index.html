@@ -509,6 +509,7 @@ footer::before {
     <div class="grid" id="grid-skills"></div>
   </div>
   <div class="tab-content" id="content-nahravky">
+    <div id="sync-status"></div>
     <div id="rec-status"></div>
     <div id="list-nahravky"></div>
   </div>
@@ -1046,14 +1047,48 @@ function renderRecStatus() {
     '</div>';
 }
 
+// Stavovy pruh synchronizace telefonu — zdroj sync-stav.json (Windows healthcheck kazdych 15 min).
+function renderSyncStatus() {
+  var el = document.getElementById('sync-status');
+  if (!el) return;
+  var s = DATA.sync;
+  if (!s) { el.innerHTML = ''; return; }
+
+  var kontrolaStari = (Date.now() - new Date(s.kontrola.replace(' ', 'T')).getTime()) / 60000;
+  var healthcheckJede = kontrolaStari < 45;
+  var barva = !healthcheckJede ? '#6b7280' : (s.ok ? '#16a34a' : '#dc2626');
+  var popis = !healthcheckJede
+    ? 'Healthcheck nebezel ' + Math.round(kontrolaStari / 60) + ' h — zkontroluj Windows ulohu'
+    : (s.ok ? 'Synchronizace telefonu v poradku' : 'PROBLEM: ' + esc(s.problem || 'neznamy'));
+
+  var detail = [];
+  if (s.poslednimSouborVInboxu) detail.push('posledni nahravka ' + esc(s.poslednimSouborVInboxu));
+  detail.push('kontrola ' + esc(s.kontrola));
+
+  el.innerHTML =
+    '<div style="border:1px solid rgba(128,128,128,.25);border-radius:10px;padding:12px 14px;margin-bottom:12px">' +
+      '<div style="display:flex;align-items:center;gap:10px">' +
+        '<span style="width:10px;height:10px;border-radius:50%;background:' + barva + '"></span>' +
+        '<strong>Telefon → PC</strong>' +
+        '<span style="opacity:.75">' + popis + '</span>' +
+        '<span style="margin-left:auto;opacity:.6;font-size:13px">' + detail.join(' · ') + '</span>' +
+      '</div>' +
+    '</div>';
+}
+
 function refreshRecStatus() {
   fetch('recorder-stav.json?v=' + Date.now())
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(s) { if (s) { DATA.recorder = s; renderRecStatus(); } })
     .catch(function() {});
+  fetch('sync-stav.json?v=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(s) { if (s) { DATA.sync = s; renderSyncStatus(); } })
+    .catch(function() {});
 }
 
 function renderNahravky(filter) {
+  renderSyncStatus();
   renderRecStatus();
   var list = document.getElementById('list-nahravky');
   var items = (DATA.nahravky || []).slice();
@@ -1541,7 +1576,8 @@ Promise.all([
   fetch('ukoly.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
   fetch('recorder-stav.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
   fetch('koncepty.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : {koncepty: []}; }).catch(function() { return {koncepty: []}; }),
-  fetch('tym.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; })
+  fetch('tym.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; }),
+  fetch('sync-stav.json' + CACHE_BUST).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; })
 ])
   .then(function(results) {
     DATA = results[0];
@@ -1550,6 +1586,7 @@ Promise.all([
     DATA.recorder = results[3];
     DATA.koncepty = results[4].koncepty || [];
     DATA.tym = results[5];
+    DATA.sync = results[6];
     DATA.clients.forEach(function(c) { CLIENTS_MAP[c.id] = c; });
     populateFilter();
     var savedTab = ls('active-tab') || 'dashboards';
