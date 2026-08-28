@@ -1055,14 +1055,20 @@ function renderSyncStatus() {
   if (!s) { el.innerHTML = ''; return; }
 
   var kontrolaStari = (Date.now() - new Date(s.kontrola.replace(' ', 'T')).getTime()) / 60000;
-  var healthcheckJede = kontrolaStari < 45;
-  var barva = !healthcheckJede ? '#6b7280' : (s.ok ? '#16a34a' : '#dc2626');
-  var popis = !healthcheckJede
-    ? 'Healthcheck nebezel ' + Math.round(kontrolaStari / 60) + ' h — zkontroluj Windows ulohu'
-    : (s.ok ? 'Synchronizace telefonu v poradku' : 'PROBLEM: ' + esc(s.problem || 'neznamy'));
+  var monitorJede = kontrolaStari < 45;
+  var barva = !monitorJede ? '#6b7280' : (s.ok ? '#16a34a' : '#dc2626');
+  var popis;
+  if (!monitorJede) {
+    popis = 'Monitor nebezel ' + Math.round(kontrolaStari / 60) + ' h, zkontroluj Windows ulohu';
+  } else if (s.ok) {
+    var h = s.hodinOdPosledniNahravky;
+    popis = 'Synchronizace bezi' + (h != null ? ' — posledni nahravka pred ' + (h < 1 ? Math.round(h * 60) + ' min' : h + ' h') : '');
+  } else {
+    popis = esc(s.problem || 'neznamy problem');
+  }
 
   var detail = [];
-  if (s.poslednimSouborVInboxu) detail.push('posledni nahravka ' + esc(s.poslednimSouborVInboxu));
+  if (s.poslednimSouborVInboxu) detail.push(esc(s.poslednimSouborVInboxu));
   detail.push('kontrola ' + esc(s.kontrola));
 
   el.innerHTML =
